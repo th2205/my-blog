@@ -2,16 +2,18 @@
 
 .headerContainer {
   width: 100%;
-  height: 3rem;
+  height: 3.3rem;
   position: fixed;
   display: flex;
-  margin-bottom: 3rem;
   justify-content: space-around;
   align-items: center;
   box-shadow: 1px 1px 10px 2px #dee2e6;
+  background-color: $background-white;
 
   h1 {
-    color: $font-color;
+    color: $font-black;
+    font-weight: 400;
+    font-size: 1.5rem;
   }
 }
 

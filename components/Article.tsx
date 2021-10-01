@@ -1,3 +1,5 @@
+import style from "./Article.module.scss";
+
 type Article = {
   article: {
     id: string;
@@ -9,9 +11,19 @@ type Article = {
 
 export default function Article({ article }: Article) {
   return (
-    <div>
-      <h1>{article.title}</h1>
-      <p>{article.date}</p>
+    <div className={style.container}>
+      <div>
+        <img
+          src="https://blog.kakaocdn.net/dn/csZiIk/btq1e7xYFyI/2r4kTj52qVrtu6VyIwnKDk/img.png"
+          alt="corver"
+        />
+      </div>
+      <div>
+        <h1>{article.title}</h1>
+      </div>
+      <div>
+        <p className="time">{article.date}</p>
+      </div>
     </div>
   );
 }
