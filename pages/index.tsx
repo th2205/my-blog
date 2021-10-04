@@ -19,6 +19,7 @@ export default function Home({ allPostsData }) {
 
 export async function getStaticProps() {
   const allPostsData = mdParser.parse();
+
   return {
     props: {
       allPostsData: allPostsData,

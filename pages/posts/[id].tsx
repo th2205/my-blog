@@ -1,7 +1,17 @@
+import Header from "../../components/Header";
+import PostLayout from "../../components/PostLayout";
 import mdParser from "../../lib/MDparser";
 
-export default function Post({ postData }) {
-  return <div>111</div>;
+export default function Post({ postData, content }) {
+  return (
+    <>
+      <Header id={postData.id} />
+      <br />
+      <PostLayout>
+        <Post postData={postData} content={content} />
+      </PostLayout>
+    </>
+  );
 }
 
 export async function getStaticPaths() {
@@ -15,10 +25,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const postData = mdParser.getPostDataByid(params.id);
-
+  const content = await mdParser.parsePostContentById(params.id);
   return {
     props: {
       postData,
+      content,
     },
   };
 }
