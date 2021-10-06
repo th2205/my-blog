@@ -1,0 +1,58 @@
+@import "../styles/colors.scss";
+
+.title {
+  font-size: 2.2rem;
+  color: $font-black;
+  font-weight: 500;
+  margin: 5rem 0 2rem 0;
+}
+
+.infoContainer {
+  margin-bottom: 2rem;
+}
+
+.coverImg {
+  width: 100%;
+}
+
+.content {
+  color: red;
+  margin: 1rem 0 3rem 0;
+}
+
+.author {
+  font-weight: 600;
+}
+
+.date {
+  color: rgb(33, 37, 41);
+  margin-left: 0.7rem;
+  font-size: 0.8rem;
+}
+
+.content {
+  color: $font-black;
+  margin-top: 2rem;
+
+  p {
+    word-break: break-all;
+    line-height: 1.725;
+    margin: 1rem 0;
+  }
+
+  pre {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    overflow-y: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    background: #efefef;
+    background-color: #1d1f21;
+  }
+  pre code {
+    padding: 10px;
+    color: #333;
+  }
+}

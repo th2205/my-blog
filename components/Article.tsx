@@ -1,16 +1,16 @@
 import style from "./Article.module.scss";
 import Link from "next/link";
 
-type Article = {
+interface ArticleProps {
   article: {
     id: string;
     date: string;
     title: string;
     corverImg: string;
   };
-};
+}
 
-export default function Article({ article }: Article) {
+export default function Article({ article }: ArticleProps) {
   return (
     <Link href={`/posts/${article.id}`}>
       <div className={style.container}>

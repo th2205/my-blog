@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { AiFillGithub } from "react-icons/ai";
 import style from "./Header.module.scss";
 
@@ -14,7 +15,9 @@ export default function Header({ id }: HeaderProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={style.headerContainer}>
-        <h1 className={style.headerTitle}>TaeHyeon</h1>
+        <Link href="/">
+          <h1 className={style.headerTitle}>TaeHyeon</h1>
+        </Link>
         <div className={style.navContiner}>
           <div>
             <AiFillGithub size={30} />

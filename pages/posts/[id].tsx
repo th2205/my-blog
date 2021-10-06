@@ -1,8 +1,9 @@
 import Header from "../../components/Header";
 import PostLayout from "../../components/PostLayout";
+import Post from "../../components/Post";
 import mdParser from "../../lib/MDparser";
 
-export default function Post({ postData, content }) {
+export default function PostIndex({ postData, content }) {
   return (
     <>
       <Header id={postData.id} />
@@ -26,6 +27,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const postData = mdParser.getPostDataByid(params.id);
   const content = await mdParser.parsePostContentById(params.id);
+
   return {
     props: {
       postData,

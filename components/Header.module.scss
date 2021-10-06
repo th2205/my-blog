@@ -9,12 +9,13 @@
   align-items: center;
   box-shadow: 1px 1px 10px 2px #dee2e6;
   background-color: $background-white;
+}
 
-  h1 {
-    color: $font-black;
-    font-weight: 400;
-    font-size: 1.5rem;
-  }
+.headerTitle {
+  color: $font-black;
+  font-weight: 400;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .navContiner {
