@@ -13,6 +13,10 @@ export default function Header({ id }: HeaderProps) {
       <Head>
         <title>{id || "TaeHyeon"}</title>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-coy-without-shadows.min.css"
+          rel="stylesheet"
+        />
       </Head>
       <div className={style.headerContainer}>
         <Link href="/">

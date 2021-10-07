@@ -1,3 +1,5 @@
+import ReactMarkdown from "react-markdown";
+import CodeBlock from "./CodeBolck";
 import style from "./Post.module.scss";
 
 interface PostProps {
@@ -11,6 +13,7 @@ interface PostProps {
 }
 
 export default function Post({ postData, content }: PostProps) {
+  console.log(content);
   return (
     <>
       <h1 className={style.title}>{postData.title}</h1>

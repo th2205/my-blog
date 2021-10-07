@@ -40,19 +40,27 @@
     margin: 1rem 0;
   }
 
-  pre {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    overflow: auto;
-    overflow-y: hidden;
-    font-size: 12px;
-    line-height: 20px;
-    background: #efefef;
-    background-color: #1d1f21;
+  ul {
+    margin-left: 2rem;
   }
-  pre code {
-    padding: 10px;
-    color: #333;
+
+  li {
+    margin: 0.5rem 0;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  img {
+    width: 100%;
   }
 }
