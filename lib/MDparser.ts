@@ -65,14 +65,10 @@ class MDparser {
     const fullPath = path.join(this.postsDirectory, `${id}.md`);
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const matterResult = matter(fileContents);
-    const processedContent = await remark()
-      .use(prism)
-      .use(html)
-      .process(matterResult.content);
 
-    const contentHtml = processedContent.toString();
     console.log(matterResult.content);
-    return contentHtml;
+
+    return matterResult.content;
   }
 }
 

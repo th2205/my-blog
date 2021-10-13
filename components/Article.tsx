@@ -6,7 +6,8 @@ interface ArticleProps {
     id: string;
     date: string;
     title: string;
-    corverImg: string;
+    thumbnailImgPath: string;
+    thumbnail: string;
   };
 }
 
@@ -16,12 +17,18 @@ export default function Article({ article }: ArticleProps) {
       <div className={style.container}>
         <div>
           <img
-            src="https://blog.kakaocdn.net/dn/csZiIk/btq1e7xYFyI/2r4kTj52qVrtu6VyIwnKDk/img.png"
+            src={
+              article.thumbnailImgPath ||
+              "https://blog.kakaocdn.net/dn/csZiIk/btq1e7xYFyI/2r4kTj52qVrtu6VyIwnKDk/img.png"
+            }
             alt="corver"
           />
         </div>
         <div>
           <h1>{article.title}</h1>
+        </div>
+        <div>
+          <p>{article.thumbnail || ""}</p>
         </div>
         <div>
           <p className="time">{article.date}</p>

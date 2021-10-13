@@ -2,7 +2,8 @@
 title: "Database 와 관련한 개인적인 팁들"
 date: "2020-01-02"
 tags: ["sdsd", "sdsd"]
-coverImgPath: "/test.jpg"
+thumbnailImgPath: "/test.jpg"
+thumbnail: "데이터베이스란 무엇일까?"
 ---
 
 We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.

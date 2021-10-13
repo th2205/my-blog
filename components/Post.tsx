@@ -7,7 +7,7 @@ interface PostProps {
     title: string;
     date: string;
     id: string;
-    coverImgPath: string;
+    thumbnailImgPath: string;
   };
   content: string;
 }
@@ -21,13 +21,12 @@ export default function Post({ postData, content }: PostProps) {
         <span className={style.author}>By Taehyeon</span>
         <span className={style.date}>{postData.date}</span>
       </div>
-      <img className={style.coverImg} src={postData.coverImgPath} />
-      <div
-        className={style.content}
-        dangerouslySetInnerHTML={{
-          __html: content,
-        }}
-      />
+      <img className={style.coverImg} src={postData.thumbnailImgPath} />
+      <div>
+        <ReactMarkdown className={style.content} components={CodeBlock}>
+          {content}
+        </ReactMarkdown>
+      </div>
     </>
   );
 }

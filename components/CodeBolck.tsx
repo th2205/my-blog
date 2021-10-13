@@ -1,6 +1,26 @@
-import Highlight from "react-highlight";
-import "../../node_modules/highlight.js/styles/nord.css";
+import React from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-export default function CodeBlock({ value }) {
-  return <Highlight value={value}>{value}</Highlight>;
-}
+const CodeBlock = {
+  code({ node, inline, className, children, ...props }) {
+    const match = /language-(\w+)/.exec(className || "");
+    console.log(match);
+    return !inline && match ? (
+      <SyntaxHighlighter
+        style={dracula}
+        language={match[1]}
+        PreTag="div"
+        {...props}
+      >
+        {String(children).replace(/\n$/, "")}
+      </SyntaxHighlighter>
+    ) : (
+      <code className={className} {...props}>
+        {children}
+      </code>
+    );
+  },
+};
+
+export default CodeBlock;
