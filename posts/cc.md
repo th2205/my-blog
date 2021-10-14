@@ -1,7 +1,7 @@
 ---
 title: "Database 와 관련한 개인적인 팁들"
 date: "2020-01-02"
-tags: ["sdsd", "sdsd"]
+tags: ["#sdsd", "#wewe"]
 thumbnailImgPath: "/test.jpg"
 thumbnail: "데이터베이스란 무엇일까?"
 ---
@@ -25,6 +25,7 @@ In that case, you can use **Server-Side Rendering**. It will be slower, but the 
 
 ```javascript
 const a = 1;
+
 const b = {
   a: 1,
   b: 2,

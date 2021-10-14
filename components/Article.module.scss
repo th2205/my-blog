@@ -10,18 +10,42 @@
   }
 
   img {
+    border-radius: 0.5rem;
     width: 100%;
-    height: 9rem;
+    height: 11rem;
     object-fit: cover;
   }
+}
+
+.titleContianer {
+  height: 5rem;
+  padding: 0.7rem;
 
   h1 {
-    padding: 0.7rem;
     font-weight: 500;
+    margin-bottom: 0.5rem;
   }
 
   p {
     font-size: 0.7rem;
+  }
+}
+
+.footerContainer {
+  padding: 0 0.7rem 0.7rem 0.7rem;
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    font-size: 0.7rem;
     color: rgb(134, 142, 150);
+  }
+}
+
+.tagContainer {
+  display: flex;
+
+  p {
+    margin: 0 0.2rem;
   }
 }

@@ -8,6 +8,7 @@ interface ArticleProps {
     title: string;
     thumbnailImgPath: string;
     thumbnail: string;
+    tags: string[];
   };
 }
 
@@ -15,7 +16,7 @@ export default function Article({ article }: ArticleProps) {
   return (
     <Link href={`/posts/${article.id}`}>
       <div className={style.container}>
-        <div>
+        <div className={style.imgContainer}>
           <img
             src={
               article.thumbnailImgPath ||
@@ -24,14 +25,15 @@ export default function Article({ article }: ArticleProps) {
             alt="corver"
           />
         </div>
-        <div>
+        <div className={style.titleContianer}>
           <h1>{article.title}</h1>
-        </div>
-        <div>
           <p>{article.thumbnail || ""}</p>
         </div>
-        <div>
+        <div className={style.footerContainer}>
           <p className="time">{article.date}</p>
+          <div className={style.tagContainer}>
+            {article.tags && article.tags.map((tag) => <p>{tag}</p>)}
+          </div>
         </div>
       </div>
     </Link>

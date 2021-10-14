@@ -8,12 +8,12 @@ interface PostProps {
     date: string;
     id: string;
     thumbnailImgPath: string;
+    tags: string[];
   };
   content: string;
 }
 
 export default function Post({ postData, content }: PostProps) {
-  console.log(content);
   return (
     <>
       <h1 className={style.title}>{postData.title}</h1>
