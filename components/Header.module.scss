@@ -5,8 +5,8 @@
   height: 3.3rem;
   position: fixed;
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: center;
   box-shadow: 1px 1px 10px 2px #dee2e6;
   background-color: $background-white;
 }
@@ -26,4 +26,12 @@
   div {
     cursor: pointer;
   }
+}
+
+.container {
+  width: 80%;
+  max-width: 53rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

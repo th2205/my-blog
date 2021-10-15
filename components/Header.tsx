@@ -15,12 +15,14 @@ export default function Header({ id }: HeaderProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={style.headerContainer}>
-        <Link href="/">
-          <h1 className={style.headerTitle}>TaeHyeon</h1>
-        </Link>
-        <div className={style.navContiner}>
-          <div>
-            <AiFillGithub size={30} />
+        <div className={style.container}>
+          <Link href="/">
+            <h1 className={style.headerTitle}>TaeHyeon</h1>
+          </Link>
+          <div className={style.navContiner}>
+            <div>
+              <AiFillGithub size={30} />
+            </div>
           </div>
         </div>
       </div>
