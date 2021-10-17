@@ -2,6 +2,15 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
+export interface PostsData {
+  id: string;
+  date: string;
+  title: string;
+  thumbnailImgPath: string;
+  thumbnail: string;
+  tags: string[];
+}
+
 interface MatterResult {
   data: {
     title: string;

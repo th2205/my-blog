@@ -1,15 +1,19 @@
-import mdParser from "../lib/MDparser";
+import mdParser, { PostsData } from "../lib/MDparser";
 import Article from "../components/Article";
 import Header from "../components/Header";
 import Articlelayout from "../components/ArticleLayout";
 
-export default function Home({ allPostsData }) {
+interface HomeProps {
+  allPostsData: PostsData[];
+}
+
+export default function Home({ allPostsData }: HomeProps) {
   return (
     <>
       <Header />
       <div>test</div>
       <Articlelayout>
-        {allPostsData.map((post, index) => (
+        {allPostsData.map((post, index: number) => (
           <Article key={index} article={post} />
         ))}
       </Articlelayout>

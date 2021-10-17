@@ -1,15 +1,9 @@
-import style from "./Article.module.scss";
 import Link from "next/link";
+import style from "./Article.module.scss";
+import { PostsData } from "../lib/MDparser";
 
 interface ArticleProps {
-  article: {
-    id: string;
-    date: string;
-    title: string;
-    thumbnailImgPath: string;
-    thumbnail: string;
-    tags: string[];
-  };
+  article: PostsData;
 }
 
 export default function Article({ article }: ArticleProps) {
