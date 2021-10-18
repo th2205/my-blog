@@ -72,8 +72,6 @@ class MDparser {
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const matterResult = matter(fileContents);
 
-    console.log(matterResult.content);
-
     return matterResult.content;
   }
 }
