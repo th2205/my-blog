@@ -2,62 +2,49 @@
 title: "MQTT와 실시간 통신"
 date: "2021-10-19"
 tags: ["#javascript"]
-thumbnailImgPath: "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FLsrF5%2FbtqEAM93Ofk%2FugP6FytCOxczTmQAkw5d71%2Fimg.png"
+thumbnailImgPath: "/mqtt/mqtt.png"
 thumbnail: "mqtt 프로토콜과 작동 원리"
 ---
 
-# 이벤트 루프는 왜 필요 할까?
+# MQTT 프로토콜이란?
 
-자바스크립트는 싱글 스레드 언어이기 때문이다. 스레드가 하나라는 의미는 한번에 하나의 일만 처리 할 수 있다(동시에 2가지 이상의 함수(태스크)를 실행 할 수 없다.)는 의미이다. 하지만 자바스크립트를 보면 동시에 여러가지 일을 처리 하는것 처럼 보인다. 자바스크립트의 동시성을 지원하는 것이 바로 이벤트 루프다.
+MQTT(Message Queue Telemetry Transport)란 Broker Pattern을 이용한 메시징 프로토콜이다. M2M, IoT(사물인터넷) 등 에서 사용하기 위해 만들어졌으며 낮은 전력, 낮은 대역폭 환경에서도 사용할 수 있도록 설계된 프로토콜이고 publish / subscribe (발행 / 구독) 아키텍처를 기반으로 통신한다.
 
-# 동기와 비동기
+mqtt는 다음과 같은 특징있다.
 
-![synchronous](https://blog.kakaocdn.net/dn/bztSy0/btqCz451jcO/1UjnGAajLPDoBmh3VqNRjK/img.jpg)
+- Broker pattern
+- Publish, Subscribe
+- Topic
+- Will Message
 
-동기와 비동기를 이해하기 위해 다음 코드를 보자.
+## Broker pattern
 
-```javascript
-function sleep(func, delay) {
-  const delayUntill = Date.now() + delay;
+![mqtt](https://miro.medium.com/max/1170/1*lKWgSNIYc1Pil5FFoAHMkA.png)
 
-  while (Date.now() < delayUntill);
+mqtt는 브로커 서버가 클라이언트로 부터 메세지를 받고, 나머지 클라이언트 간의 통신을 조정하는 역할을 한다.
 
-  func();
-}
+## Topic
 
-function foo() {
-  console.log("foo");
-}
+mqtt는 topic 을 기준으로 구독과 발행이 이루어진다. 토픽은 / 를 이용해 채널을 구분 지을수있다 또한 서로를 구독 할 수 도있고 여러 토픽이 하나의 토픽을 구독하거나 발행 할 수 도있다.(1:1, 1:N)
 
-function bar() {
-  console.log("bar");
-}
+## Publish, Subscribe
 
-sleep(foo, 3 * 1000);
-bar();
+mqtt 프로토콜은 토픽을 구독하고 구독한 토픽에 메세지를 발행 하는 방식으로 통신이 이루어진다. 구독과 발행에서 브로커는 말 그대로 중개자 역할을 하게된다.
 
-// 3초 경과 후 foo 호출 -> bar 호출
-```
+예를들어 publisher가 어떠한 토픽에 메세지를 발행하면 해당 토픽을 구독하고 있는 모든 구독자들에게 브로커를 거쳐 메세지가 도착한다.
 
-sleep 함수는 3초 후에 foo 함수를 실행 시키고 그 다음 bar 함수가 호출된다. 이때 bar 함수는 sleep 함수의 호출이 종료된 이후 호출되므로 3초동안 블로킹(작업중단)이 된다.
+## Will Message
 
-이처럼 현재 실행중인 테스크가 종료 될때 까지 다음에 실행될 태스크가 대기하는 방식을 **동기 처리** 라고 한다. 동기 처리 방식은 태스크를 순서대로 하나씩 실행하기 때문에 실행 순서가 보장되는 장점은 있지만 태스크가 종료될때까지 다음 태스크가 블로킹되는 단점이있다.
+소켓과는 다르게 will 메시지를 통해 비정상적으로 연결이 끊어진경우 무엇을 할지 정의 할 수 있다. 유언 이라고 보면 될 것 같다. 때문에 연결이 끊어진 경우 빠르게 조치를 취할 수 있다.
 
-다음 위의 예제를 비동기 방식으로 바꿔보자.
+클라이언트가 브로커에 연결되고 will 메세지가 등록되면 브로커는 주기적으로 클라이언트가 연결되었는지 확인한다 (keep alive, ping) 클라이언트에 에서 일정시간 ping이 오지 않는 경우 비정상적인 종료라고 판단하고 will 메세지를 구독하고 있는 클라이언트에 발행한다.
 
-```javascript
-function foo() {
-  console.log("foo");
-}
+또한 will 메세지는 자신이 구독하고 있는 토픽과 무관하게 토픽을 정할 수 있다.
 
-function bar() {
-  console.log("bar");
-}
+# QOS
 
-setTimeout(foo, 3 * 1000);
-bar();
+qos란 정확한 통신을 보장해주는 레벨을 의미한다. 반드시 클라이언트에 전송돼야하는 메세지가 있고 반대로 전송이되지 않더라도 상관없는 메세지가 있다. mqtt는 qos 레벨을 세가지로 정의한다.
 
-// bar 호출 -> 3초 경과 후 foo 호출
-```
-
-동기 방식과 비슷하게 3초 후 foo 함수를 호출하지만 setTimeout 이후의 태스크를 블로킹하지 않고(Non-Bloking) 곧바로 실행한다. 이처럼 현재 진행중인 태스크를 기다리지 않고 다음 태스크가 실행되는 방식을 **비동기 처리** 라고 한다. 비동기 처리 방식은 코드 실행 순서를 보장하지 않는다는 단점이 있다.
+- qos level 0
+- qos level 1
+- qos level 2
