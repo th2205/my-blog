@@ -26,7 +26,8 @@ export default function Article({ article }: ArticleProps) {
         <div className={style.footerContainer}>
           <p className="time">{article.date}</p>
           <div className={style.tagContainer}>
-            {article.tags && article.tags.map((tag) => <p>{tag}</p>)}
+            {article.tags &&
+              article.tags.map((tag, index) => <p key={index}>{tag}</p>)}
           </div>
         </div>
       </div>
