@@ -10,7 +10,7 @@ thumbnail: "mqtt 프로토콜과 작동 원리"
 
 MQTT(Message Queue Telemetry Transport)란 Broker Pattern을 이용한 메시징 프로토콜이다. M2M, IoT(사물인터넷) 등 에서 사용하기 위해 만들어졌으며 낮은 전력, 낮은 대역폭 환경에서도 사용할 수 있도록 설계된 프로토콜이고 publish / subscribe (발행 / 구독) 아키텍처를 기반으로 통신한다.
 
-mqtt는 다음과 같은 특징있다.
+mqtt는 다음과 같은 특징이있다.
 
 - Broker pattern
 - Publish, Subscribe
