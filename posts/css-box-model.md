@@ -20,7 +20,45 @@ thumbnail: "CSS 박스 모델 완벽 정리"
 
 # 요소의 높이(height) 와 너비(width)
 
-요소의 높이와 너비는 기본적으로 content + padding + border 값이다.
+요소의 높이와 너비는 기본적으로 content + border + padding 이다. 하지만 이렇게 계산할 경우 전체 크기를 계산 하기 쉽지않다. 때문에 box-sizing 이라는 css 속성을 이용해 박스 크기를 계산하는 방법을 바꿀 수 있다.
+
+## box-sizing
+
+box-sizing 속성은 세가지 값을 갖는다.
+
+### content-box
+
+기본 값이다. 요소의 크기를 width 와 height 속성이 컨텐츠 영약만 포함하고 나머지 영역은 포함하지 않는다. 전체 크기는 content + border + padding 으로 계산한다.
+
+예를 들어
+
+```css
+box {
+  width: 350px;
+  border: 10px solid black;
+}
+```
+
+를 적용한 요소의 전체 크기는 370px(350 + 10 + 10) 이다.
+
+### border-box
+
+width 와 height 속성이 안쪽 여백과 테두리를 포함한다.
+
+예를 들어
+
+```css
+box {
+  box-sizing: border-box;
+  width: 350px;
+  border: 10px solid black;
+}
+```
+
+를 적용한 요소의 전체 크기는 350px(330 + 10 + 10) 이다. 더해진 안쪽영역(패딩, 테두리) 만큼 컨텐츠의 크기가 줄어든다.
+일반 적인 경우 요소의 크기를 계산 할때 border-box 속성을 사용하는 것이 크기를 계산하는데 편리하다.
+
+1. border-box: 요소의 크기를 content + border + padding 으로 계산한다.
 
 # 참고
 
