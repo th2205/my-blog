@@ -3,7 +3,7 @@ title: "CSS 박스 모델"
 date: "2021-10-31"
 tags: ["#css"]
 thumbnailImgPath: "/css-box-model/box-model.svg"
-thumbnail: "CSS 박스 모델 완벽 정리"
+thumbnail: "CSS 박스 모델 정리"
 ---
 
 # 박스 모델(Box Model) 이란?
