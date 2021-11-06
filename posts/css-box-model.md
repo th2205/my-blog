@@ -60,6 +60,8 @@ box {
 
 1. border-box: 요소의 크기를 content + border + padding 으로 계산한다.
 
+# box 와 inline-box 의 차이점
+
 # 참고
 
 https://tcpschool.com/
