@@ -58,6 +58,10 @@ box {
 를 적용한 요소의 전체 크기는 350px(330 + 10 + 10) 이다. 더해진 안쪽영역(패딩, 테두리) 만큼 컨텐츠의 크기가 줄어든다.
 일반 적인 경우 요소의 크기를 계산 할때 border-box 속성을 사용하는 것이 크기를 계산하는데 편리하다.
 
+1. border-box: 요소의 크기를 content + border + padding 으로 계산한다.
+
+# box 와 inline-box 의 차이점
+
 # 참고
 
 https://tcpschool.com/
