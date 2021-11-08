@@ -58,10 +58,29 @@ box {
 를 적용한 요소의 전체 크기는 350px(330 + 10 + 10) 이다. 더해진 안쪽영역(패딩, 테두리) 만큼 컨텐츠의 크기가 줄어든다.
 일반 적인 경우 요소의 크기를 계산 할때 border-box 속성을 사용하는 것이 크기를 계산하는데 편리하다.
 
-1. border-box: 요소의 크기를 content + border + padding 으로 계산한다.
+# block 과 inline 그리고 inline-block
 
-# box 와 inline-box 의 차이점
+css 에서 display 속성은 브라우저에서 요소를 어떻게 배치하고 어떻게 요소끼리 상호작용을 시킬지 결정하는 속성이다.
+display 에서 사용 할 수 있는 값들은 다음의 특징을 가진다.
+
+## block
+
+display 가 bolck 으로 설정된 요소는 새로운 줄에 위치하게되고, 너비와 높이가 부모 요소의 100% 를 차지한다.
+
+너비와 높이의 크기를 지정 할 수 있고 크기를 부모 요소보다 작게 설정한 경우 나머지 부분은 margin 으로 채워져 bolck 요소는 한줄을 계속해서 그대로 차지하게된다.
+
+## inline
+
+inline 으로 설정된 요소는 너비와 높이를 직접 지정 할 수 없고, 오로지 컨텐츠의 크기로 너비와 높이가 결정된다. 또한 block 요소와는 다르게 줄바꿈이되지 않는다.
+
+또한 margin 과 padding 요소는 좌우만 반영되고 상하는 반영되지 않는다.
+
+## inline-block
+
+의미 그대로 inline 과 block 의 특징이 합쳐진 값이다. inline 요소와 같이 줄바꿈이 되지 않으며 block 요소와 같이 width, height, margin, padding 속성의 지정이 가능하다.
+
+inline-block 를 이용하면 여러개의 엘리먼트를 한줄에 원하는 너비와 높이 만큼 배치 할 수 있다.
 
 # 참고
 
-https://tcpschool.com/
+[https://tcpschool.com/](https://tcpschool.com/)
