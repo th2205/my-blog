@@ -15,3 +15,5 @@ position 속성은 요소를 어떻게 배치할할지 결정하는 속성이다
 3. absolute
 4. fixed
 5. sticky
+
+ddd
