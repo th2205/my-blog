@@ -1,13 +1,15 @@
 import { ReactNode } from "react";
 import cn from "classnames";
+import style from "./Text.module.scss";
 
+type Themes = "default";
 interface TextProps {
   children: ReactNode;
-  color?: string;
+  theme?: Themes;
 }
 
-export default function Text({ children, color }: TextProps) {
-  const classes = cn(`text--${color}`);
+export default function Text({ children, theme = "default" }: TextProps) {
+  const classes = cn(style["ui-text"], style[`ui-text-theme--${theme}`]);
 
   return <p className={classes}>{children}</p>;
 }
