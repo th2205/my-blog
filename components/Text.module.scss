@@ -1,10 +1,29 @@
+@import "../styles/colors.scss";
+
 .ui-text {
-  color: #abacb8;
   line-height: 1.6;
 }
 
 .ui-text-theme {
-  &--default {
-    color: #abacb8;
+  &--primary {
+    color: $font-gray;
   }
+
+  &--secondary {
+    color: $font-black;
+  }
+
+  &--tertiary {
+    color: $font-black;
+
+    &::before {
+      content: "• ";
+      font-size: 1rem;
+      color: $font-gray;
+    }
+  }
+}
+
+.ui-text-underline {
+  text-decoration: underline;
 }

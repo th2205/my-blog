@@ -1,32 +1,160 @@
 import ResumeLayout from "../components/ResumeLayout";
 import Heading from "../components/Heading";
 import Text from "../components/Text";
-import Box from "../components/Box";
+import Section from "../components/Section";
+import Link from "../components/Link";
+import Header from "../components/PlainHeader";
+import Flex from "../components/Flex";
+import myData from "../data/myData";
 
 export default function Resume() {
   return (
     <ResumeLayout>
-      <Box size="m">
-        <Heading as="h1" theme="resume">
-          안녕하세요.
+      <Header size="m">
+        <Heading as="h1" theme="secondary">
+          Front-End Developer
         </Heading>
-        <Heading as="h1" theme="resume">
-          Front-End Developer 임태현입니다.
+        <Heading as="h1" theme="secondary">
+          {`${myData.name} 입니다.`}
         </Heading>
-      </Box>
-      <Box>
-        <a href="https://google.com">ss</a>
-      </Box>
-      <Box>
-        <Text>
-          자바스크립트를 이용한 프로젝트 설계부터 배포까지의 경험을 가지고
-          있으며, 사용자와의 인터렉션과 경험을 담당하는 역동적인 프론트엔드
-          생태계를 좋아하고 다양한 환경에 반응하도록 UI/UX 를 구현하려
-          노력합니다. 또한 프론트엔드, 백엔드, 인프라까지 웹 개발 전반적인
-          지식에 관심이 많습니다. 협업을 좋아하고 협업 또는 공부를 통해
-          발전해가는 과정을 즐깁니다.
-        </Text>
-      </Box>
+      </Header>
+      <main>
+        <Section>
+          <div>
+            <Text as="span">Github : </Text>
+            <Link targetBlank href="https://google.com" theme="secondary">
+              {myData.git}
+            </Link>
+          </div>
+          <div>
+            <Text as="span">Email : </Text>
+            <Text as="span">{myData.email}</Text>
+          </div>
+          <div>
+            <Text as="span">Phone: </Text>
+            <Text as="span">{myData.phone}</Text>
+          </div>
+        </Section>
+        <Section>
+          <Text>{myData.about}</Text>
+        </Section>
+        <Section>
+          <Section>
+            <Heading as="h1">주요 업무 경력</Heading>
+          </Section>
+          {myData.companies.map((company) => (
+            <>
+              <Flex>
+                <div>
+                  <Heading as="h2" theme="secondary">
+                    {company.name}
+                  </Heading>
+                </div>
+                <div>
+                  <Text>{`${company.startDt} ~ ${company.endDt}`}</Text>
+                </div>
+              </Flex>
+              <Section>
+                <Text>{company.description}</Text>
+                <Text>{company.role}</Text>
+              </Section>
+            </>
+          ))}
+        </Section>
+        <Section size="l">
+          <Heading as="h1">주요 업무 경력 상세</Heading>
+          {myData.companies.map((company) => (
+            <Section>
+              <Heading as="h2" theme="secondary">
+                {company.name}
+              </Heading>
+              {company.pjojects.map((project) => (
+                <Section>
+                  <Heading as="h2">{project.name}</Heading>
+                  <Section>
+                    <Text>{project.description}</Text>
+                  </Section>
+                  {project.tasks.map((task) => (
+                    <Text theme="tertiary">{task}</Text>
+                  ))}
+                </Section>
+              ))}
+            </Section>
+          ))}
+
+          {/* <Heading as="h2">Web Viewer</Heading>
+          <Section>
+            <Text>PC 원격제어 뷰어 웹앱</Text>
+          </Section>
+          <Section size="s">
+            <Text theme="secondary">
+              - Remote View 레거시 시스템 유지 보수, 기능 개발
+            </Text>
+            <Text theme="secondary">
+              - 데이터에 의한 뷰 컨트롤을 위해 Observer Pattern 도입.
+            </Text>
+            <Text theme="secondary">
+              - Url Scheme 를 이용한 응용프로그램 실행.
+            </Text>
+          </Section>
+          <Header>
+            <Heading as="h2">Remote View Simple Mode</Heading>
+          </Header>
+          <Section>
+            <Text>Remote View 를 간단하게 사용 할 수 있는 웹앱</Text>
+          </Section>
+          <Section size="s">
+            <Text theme="secondary">
+              - Remote View 레거시 시스템 유지 보수, 기능 개발
+            </Text>
+            <Text theme="secondary">
+              - 데이터에 의한 뷰 컨트롤을 위해 Observer Pattern 도입.
+            </Text>
+            <Text theme="secondary">
+              - Url Scheme 를 이용한 응용프로그램 실행.
+            </Text>
+          </Section>
+          <Header>
+            <Heading as="h2">RVBox</Heading>
+          </Header>
+          <Section>
+            <Text>
+              응용프로그램의 역할을 대신해주는 하드웨어 RVBox 설정, 관리 웹앱
+            </Text>
+          </Section>
+          <Section size="s">
+            <Text theme="secondary">
+              - Remote View 레거시 시스템 유지 보수, 기능 개발
+            </Text>
+            <Text theme="secondary">
+              - 데이터에 의한 뷰 컨트롤을 위해 Observer Pattern 도입.
+            </Text>
+            <Text theme="secondary">
+              - Url Scheme 를 이용한 응용프로그램 실행.
+            </Text>
+          </Section>
+          <Header>
+            <Heading as="h2">Remote View 챗봇</Heading>
+          </Header>
+          <Section>
+            <Text>Remote View 챗봇</Text>
+          </Section>
+          <Section size="s">
+            <Text theme="secondary">
+              - Remote View 레거시 시스템 유지 보수, 기능 개발
+            </Text>
+            <Text theme="secondary">
+              - 데이터에 의한 뷰 컨트롤을 위해 Observer Pattern 도입.
+            </Text>
+            <Text theme="secondary">
+              - Url Scheme 를 이용한 응용프로그램 실행.
+            </Text>
+          </Section> */}
+        </Section>
+        <Section>
+          <Heading as="h1">교육</Heading>
+        </Section>
+      </main>
     </ResumeLayout>
   );
 }

@@ -1,0 +1,17 @@
+.ui-section {
+  width: 100%;
+}
+
+.ui-section-size {
+  &--s {
+    padding: 0.5rem 0;
+  }
+
+  &--m {
+    padding: 1rem 0;
+  }
+
+  &--l {
+    padding: 2rem 0;
+  }
+}
