@@ -1,7 +1,29 @@
-.resume {
-  color: rgba(102, 152, 250, 2);
+@import "../styles/colors.scss";
+
+.ui-heading {
+  width: 100%;
 }
 
-.h1 {
-  font-size: 2rem;
+.ui-heading-theme {
+  &--primary {
+    color: $font-black;
+  }
+
+  &--secondary {
+    color: $font-blue;
+  }
+}
+
+.ui-heading-as {
+  &--h1 {
+    font-size: 2rem;
+  }
+
+  &--h2 {
+    font-size: 1.5rem;
+  }
+
+  &--h3 {
+    font-size: 1rem;
+  }
 }
