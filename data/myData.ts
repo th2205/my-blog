@@ -15,7 +15,8 @@ export default {
       pjojects: [
         {
           name: "Remote View",
-          skills: [],
+          skills: ["Javascript", "CSS", "HTML", "Jquery"],
+          period: "2020.07 ~ ",
           description: "다수의 PC/모바일 화면 제어를 위한 원격 제어 서비스",
           tasks: [
             "Remote View 레거시 시스템(jsp)에서 html, css, js 를 이용한 마크업과 유지보수, 기능 추가를 담당하였습니다.",
@@ -26,6 +27,18 @@ export default {
         },
         {
           name: "Web Viewer",
+          skills: [
+            "Javascript",
+            "Typescript",
+            "SCSS",
+            "React",
+            "Contaxt",
+            "MQTT",
+            "Socket",
+            "Storybook",
+            "Webpack",
+          ],
+          period: "2021.03 ~ ",
           description: "PC 원격제어 뷰어 웹앱",
           tasks: [
             "MQTT 프로토콜, Pub/Sub Pattern을 이용한 응용프로그램과의 통신으로 실시간 원격제어 구현하였습니다.",
@@ -36,17 +49,28 @@ export default {
         },
         {
           name: "Remote View Simple Mode",
+          skills: [
+            "Typescript",
+            "React",
+            "Redux Toolkit",
+            "Emotion",
+            "MQTT",
+            "Webpack",
+          ],
+          period: "2020.07 ~ ",
           description: "기존 Remote View 를 간단하게 사용 할 수 있는 웹앱",
           tasks: [
-            "심플 모드의 레거시 코드를 마이그레이션 하고, 유지보수 기능 추가를 하였습니다",
-            "심플모드의 레거시 코드를 Typescript, React, Emotion 을 이용해 마이그레이션을 하였습니다",
+            "레거시 리액트 코드(class component) 를 유지보수하고 기능을 추가 하였습니다.",
+            "심플 모드의 레거시 코드(javascript, scss, react, parcel)를 Typescript, Emotion, Weppack, storybook 을 이용해 마이그레이션 하였습니다.(기간 : 2020.04 ~ 2020.06)",
           ],
         },
         {
           name: "Remote View Chatbot",
-          description: "챗봇",
+          skills: ["Typescript", "SCSS", "React", "Webpack"],
+          period: "2020.10 ~ 2020.12",
+          description: "Remote View 챗봇",
           tasks: [
-            "심플 모드의 레거시 코드를 마이그레이션 하고, 유지보수 기능 추가를 하였습니다",
+            "코로나 이후 점점 많아지는 고객 문의를 대응 하기 위해 리모트 뷰 챗봇을 만들었습니다. 챗봇을 통해 유선문의를 약 20% 줄일 수 있었습니다.",
             "심플모드의 레거시 코드를 Typescript, React, Emotion 을 이용해 마이그레이션을 하였습니다",
           ],
         },
@@ -54,12 +78,38 @@ export default {
           name: "RV box",
           description:
             "응용프로그램의 역할을 대신해주는 하드웨어 RVBox의 설정, 관리 웹앱",
+          skills: [
+            "Typescript",
+            "React",
+            "Recoil",
+            "Emotion",
+            "Webpack",
+            "Storybook",
+          ],
+          period: "2021.12 ~ 2020.02",
           tasks: [
-            "심플 모드의 레거시 코드를 마이그레이션 하고, 유지보수 기능 추가를 하였습니다",
-            "심플모드의 레거시 코드를 Typescript, React, Emotion 을 이용해 마이그레이션을 하였습니다",
+            "RVBox 의 설정 및 관리 웹앱을 개발환경 설정 부터 배포까지 담당 하였습니다.",
+            "웹팩",
+            "리코일",
           ],
         },
       ],
+    },
+  ],
+  educations: [
+    {
+      name: "Vanilla Coding",
+      description: "코딩 부트캠프",
+      tasks: [
+        "Computer Science (data structure, algorithm).",
+        "Frontend Engineering (React, React Hooks, React Router, Flux/Redux, Component Driven Development).",
+        "Backend Engineering (Node, Express, SQL vs NoSQL, Database Modeling, MongoDB).",
+      ],
+    },
+    {
+      name: "순천향 대학교",
+      description: "대학교",
+      tasks: ["전자물리학과 졸업."],
     },
   ],
 };

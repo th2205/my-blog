@@ -42,8 +42,8 @@ export default function Resume() {
           <Section>
             <Heading as="h1">주요 업무 경력</Heading>
           </Section>
-          {myData.companies.map((company) => (
-            <>
+          {myData.companies.map((company, index) => (
+            <div key={index}>
               <Flex>
                 <div>
                   <Heading as="h2" theme="secondary">
@@ -58,101 +58,74 @@ export default function Resume() {
                 <Text>{company.description}</Text>
                 <Text>{company.role}</Text>
               </Section>
-            </>
+            </div>
           ))}
         </Section>
         <Section size="l">
           <Heading as="h1">주요 업무 경력 상세</Heading>
-          {myData.companies.map((company) => (
-            <Section>
+          {myData.companies.map((company, index) => (
+            <Section key={index}>
               <Heading as="h2" theme="secondary">
                 {company.name}
               </Heading>
-              {company.pjojects.map((project) => (
-                <Section>
+              {company.pjojects.map((project, index) => (
+                <Section key={index}>
                   <Heading as="h2">{project.name}</Heading>
                   <Section>
-                    <Text>{project.description}</Text>
+                    <div>
+                      <Text as="span">소개 : </Text>
+                      <Text as="span">{project.description}</Text>
+                    </div>
+                    <div>
+                      <Text as="span">기술 : </Text>
+                      {project.skills.map((skill, index) => {
+                        if (project.skills.length - 1 === index) {
+                          return (
+                            <Text key={index} as="span">
+                              {skill}
+                            </Text>
+                          );
+                        }
+
+                        return (
+                          <Text key={index} as="span">
+                            {`${skill}, `}
+                          </Text>
+                        );
+                      })}
+                    </div>
+                    <div>
+                      <Text as="span">기간 : </Text>
+                      <Text as="span">{project.period}</Text>
+                    </div>
                   </Section>
-                  {project.tasks.map((task) => (
-                    <Text theme="tertiary">{task}</Text>
+                  {project.tasks.map((task, index) => (
+                    <Text key={index} theme="tertiary">
+                      {task}
+                    </Text>
                   ))}
                 </Section>
               ))}
             </Section>
           ))}
-
-          {/* <Heading as="h2">Web Viewer</Heading>
-          <Section>
-            <Text>PC 원격제어 뷰어 웹앱</Text>
-          </Section>
-          <Section size="s">
-            <Text theme="secondary">
-              - Remote View 레거시 시스템 유지 보수, 기능 개발
-            </Text>
-            <Text theme="secondary">
-              - 데이터에 의한 뷰 컨트롤을 위해 Observer Pattern 도입.
-            </Text>
-            <Text theme="secondary">
-              - Url Scheme 를 이용한 응용프로그램 실행.
-            </Text>
-          </Section>
-          <Header>
-            <Heading as="h2">Remote View Simple Mode</Heading>
-          </Header>
-          <Section>
-            <Text>Remote View 를 간단하게 사용 할 수 있는 웹앱</Text>
-          </Section>
-          <Section size="s">
-            <Text theme="secondary">
-              - Remote View 레거시 시스템 유지 보수, 기능 개발
-            </Text>
-            <Text theme="secondary">
-              - 데이터에 의한 뷰 컨트롤을 위해 Observer Pattern 도입.
-            </Text>
-            <Text theme="secondary">
-              - Url Scheme 를 이용한 응용프로그램 실행.
-            </Text>
-          </Section>
-          <Header>
-            <Heading as="h2">RVBox</Heading>
-          </Header>
-          <Section>
-            <Text>
-              응용프로그램의 역할을 대신해주는 하드웨어 RVBox 설정, 관리 웹앱
-            </Text>
-          </Section>
-          <Section size="s">
-            <Text theme="secondary">
-              - Remote View 레거시 시스템 유지 보수, 기능 개발
-            </Text>
-            <Text theme="secondary">
-              - 데이터에 의한 뷰 컨트롤을 위해 Observer Pattern 도입.
-            </Text>
-            <Text theme="secondary">
-              - Url Scheme 를 이용한 응용프로그램 실행.
-            </Text>
-          </Section>
-          <Header>
-            <Heading as="h2">Remote View 챗봇</Heading>
-          </Header>
-          <Section>
-            <Text>Remote View 챗봇</Text>
-          </Section>
-          <Section size="s">
-            <Text theme="secondary">
-              - Remote View 레거시 시스템 유지 보수, 기능 개발
-            </Text>
-            <Text theme="secondary">
-              - 데이터에 의한 뷰 컨트롤을 위해 Observer Pattern 도입.
-            </Text>
-            <Text theme="secondary">
-              - Url Scheme 를 이용한 응용프로그램 실행.
-            </Text>
-          </Section> */}
         </Section>
         <Section>
           <Heading as="h1">교육</Heading>
+          {myData.educations.map((education, index) => (
+            <Section key={index}>
+              <Heading as="h2" theme="secondary">
+                {education.name}
+              </Heading>
+              <Section>
+                <Text>{education.description}</Text>
+              </Section>
+              {education.tasks.map((task, index) => (
+                <Text key={index} theme="tertiary">
+                  {task}
+                </Text>
+              ))}
+            </Section>
+          ))}
         </Section>
       </main>
     </ResumeLayout>
