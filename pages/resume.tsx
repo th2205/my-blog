@@ -12,7 +12,7 @@ export default function Resume() {
     <ResumeLayout>
       <Header size="m">
         <Heading as="h1" theme="secondary">
-          Front-End Developer
+          FRONT-END DEVELOPER
         </Heading>
         <Heading as="h1" theme="secondary">
           {`${myData.name} 입니다.`}
