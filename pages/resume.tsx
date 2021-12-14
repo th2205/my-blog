@@ -22,7 +22,11 @@ export default function Resume() {
         <Section>
           <div>
             <Text as="span">Github : </Text>
-            <Link targetBlank href="https://google.com" theme="secondary">
+            <Link
+              targetBlank
+              href="https://github.com/th2205"
+              theme="secondary"
+            >
               {myData.git}
             </Link>
           </div>
