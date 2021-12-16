@@ -3,6 +3,14 @@
 }
 
 .ui-section-size {
+  &--xxs {
+    padding: 0.1rem 0;
+  }
+
+  &--xs {
+    padding: 0.3rem 0;
+  }
+
   &--s {
     padding: 0.5rem 0;
   }
