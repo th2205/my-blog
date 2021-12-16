@@ -104,9 +104,11 @@ export default function Resume() {
                     </div>
                   </Section>
                   {project.tasks.map((task, index) => (
-                    <Text key={index} theme="tertiary">
-                      {task}
-                    </Text>
+                    <Section size="xxs">
+                      <Text key={index} theme="tertiary">
+                        {task}
+                      </Text>
+                    </Section>
                   ))}
                 </Section>
               ))}
