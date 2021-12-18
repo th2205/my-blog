@@ -1,5 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import CodeBlock from "./CodeBolck";
+import Heading from "./Heading";
+import IFrame from "./IFrame";
 import style from "./Post.module.scss";
 
 interface PostProps {
@@ -23,7 +25,14 @@ export default function Post({ postData, content }: PostProps) {
       </div>
       <img className={style.coverImg} src={postData.thumbnailImgPath} />
       <div>
-        <ReactMarkdown className={style.content} components={CodeBlock}>
+        <ReactMarkdown
+          className={style.content}
+          components={{
+            code: CodeBlock,
+            h1: ({ children }) => <Heading as="h1">{children}</Heading>,
+            h6: ({ children }) => <IFrame src={children[0] as string} />,
+          }}
+        >
           {content}
         </ReactMarkdown>
       </div>
