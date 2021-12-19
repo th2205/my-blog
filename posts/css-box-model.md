@@ -16,7 +16,7 @@ thumbnail: "CSS 박스 모델 정리"
 2. 패딩(padding): 패딩은 내용과 테두리 사이의 간격이다.
 3. 테두리(border): 마진과 패딩 사이의 패딩을 감싸는 요소이다. 4.마진(margin): 마진은 테두리와 이웃하는 요소 사이의 간격이다.
 
-![box-model](http://tcpschool.com/lectures/img_css_boxmodel.png)
+![box-model](/css-box-model/css-boxmodel.png)
 
 # 요소의 높이(height) 와 너비(width)
 
@@ -24,7 +24,9 @@ thumbnail: "CSS 박스 모델 정리"
 
 # box-sizing
 
-box-sizing 속성은 세가지 값을 갖는다.
+box-sizing 속성은 두가지 값을 갖는다.
+
+![box-model](https://codesandbox.io/embed/box-sizing-xhzdl?fontsize=14&hidenavigation=1&theme=dark)
 
 ## content-box
 
