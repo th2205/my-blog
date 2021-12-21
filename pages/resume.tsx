@@ -50,9 +50,11 @@ export default function Resume() {
             <div key={index}>
               <Flex>
                 <div>
-                  <Heading as="h2" theme="secondary">
-                    {company.name}
-                  </Heading>
+                  <Link href={company.link} theme="secondary" targetBlank>
+                    <Heading as="h2" theme="secondary">
+                      {company.name}
+                    </Heading>
+                  </Link>
                 </div>
                 <div>
                   <Text>{`${company.startDt} ~ ${company.endDt}`}</Text>
@@ -119,9 +121,11 @@ export default function Resume() {
           <Heading as="h1">교육</Heading>
           {myData.educations.map((education, index) => (
             <Section key={index}>
-              <Heading as="h2" theme="secondary">
-                {education.name}
-              </Heading>
+              <Link href={education.link} targetBlank theme="secondary">
+                <Heading as="h2" theme="secondary">
+                  {education.name}
+                </Heading>
+              </Link>
               <Section>
                 <Text>{education.description}</Text>
               </Section>
