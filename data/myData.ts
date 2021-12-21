@@ -8,6 +8,7 @@ export default {
   companies: [
     {
       name: "알서포트",
+      link: "https://content.rview.com/ko/",
       description: "아시아 1위 원격제어 서비스 기업",
       role: "프론트 개발자",
       startDt: "2020.07",
@@ -98,6 +99,7 @@ export default {
     {
       name: "Vanilla Coding",
       description: "코딩 부트캠프",
+      link: 'https://www.vanillacoding.co/',
       tasks: [
         "Computer Science (data structure, algorithm).",
         "Frontend Engineering (React, React Hooks, React Router, Flux/Redux, Component Driven Development).",
@@ -106,6 +108,7 @@ export default {
     },
     {
       name: "순천향대학교",
+      link: 'https://www.sch.ac.kr/',
       description: "대학교",
       tasks: ["전자물리학과 졸업."],
     },
