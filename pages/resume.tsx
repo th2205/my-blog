@@ -25,7 +25,7 @@ export default function Resume() {
             <Link
               targetBlank
               href="https://github.com/th2205"
-              theme="secondary"
+              theme="primary"
             >
               {myData.git}
             </Link>
