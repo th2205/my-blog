@@ -45,6 +45,7 @@ export default {
             "MQTT 프로토콜, Pub/Sub Pattern을 이용한 응용프로그램과의 통신으로 실시간 원격제어를 구현하였습니다.(제어 모듈)",
             "Socket 을 이용해 실시간 영상 스트리밍을 구현하였습니다.",
             "웹뷰어의 기존 컴포넌트를 분리하고 공통 컴포넌트를 만들어 개선하였습니다.",
+            "storybook 을 이용해 다른 프로젝트에서도 사용할 수 있게끔 컴포넌트 문서를 작성하였습니다.",
             "bem 설계 방법론에 따라 스타일을 작업했습니다. bem 설계를 적용 후 클래스명을 보다 직관적으로 작성 할 수 있었고 수정과 기능 추가를 쉽게 할 수 있었습니다.",
           ],
         },
@@ -62,7 +63,7 @@ export default {
           description: "기존 Remote View 를 간단하게 사용 할 수 있는 웹앱",
           tasks: [
             "레거시 리액트 코드(class component) 를 유지보수하고 기능을 추가하였습니다.",
-            "심플 모드의 레거시 코드(javascript, scss, react, parcel)를 Typescript, Emotion, Weppack, storybook 을 이용해 마이그레이션 하였습니다. (기간 : 2020.04 ~ 2020.06)",
+            "심플 모드의 레거시 코드(javascript, scss, react, parcel)를 Typescript, Emotion, Weppack 을 이용해 마이그레이션 하였습니다. (기간 : 2020.04 ~ 2020.06)",
             "webpack 을 이용한 개발 환경 설정부터 서버 배포까지 모든 개발 과정을 담당하였습니다.",
           ],
         },
