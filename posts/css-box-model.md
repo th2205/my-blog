@@ -30,55 +30,34 @@ box-sizing 속성은 두가지 값을 갖는다.
 
 ## content-box
 
-기본 값이다. 요소의 크기를 width 와 height 속성이 컨텐츠 영역만 포함하고 나머지 영역은 포함하지 않는다. 요소의 크기는 너비 = 콘텐츠 너비, 높이 = 콘텐츠 높이로 계산하고 padding 과 border 는 함께 계산되지 않는다.
+기본 값이다. 요소의 크기를 width 와 height 속성이 컨텐츠 영역만 포함하고 나머지 영역은 포함하지 않는다.
 
-예를 들어
+- width = 콘텐츠 너비
+- height = 콘텐츠 높이
 
-```css
-box {
-  width: 160px;
-  height: 80px;
-  padding: 20px;
-  border: 8px solid red;
-  box-sizing: content-box;
-}
-```
+로 계산하고 padding 과 border 는 함께 계산되지 않는다. 위의 코드에서 content-box 의 너비와 높이를 계산해보자.
 
-를 적용한 요소의 크기는
-
-전체 너비: 160px + (2 _ 20px) + (2 _ 8px) = 216px
-전체 높이: 80px + (2 _ 20px) + (2 _ 8px) = 136px
-Content box width: 160px
-Content box height: 80px
-
-이다.
-
-## border-box
-
-width 와 height 속성이 안쪽 여백과 테두리를 포함한다. margin 은 포함하지 않는다.
-
-예를 들어
-
-```css
-box {
-  width: 160px;
-  height: 80px;
-  padding: 20px;
-  border: 8px solid red;
-  box-sizing: border-box;
-}
-```
-
-를 적용한 요소의 크기는
-
-전체 너비: 160px
-전체 높이: 80px
-Content box width: 160px - (2 _ 20px) - (2 _ 8px) = 104px
-Content box height: 80px - (2 _ 20px) - (2 _ 8px) = 24px
+- width: 150px + (2 x 10px) + (2 x 5px) = 180px
+- height: 100px + (2 x 10px) + (2 x 5px) = 130px
 
 이 된다.
 
-더해진 안쪽영역(패딩, 테두리) 만큼 컨텐츠의 크기가 줄어든다. 일반 적인 경우 요소의 크기를 계산 할때 border-box 속성을 사용하는 것이 크기를 계산하는데 편리하다.
+## border-box
+
+width 와 height 속성이 안쪽 여백과 테두리를 포함한다.
+
+- width = 박스 width
+- height = 박스 height
+
+으로 계산하고 더해진 안쪽영역(패딩, 테두리) 만큼 컨텐츠의 크기가 줄어들고 margin 은 포함하지 않는다.
+위의 코드에서 border-box 의 width 와 height 는 css 에 작성한 width, height 값이 된다.
+
+- width: 150px
+- height: 100px
+
+이 된다.
+
+일반 적인 경우 요소의 크기를 계산 할때 border-box 속성을 사용하는 것이 크기를 계산하는데 편리하다.
 
 # block 과 inline 그리고 inline-block
 

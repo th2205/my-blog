@@ -19,7 +19,7 @@ mqtt는 다음과 같은 특징이있다.
 
 ## Broker pattern
 
-![mqtt](https://miro.medium.com/max/1170/1*lKWgSNIYc1Pil5FFoAHMkA.png)
+![mqtt](/mqtt/mqtt-protocol.png)
 
 mqtt는 브로커 서버가 클라이언트로 부터 메세지를 받고, 나머지 클라이언트 간의 통신을 조정하는 역할을 한다.
 
