@@ -126,9 +126,11 @@ export default function Resume() {
                 <Text>{education.description}</Text>
               </Section>
               {education.tasks.map((task, index) => (
+                <Section size="xxs">
                 <Text key={index} theme="tertiary">
                   {task}
                 </Text>
+                </Section>
               ))}
             </Section>
           ))}
