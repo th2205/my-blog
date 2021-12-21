@@ -2,7 +2,7 @@
 title: "자바스크립트와 이벤트루프"
 date: "2021-10-18"
 tags: ["#javascript"]
-thumbnailImgPath: "/javascript-and-eventloof/eventloof.png"
+thumbnailImgPath: "/javascript-and-eventloop/eventloop.png"
 thumbnail: "이벤트루프는 왜 필요하고 어떻게 작동할까?"
 ---
 
@@ -14,7 +14,7 @@ thumbnail: "이벤트루프는 왜 필요하고 어떻게 작동할까?"
 
 # 동기와 비동기
 
-![synchronous](https://blog.kakaocdn.net/dn/bztSy0/btqCz451jcO/1UjnGAajLPDoBmh3VqNRjK/img.jpg)
+![synchronous](/javascript-and-eventloop/syncronous-asyncronous.jpeg)
 
 동기와 비동기를 이해하기 위해 다음 코드를 보자.
 
@@ -70,7 +70,7 @@ bar();
 
 # 이벤트 루프
 
-![eventloof](https://miro.medium.com/max/2048/1*4lHHyfEhVB0LnQ3HlhSs8g.png)
+![eventloof](/javascript-and-eventloop/loop.png)
 
 먼저 자바스크립트 엔진에 대한 이해가 필요하다 자바스크립트 엔진은 크게 네부분으로 나뉜다.
 
