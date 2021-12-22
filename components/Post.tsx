@@ -1,9 +1,11 @@
 import ReactMarkdown from "react-markdown";
+import Box from "./Box";
 import CodeBlock from "./CodeBolck";
 import Heading from "./Heading";
 import IFrame from "./IFrame";
 import Img from "./Img";
 import style from "./Post.module.scss";
+import Text from "./Text";
 
 interface PostProps {
   postData: {
@@ -32,12 +34,26 @@ export default function Post({ postData, content }: PostProps) {
           className={style.content}
           components={{
             code: CodeBlock,
-            h1: ({ children }) => <Heading as="h1">{children}</Heading>,
-            h6: ({ children }) => <IFrame src={children[0] as string} />,
+            h1: ({ children }) => (
+              <>
+                <Box mb="l" mt="xxl">
+                  <Heading as="h1">{children}</Heading>
+                </Box>
+              </>
+            ),
             img: ({ src, alt }) => {
               if (src.includes(codeSandBoxPrefix)) return <IFrame src={src} />;
               return <Img src={src} alt={alt} />;
             },
+            p: ({ children }) => (
+              <>
+                <Box mb="l">
+                  <Text as="p" theme="secondary">
+                    {children}
+                  </Text>
+                </Box>
+              </>
+            ),
           }}
         >
           {content}

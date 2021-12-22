@@ -1,0 +1,47 @@
+.ui-box {
+  width: 100%;
+}
+
+.ui-box-mb {
+  &--s {
+    margin-bottom: 0.5rem;
+  }
+
+  &--m {
+    margin-bottom: 1rem;
+  }
+
+  &--l {
+    margin-bottom: 1.5rem;
+  }
+
+  &--xl {
+    margin-bottom: 2rem;
+  }
+
+  &--xxl {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.ui-box-mt {
+  &--s {
+    margin-top: 0.5rem;
+  }
+
+  &--m {
+    margin-top: 1rem;
+  }
+
+  &--l {
+    margin-top: 1.5rem;
+  }
+
+  &--xl {
+    margin-top: 2rem;
+  }
+
+  &--xxl {
+    margin-top: 2.5rem;
+  }
+}
