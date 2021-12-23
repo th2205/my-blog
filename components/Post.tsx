@@ -41,6 +41,13 @@ export default function Post({ postData, content }: PostProps) {
                 </Box>
               </>
             ),
+            h2: ({ children }) => (
+              <>
+                <Box mb="m" mt="xl">
+                  <Heading as="h2">{children}</Heading>
+                </Box>
+              </>
+            ),
             img: ({ src, alt }) => {
               if (src.includes(codeSandBoxPrefix)) return <IFrame src={src} />;
               return <Img src={src} alt={alt} />;
