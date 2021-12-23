@@ -66,19 +66,35 @@ display 에서 사용 할 수 있는 값들은 다음의 특징을 가진다.
 
 ## block
 
-display 가 bolck 으로 설정된 요소는 새로운 줄에 위치하게되고, 너비와 높이가 부모 요소의 100% 를 차지한다.
+![css-block](https://codesandbox.io/embed/block-jgo2o?fontsize=14&hidenavigation=1&module=%2Findex.css&theme=dark)
 
-너비와 높이의 크기를 지정 할 수 있고 크기를 부모 요소보다 작게 설정한 경우 나머지 부분은 margin 으로 채워져 bolck 요소는 한줄을 계속해서 그대로 차지하게된다.
+`block` 은 다음과 같은 특징을 가진다.
+
+- display 가 bolck 으로 설정된 요소는 새로운 줄에 위치하게된다.
+- `width`, `height` 값을 가질 수 있다.
+- 너비는 부모 요소의 100% 를 차지한다.
+- 높이는 컨텐츠의 높이만큼 차지한다.
+- 크기를 부모 요소보다 작게 설정한 경우 나머지 부분은 margin 으로 채워져 bolck 요소는 한줄을 계속해서 그대로 차지하게된다.
 
 ## inline
 
-inline 으로 설정된 요소는 너비와 높이를 직접 지정 할 수 없고, 오로지 컨텐츠의 크기로 너비와 높이가 결정된다. 또한 block 요소와는 다르게 줄바꿈이되지 않는다.
+![css-block](https://codesandbox.io/embed/brave-heisenberg-3ovy5?fontsize=14&hidenavigation=1&module=%2Findex.css&theme=dark)
 
-또한 margin 과 padding 요소는 좌우만 반영되고 상하는 반영되지 않는다.
+`inline` 은 다음과 같은 특징을 가진다.
+
+- `inline` 으로 설정된 요소는 너비와 높이를 직접 지정 할 수 없다. 오로지 컨텐츠의 크기로 너비와 높이가 결정된다.
+- 줄바꿈이되지 않는다.
+- `margin` 속성은 좌우만 적용된다.
 
 ## inline-block
 
-의미 그대로 inline 과 block 의 특징이 합쳐진 값이다. inline 요소와 같이 줄바꿈이 되지 않으며 block 요소와 같이 width, height, margin, padding 속성의 지정이 가능하다.
+![css-block](https://codesandbox.io/embed/inline-4k5rl?fontsize=14&hidenavigation=1&module=%2Findex.css&theme=dark)
+
+`inline-block` 은 다음과 같은 특징을 가진다.
+
+- `inline` 과 `block` 의 특징이 합쳐진 값이다.
+- `inline` 요소와 같이 줄바꿈이 되지 않는다.
+- `block` 요소와 같이 `width`, `height`, `margin`, `padding` 속성의 지정이 가능하다.
 
 inline-block 를 이용하면 여러개의 엘리먼트를 한줄에 원하는 너비와 높이 만큼 배치 할 수 있다.
 
