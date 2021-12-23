@@ -6,6 +6,7 @@ import IFrame from "./IFrame";
 import Img from "./Img";
 import style from "./Post.module.scss";
 import Text from "./Text";
+import MarkDown from "./MarkDown";
 
 interface PostProps {
   postData: {
@@ -65,6 +66,7 @@ export default function Post({ postData, content }: PostProps) {
         >
           {content}
         </ReactMarkdown>
+        {/* <MarkDown content={content}/> */}
       </div>
     </>
   );
