@@ -4,6 +4,8 @@ import CodeBlock from "./CodeBolck";
 import Heading from "./Heading";
 import IFrame from "./IFrame";
 import Img from "./Img";
+import Li from "./Li";
+import List from "./List";
 import Text from "./Text";
 
 interface MarkdownProps {
@@ -15,7 +17,6 @@ export default function Markdown({ content }: MarkdownProps) {
 
   return (
     <ReactMarkdown
-      // className={style.content}
       components={{
         code: CodeBlock,
         h1: ({ children }) => (
@@ -45,6 +46,21 @@ export default function Markdown({ content }: MarkdownProps) {
             </Box>
           </>
         ),
+        ol: ({ children }) => (
+          <>
+            <Box mb="l">
+              <List as="ol">{children}</List>
+            </Box>
+          </>
+        ),
+        ul: ({ children }) => (
+          <>
+            <Box mb="l">
+              <List as="ul">{children}</List>
+            </Box>
+          </>
+        ),
+        li: ({ children }) => <Li>{children}</Li>,
       }}
     >
       {content}

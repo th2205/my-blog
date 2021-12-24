@@ -1,0 +1,14 @@
+@import "/styles/colors.scss";
+
+.ui-li {
+  margin-bottom: 0.5rem;
+  margin-left: 2rem;
+}
+
+.ui-li-theme {
+  &--primary {
+    &::marker {
+      color: $font-blue;
+    }
+  }
+}
