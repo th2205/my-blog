@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 
 interface CustomTagProps {
-  as: HTMLElementTagNameMap;
-  className: string;
+  as: keyof JSX.IntrinsicElements;
+  className?: string;
   children: ReactNode;
 }
 

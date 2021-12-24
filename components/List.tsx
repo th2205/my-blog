@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import CustomTag from "./CustomTag";
 
 interface ListProps {
   as: "ol" | "ul";
@@ -7,6 +6,7 @@ interface ListProps {
 }
 
 export default function List({ children, as }: ListProps) {
-  return;
-  //   <CustomTag  as={as} >{children}</CustomTag>
+  const isOl = as === "ol";
+
+  return isOl ? <ol>{children}</ol> : <ul>{children}</ul>;
 }
