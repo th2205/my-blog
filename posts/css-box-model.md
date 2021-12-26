@@ -26,7 +26,7 @@ thumbnail: "CSS 박스 모델 정리"
 
 box-sizing 속성은 두가지 값을 갖는다.
 
-![box-model](https://codesandbox.io/embed/box-sizing-xhzdl?fontsize=14&hidenavigation=1&theme=dark)
+![box-model](https://codesandbox.io/embed/box-sizing-xhzdl?fontsize=14&hidenavigation=1&module=%2Findex.css&theme=dark)
 
 ## content-box
 

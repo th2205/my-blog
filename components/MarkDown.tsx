@@ -7,6 +7,7 @@ import Img from "./Img";
 import Li from "./Li";
 import List from "./List";
 import Text from "./Text";
+import Code from "./atom/Code";
 
 interface MarkdownProps {
   content: string;
@@ -18,7 +19,21 @@ export default function Markdown({ content }: MarkdownProps) {
   return (
     <ReactMarkdown
       components={{
-        code: CodeBlock,
+        code: ({ node, inline, className, children }) => {
+          console.log(node);
+          console.log(inline);
+          console.log(className);
+          console.log(children);
+          if (className) {
+            return (
+              <CodeBlock node={node} inline={inline} className={className}>
+                {children}
+              </CodeBlock>
+            );
+          } else {
+            return <Code>{children}</Code>;
+          }
+        },
         h1: ({ children }) => (
           <>
             <Box mb="l" mt="xxl">
