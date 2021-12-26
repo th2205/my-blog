@@ -10,7 +10,7 @@ thumbnail: "CSS position 정리"
 
 position 속성은 요소를 어떻게 배치할할지 결정하는 속성이다. position 을 이용하면 요소를 원하는 위치에 배치 할 수 있고 block 과 inline 요소 모두 적용 할 수 있다.
 
-position 에서 사용 할 수 있는 값음 다음 네가지가 있다.
+position 에서 사용 할 수 있는 값은 다섯가지가 있다.
 
 1. static
 2. relative
@@ -22,25 +22,17 @@ position 에서 사용 할 수 있는 값음 다음 네가지가 있다.
 
 ## static
 
-```css
-div {
-  position: static;
-}
-```
+![css-static](https://codesandbox.io/embed/position-static-htwud?fontsize=14&hidenavigation=1&module=%2Findex.css&theme=dark)
 
-기본 선택 값이다. position 속성이 `static` 으로 설정된 요소는 `top`, `left`, `right`, `bottom` 속성에 영향을 받지 않는다.
+- 기본 선택 값이다.
+- position 속성이 `static` 으로 설정된 요소는 `top`, `left`, `right`, `bottom` 속성에 영향을 받지 않는다.
 
 ## relative
 
-```css
-div {
-  position: relative;
-  left: 30px;
-}
-```
+![css-relative](https://codesandbox.io/embed/position-relative-oojqg?fontsize=14&hidenavigation=1&module=%2Findex.css&theme=dark)
 
-`relative`(상대위치) 속성은 자신을 기준으로(기본 위치) 위치를 설정하는 방식이다.
-기본 위치란 position 속성이 적용된 요소의 `static` 값일 때 지정되는 위치를 의미한다.
+- `relative`(상대위치) 속성은 자신을 기준으로(기본 위치) 위치를 설정하는 방식이다.
+  기본 위치란 position 속성이 적용된 요소의 `static` 값일 때 지정되는 위치를 의미한다.
 
 ## absolute
 

@@ -1,0 +1,12 @@
+@import "../../styles/colors.scss";
+
+.ui-code {
+  padding: 0 5px;
+}
+
+.ui-code-theme {
+  &--primary {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+  }
+}
