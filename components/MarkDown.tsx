@@ -20,10 +20,6 @@ export default function Markdown({ content }: MarkdownProps) {
     <ReactMarkdown
       components={{
         code: ({ node, inline, className, children }) => {
-          console.log(node);
-          console.log(inline);
-          console.log(className);
-          console.log(children);
           if (className) {
             return (
               <CodeBlock node={node} inline={inline} className={className}>

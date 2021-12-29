@@ -1,7 +1,9 @@
 import Head from "next/head";
-import Link from "next/link";
 import { AiFillGithub } from "react-icons/ai";
-import style from "./Header.module.scss";
+import Heading from "./Heading";
+import HeaderLayout from "./layouts/HeaderLayout";
+import IconListLayout from "./layouts/IconListLayout";
+import Link from "./Link";
 
 type HeaderProps = {
   id?: string;
@@ -14,18 +16,16 @@ export default function Header({ id }: HeaderProps) {
         <title>{id || "TaeHyeon"}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={style.headerContainer}>
-        <div className={style.container}>
-          <Link href="/">
-            <h1 className={style.headerTitle}>TaeHyeon</h1>
-          </Link>
-          <div className={style.navContiner}>
-            <div>
-              <AiFillGithub size={30} />
-            </div>
-          </div>
-        </div>
-      </div>
+      <HeaderLayout>
+        <Link href="/" underline={false}>
+          <Heading as="h2" weight="s">
+            TaeHyeon
+          </Heading>
+        </Link>
+        <IconListLayout>
+          <AiFillGithub size={30} />
+        </IconListLayout>
+      </HeaderLayout>
     </>
   );
 }
