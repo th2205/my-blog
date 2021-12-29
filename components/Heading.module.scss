@@ -14,8 +14,6 @@
     // color: #0000ff;
     // color: #4682b4;
   }
-
-  
 }
 
 .ui-heading-as {
@@ -29,5 +27,19 @@
 
   &--h3 {
     font-size: 1rem;
+  }
+}
+
+.ui-heading-weight {
+  &--s {
+    font-weight: 400;
+  }
+
+  &--m {
+    font-weight: 700;
+  }
+
+  &--l {
+    font-weight: bold;
   }
 }

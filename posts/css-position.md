@@ -31,36 +31,33 @@ position 에서 사용 할 수 있는 값은 다섯가지가 있다.
 
 ![css-relative](https://codesandbox.io/embed/position-relative-oojqg?fontsize=14&hidenavigation=1&module=%2Findex.css&theme=dark)
 
+- 요소를 일반적인 문서 흐름에 따라 배치한다.
+- 페이지에서 요소가 차지하는 공간은 `static` 일 때와 같다.
 - `relative`(상대위치) 속성은 자신을 기준으로(기본 위치) 위치를 설정하는 방식이다.
   기본 위치란 position 속성이 적용된 요소의 `static` 값일 때 지정되는 위치를 의미한다.
+- 자기 자신을 기준으로 `top`, `right`, `bottom`, `left` 의 값에 따라 오프셋을 적용하며, 오프셋은 다른 요소에는 영향을 주지 않는다.
 
 ## absolute
 
-```css
-div {
-  position: absolute;
-  top: 50px;
-  right: 0;
-}
-```
+![css-relative](https://codesandbox.io/embed/position-absolute-kt6d2?fontsize=14&hidenavigation=1&module=%2Findex.css&theme=dark)
 
-position 이 absolute 인 요소의 경우 다음과 같은 특징을 같는다.
-
+- 요소를 일반적인 문서흐름에서 제거한다.
 - 부모 요소에 속박되지 않고 `viewport` 상에서 어디든지 배치가 가능하다.
-- 기준점은 가장가까운 position: `relative` 속성을 가진 요소다.
-- `top`, `left`, `right`, `bottom` 등의 위치를 정해주는 속성일 정해주지 않으면 모든 값이 `auto` 로 잡혀 position 속성이 static 일 경우에 적용되는 기본위치에 요소가 배치된다.
+- 기준점은 가장가까운 `position: relative` 속성을 가진 요소다.
 
 ## fixed
 
-fixed 방식은 뷰포트(`viewport`)를 기준으로 위치를 설정하는 방식이다. 웹 페이지가 스크롤 되어도 고정 위치로 지정된 요소는 항상 같은 곳에 위치하게 된다.
+![css-relative](https://codesandbox.io/embed/position-fixed-rndg2?fontsize=14&hidenavigation=1&module=%2Findex.css&theme=dark)
 
-```css
-div {
-  position: fixed;
-  top: 50px;
-  right: 0;
-}
-```
+- fixed 방식은 뷰포트(`viewport`)를 기준으로 위치를 설정하는 방식이다.
+- 웹 페이지가 스크롤 되어도 고정 위치로 지정된 요소는 항상 같은 곳에 위치하게 된다.
+
+## sticky
+
+![css-relative](https://codesandbox.io/embed/position-sticky-376mk?fontsize=14&hidenavigation=1&module=%2Findex.css&theme=dark)
+
+- fixed 방식은 뷰포트(`viewport`)를 기준으로 위치를 설정하는 방식이다.
+- 웹 페이지가 스크롤 되어도 고정 위치로 지정된 요소는 항상 같은 곳에 위치하게 된다.
 
 # static(정적 위치) 지정 방식과 다른 방식들과의 차이점
 
@@ -69,3 +66,7 @@ div {
 - 상대 위치(relative position) : 해당 요소가 정적 위치 지정 방식일 때의 위치에 상대적으로 위치한다.
 - 고정 위치(fixed position) : 뷰포트(`viewport`)에 상대적으로 위치한다.
 - 절대 위치(absolute position) : 위치가 설정된 바로 상위의 조상(ancestor) 요소에 상대적으로 위치한다. 또는 또는 가장가까운 상대 위치 요소가 기준이 된다.
+
+```
+
+```

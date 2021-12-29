@@ -14,3 +14,13 @@
     color: $font-blue;
   }
 }
+
+.ui-link-underline {
+  &--true {
+    text-decoration: underline;
+  }
+
+  &--false {
+    text-decoration: none;
+  }
+}

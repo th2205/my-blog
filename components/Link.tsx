@@ -9,6 +9,7 @@ interface LinkProps {
   targetBlank?: boolean;
   href: string;
   theme?: Theme;
+  underline?: boolean;
 }
 
 export default function CustomLink({
@@ -16,8 +17,13 @@ export default function CustomLink({
   targetBlank = false,
   href,
   theme = "primary",
+  underline = true,
 }: LinkProps) {
-  const classes = cn(style["ui-link"], style[`ui-link-theme--${theme}`]);
+  const classes = cn(
+    style["ui-link"],
+    style[`ui-link-theme--${theme}`],
+    style[`ui-link-underline--${underline}`]
+  );
 
   return targetBlank ? (
     <a target="_blank" href={href} className={classes}>
