@@ -10,16 +10,18 @@ type HeaderProps = {
 };
 
 export default function Header({ id }: HeaderProps) {
+  const title = "TaeHyeon";
+
   return (
     <>
       <Head>
-        <title>{id || "TaeHyeon"}</title>
+        <title>{id || title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeaderLayout>
         <Link href="/" underline={false}>
           <Heading as="h2" weight="s">
-            TaeHyeon
+            {title}
           </Heading>
         </Link>
         <IconListLayout>
