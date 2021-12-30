@@ -1,4 +1,5 @@
 import MarkDown from "./MarkDown";
+import Comment from "../components/Comment";
 import style from "./Post.module.scss";
 
 interface PostProps {
@@ -26,6 +27,7 @@ export default function Post({ postData, content }: PostProps) {
       <div>
         <MarkDown content={content} />
       </div>
+      <Comment />
     </>
   );
 }
