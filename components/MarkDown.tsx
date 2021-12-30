@@ -49,27 +49,21 @@ export default function Markdown({ content }: MarkdownProps) {
           return <Img src={src} alt={alt} />;
         },
         p: ({ children }) => (
-          <>
-            <Box mb="l">
-              <Text as="p" theme="secondary">
-                {children}
-              </Text>
-            </Box>
-          </>
+          <Box mb="l">
+            <Text as="p" theme="secondary">
+              {children}
+            </Text>
+          </Box>
         ),
         ol: ({ children }) => (
-          <>
-            <Box mb="l">
-              <List as="ol">{children}</List>
-            </Box>
-          </>
+          <Box mb="l">
+            <List as="ol">{children}</List>
+          </Box>
         ),
         ul: ({ children }) => (
-          <>
-            <Box mb="l">
-              <List as="ul">{children}</List>
-            </Box>
-          </>
+          <Box mb="l">
+            <List as="ul">{children}</List>
+          </Box>
         ),
         li: ({ children }) => <Li>{children}</Li>,
       }}
