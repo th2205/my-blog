@@ -1,57 +1,24 @@
 @import "../styles/colors.scss";
 
-.title {
-  font-size: 2.2rem;
-  color: $font-black;
-  font-weight: 500;
-  margin: 5rem 0 2rem 0;
-}
-
-.infoContainer {
-  margin-bottom: 2rem;
-}
-
-.coverImg {
+.ui-post-layout {
   width: 100%;
-}
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 4rem;
 
-.content {
-  color: red;
-  margin: 1rem 0 3rem 0;
-}
-
-.author {
-  font-weight: 600;
-}
-
-.date {
-  color: rgb(33, 37, 41);
-  margin-left: 0.7rem;
-  font-size: 0.8rem;
-}
-
-.content {
-  color: $font-black;
-  margin-top: 2rem;
-
-  code {
-    color: #e96900;
-    background-color: #f8f8f8;
-    padding: 2px 10px;
-    border-radius: 3px;
+  @media (max-width: 800px) {
+    padding: 4rem 1rem 0 1rem;
   }
+}
 
-  ul,
-  ol {
-    margin-bottom: 2rem;
-    margin-left: 2rem;
+.ui-post-layout__haeder-container {
+  margin-bottom: 1rem;
+}
 
-    p {
-      margin: 0 0;
-    }
-  }
+.ui-post-layout__info-container {
+  margin-bottom: 2rem;
 
-  li {
-    margin: 0.5rem 0;
+  & span:nth-child(2) {
+    margin-left: 1rem;
   }
 }

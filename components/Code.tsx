@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import cn from "classnames";
-import { Theme } from "../../types";
+import { Theme } from "../types";
 import style from "./Code.module.scss";
 
 interface CodeProps {

@@ -1,6 +1,9 @@
 import MarkDown from "./MarkDown";
-import Comment from "../components/Comment";
+import Comment from "./Comment";
+import Heading from "./Heading";
+import Text from "./Text";
 import style from "./Post.module.scss";
+import Img from "./Img";
 
 interface PostProps {
   postData: {
@@ -14,20 +17,24 @@ interface PostProps {
 }
 
 export default function Post({ postData, content }: PostProps) {
-  const codeSandBoxPrefix = "codesandbox";
-
   return (
-    <>
-      <h1 className={style.title}>{postData.title}</h1>
-      <div className={style.infoContainer}>
-        <span className={style.author}>By Taehyeon</span>
-        <span className={style.date}>{postData.date}</span>
+    <section className={style["ui-post-layout"]}>
+      <div className={style["ui-post-layout__haeder-container"]}>
+        <Heading as="h1">{postData.title}</Heading>
       </div>
-      <img className={style.coverImg} src={postData.thumbnailImgPath} />
+      <div className={style["ui-post-layout__info-container"]}>
+        <Text as="span" theme="secondary">
+          By Taehyeon
+        </Text>
+        <Text as="span" theme="secondary" size="s">
+          {postData.date}
+        </Text>
+      </div>
+      <Img src={postData.thumbnailImgPath} alt="cover" />
       <div>
         <MarkDown content={content} />
       </div>
       <Comment />
-    </>
+    </section>
   );
 }

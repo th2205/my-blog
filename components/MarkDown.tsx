@@ -7,7 +7,7 @@ import Img from "./Img";
 import Li from "./Li";
 import List from "./List";
 import Text from "./Text";
-import Code from "./atom/Code";
+import Code from "./Code";
 
 interface MarkdownProps {
   content: string;

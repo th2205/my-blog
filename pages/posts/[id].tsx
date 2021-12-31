@@ -1,5 +1,5 @@
 import Header from "../../components/Header";
-import PostLayout from "../../components/PostLayout";
+import PostLayout from "../../components/layouts/PostLayout";
 import Post from "../../components/Post";
 import mdParser from "../../lib/MDparser";
 
@@ -7,10 +7,7 @@ export default function PostIndex({ postData, content }) {
   return (
     <>
       <Header id={postData.id} />
-      <br />
-      <PostLayout>
-        <Post postData={postData} content={content} />
-      </PostLayout>
+      <Post postData={postData} content={content} />
     </>
   );
 }
