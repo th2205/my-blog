@@ -27,3 +27,17 @@
 .ui-text-underline {
   text-decoration: underline;
 }
+
+.ui-text-size {
+  &--s {
+    font-size: 0.7rem;
+  }
+
+  &--m {
+    font-size: 1rem;
+  }
+
+  &--l {
+    font-size: 1.3rem;
+  }
+}

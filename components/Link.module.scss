@@ -1,16 +1,19 @@
 @import "../styles/colors.scss";
 
 .ui-link {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .ui-link-theme {
   &--primary {
-    text-decoration: underline;
     color: $font-gray;
   }
 
   &--secondary {
-    text-decoration: underline;
     color: $font-blue;
   }
 }
@@ -18,6 +21,10 @@
 .ui-link-underline {
   &--true {
     text-decoration: underline;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &--false {

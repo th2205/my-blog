@@ -1,13 +1,14 @@
 import { ReactNode } from "react";
 
+type Element = keyof JSX.IntrinsicElements;
 interface CustomTagProps {
-  as: keyof JSX.IntrinsicElements;
+  as: Element;
   className?: string;
   children: ReactNode;
 }
 
 export default function CustomTag({ children, as, className }: CustomTagProps) {
-  const CustomTag = `${as}` as keyof JSX.IntrinsicElements;
+  const CustomTag = `${as}` as Element;
 
   return <CustomTag className={className}>{children}</CustomTag>;
 }
