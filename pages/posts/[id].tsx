@@ -1,5 +1,4 @@
 import Header from "../../components/Header";
-import PostLayout from "../../components/layouts/PostLayout";
 import Post from "../../components/Post";
 import mdParser from "../../lib/MDparser";
 
