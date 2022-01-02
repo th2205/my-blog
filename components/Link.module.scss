@@ -6,6 +6,10 @@
   &:hover {
     text-decoration: none;
   }
+
+  &:visited {
+    color: inherit;
+  }
 }
 
 .ui-link-theme {
@@ -15,6 +19,14 @@
 
   &--secondary {
     color: $font-blue;
+  }
+
+  &--secondary {
+    color: $font-blue;
+  }
+
+  &--tertiary {
+    color: inherit;
   }
 }
 
