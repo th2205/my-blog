@@ -1,3 +1,5 @@
+@import "../styles/animations.scss";
+
 .ui-article-layout {
   width: 100%;
   padding-top: 6rem;
@@ -5,6 +7,7 @@
   justify-content: center;
   gap: 1rem;
   padding-bottom: 2rem;
+  animation: fadein 0.3s linear;
 
   @media screen and (min-width: 300px) {
     grid-template-columns: repeat(1, 300px);
