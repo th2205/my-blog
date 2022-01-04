@@ -12,7 +12,7 @@ export default function CodeBlock({
   const match = /language-(\w+)/.exec(className || "");
 
   return !inline && match ? (
-    <div style={{ fontFamily: "monospace, monospace", marginBottom: "2rem" }}>
+    <div style={{ fontFamily: "monospace, monospace", marginBottom: "3rem" }}>
       <SyntaxHighlighter
         style={dracula}
         language={match[1]}
