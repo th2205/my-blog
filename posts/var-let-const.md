@@ -92,6 +92,7 @@ console.log(foo); //1
 - 변수 중복 선언 금지
 - 블록 레벨 스코프
 - 변수 호이스팅
+- 전역 객체에 할당되지 않는다.
 
 ## 변수 중복 선언 금지
 
@@ -106,3 +107,109 @@ var foo = 1; // 변수 초기화문을 만나면 변수에 값을 할당한다.
 
 console.log(foo); //1
 ```
+
+## 블록 레벨 스코프
+
+`var` 키워드로 선언한 변수는 오직 함수 코드 블록만 스코프로 인정 하지만 `let` 키워드로 선언한 변수는 모든 코드 블록(함수, if 문, for 문, while 문, try/catch 문 등) 을 지역 스코프로 인정하는 블록 레벨 스코프를 따른다.
+
+```javascript
+let foo = 1; // 전역 변수
+
+{
+  let foo = 2; // 지역 변수
+  let bar = 3; // 지역 변수
+}
+
+console.log(foo); //1
+console.log(bar); // Uncaught ReferenceError: bar is not defined
+```
+
+## 변수 호이스팅
+
+`let` 키워드로 선언한 변수는 호이스팅이 발생하지만 발생하지 않는 것처럼 동작한다.
+
+```javascript
+console.log(foo); //Uncaught ReferenceError: foo is not defined
+
+let foo = 1;
+```
+
+`let` (또는 `const`) 를 이용해 선언한 변수는 선언문 이전에 참조하면 **참조 에러**가 발생한다. `var` 키워드로 선언한 변수는 런타임 이전 자바스크립트 엔진에 의해 암묵적으로 **선언 단계**와 **초기화 단계**가 진행되기 때문에 선언문 이전에 참조할 수 있지만 `let` 키워드로 선언한 변수는 **선언 단계**와 **최기화 단계**가 분리되어 진행된다. 즉 자바스크립트 엔진에 의해 선언 단계가 먼저 실행되지만 초기화 단계는 선언문에 도달했을때 실행된다.
+
+만약 초기화 단계에서 참조하려고 하면 참조 에러가 발생한다. 스코프의 시작점 부터 초기화 지점까지 변수를 참조 할 수 없는 구간을 **일시적 사각지대(TDZ)** 라고 부른다.
+
+```javascript
+// 런타임 이전에 선언 단계가 실행된다. 변수는 초기화되지 않았다.
+// 초기화 이전의 일시적 사각지대에서는 변수를 참조 할 수 없다.
+console.log(foo); //Uncaught ReferenceError: foo is not defined
+
+let foo = 1;
+
+console.log(foo); // 초기화 단계를 마치면 참조 할 수 있다.
+```
+
+자바스크립트는 ES6 에서 도입된 `let`, `const`를 포함해서 모든 선언(`var`, `let`, `const`, `function`, `function*`, `class` 등) 을 호이스팅한다.
+ES6 에 도입된 `let`, `const`, `class` 를 사용한 선언문은 호이스팅이 발생하지 않는 것처럼 동작한다.
+
+## 전역 객체에 할당되지 않는다.
+
+`var` 키워드로 선언한 변수는 `window` 객체의 프로퍼티가 된다.
+
+```javascript
+var foo = 1;
+
+console.log(window.foo); // 1
+```
+
+`let` 키워드로 선언한 변수는 전역 객체의 프로퍼티로 할당되지 않는다. 대신 보이지 않는 개념적인 블록(렉시컬 환경의 환경 레코드) 내에 존재하게된다.
+
+# const
+
+`const` 키워드로 선언한 변수는 다음과 같은 특징을 가진다.
+
+- 변수 중복 선언 금지
+- 블록 레벨 스코프
+- 변수 호이스팅
+- 전역 객체에 할당되지 않는다.
+- 상수를 선언하기 위해 사용한다.
+- 선언과 초기화
+- 재할당 금지
+
+`let` 키워드와 중복되는 부분이 있으므로 다른 부분만 정리한다.
+
+## 선언과 초기화
+
+`const` 키워드로 선언한 변수는 반드시 선언과 동시에 초기화해야한다.
+
+```javascript
+var foo; // Uncaught SyntaxError: Missing initializer in const declaration
+```
+
+## 재할당 금지
+
+`const` 키워드는 변경 불가능한 값이기 때문에 상수(재할당이 금지된 변수)를 표현하기 위해 사용된다.
+
+## const 키워드와 객체
+
+`const` 키워드로 선언된 변수에 객체를 할당한 경우 값을 변경할 수 있다. 객체는 재할당 없이 변경이 가능하기 때문이다.
+`const` 키워드는 재할당을 금지할뿐 **불변**을 의미 하진 않는다.
+
+```javascript
+const person = {
+  name: "foo",
+};
+
+person.name = "boo";
+```
+
+# 정리
+
+그럼 어떤 키워드를 사용해야 할까?
+
+- ES6 를 사용한다면 `var` 키워드는 사용하지 않는다.
+- 재할당이 필요한 경우에만 `let` 키워드는 사용한다.
+- 이외에는 모두 `const` 를 사용하는 것이 좋다. (의외로 객체를 재할당하는 경우는 드물다.)
+
+# 참고
+
+[모던 자바스크립트 Deep Dive](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791158392239&orderClick=LAG&Kc=)
