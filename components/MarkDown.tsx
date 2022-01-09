@@ -8,6 +8,7 @@ import Li from "./Li";
 import List from "./List";
 import Text from "./Text";
 import Code from "./Code";
+import Link from "./Link";
 
 interface MarkdownProps {
   content: string;
@@ -66,6 +67,11 @@ export default function Markdown({ content }: MarkdownProps) {
           </Box>
         ),
         li: ({ children }) => <Li>{children}</Li>,
+        a: ({ children, href }) => (
+          <Link href={href} br={true}>
+            {children}
+          </Link>
+        ),
       }}
     >
       {content}

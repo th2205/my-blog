@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import Link from "next/link";
 import cn from "classnames";
-import style from "./Link.module.scss";
 import { Theme } from "../types";
+import style from "./Link.module.scss";
 
 interface LinkProps {
   children: ReactNode;
@@ -10,6 +10,7 @@ interface LinkProps {
   href: string;
   theme?: Theme;
   underline?: boolean;
+  br?: boolean;
 }
 
 export default function CustomLink({
@@ -18,6 +19,7 @@ export default function CustomLink({
   href,
   theme = "primary",
   underline = true,
+  br = false,
 }: LinkProps) {
   const classes = cn(
     style["ui-link"],
@@ -26,12 +28,18 @@ export default function CustomLink({
   );
 
   return targetBlank ? (
-    <a target="_blank" href={href} className={classes}>
-      {children}
-    </a>
+    <>
+      <a target="_blank" href={href} className={classes}>
+        {children}
+      </a>
+      {br && <br />}
+    </>
   ) : (
-    <Link href={href}>
-      <a className={classes}>{children}</a>
-    </Link>
+    <>
+      <Link href={href}>
+        <a className={classes}>{children}</a>
+      </Link>
+      {br && <br />}
+    </>
   );
 }
