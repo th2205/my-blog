@@ -4,7 +4,7 @@ import CodeBlock from "./CodeBolck";
 import Heading from "./Heading";
 import IFrame from "./IFrame";
 import Img from "./Img";
-import Li from "./Li";
+import ListItem from "./ListItem";
 import List from "./List";
 import Text from "./Text";
 import Code from "./Code";
@@ -33,7 +33,7 @@ export default function Markdown({ content }: MarkdownProps) {
         },
         h1: ({ children }) => (
           <>
-            <Box mb="l" mt="xxl">
+            <Box mb="xl" mt="xxxl">
               <Heading as="h1">{children}</Heading>
             </Box>
           </>
@@ -66,7 +66,7 @@ export default function Markdown({ content }: MarkdownProps) {
             <List as="ul">{children}</List>
           </Box>
         ),
-        li: ({ children }) => <Li>{children}</Li>,
+        li: ({ children }) => <ListItem>{children}</ListItem>,
         a: ({ children, href }) => (
           <Link href={href} br={true}>
             {children}
