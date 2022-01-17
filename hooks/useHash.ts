@@ -6,10 +6,8 @@ export function useHash() {
   useEffect(() => {
     const onHashchange = (e: HashChangeEvent) => {
       const hash = location.hash;
-      console.log(hash);
+
       setCurrentHash(hash);
-      console.log(11);
-      alert(11);
     };
 
     window.addEventListener("hashchange", (e) => onHashchange(e), false);

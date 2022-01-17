@@ -89,6 +89,15 @@ class MDparser {
 
     return result;
   }
+
+  getaAllPostCount() {
+    const data = this.parse();
+    const tags = data.reduce((acc, cur) => {
+      return [...acc, ...cur.tags];
+    }, [] as string[]);
+
+    return tags.length;
+  }
 }
 
 export default new MDparser();
