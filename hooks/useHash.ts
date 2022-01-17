@@ -4,13 +4,13 @@ export function useHash() {
   const [currentHash, setCurrentHash] = useState("");
 
   useEffect(() => {
-    const onHashchange = (e: HashChangeEvent) => {
+    const onHashchange = () => {
       const hash = location.hash;
 
       setCurrentHash(hash);
     };
 
-    window.addEventListener("hashchange", (e) => onHashchange(e), false);
+    window.addEventListener("hashchange", () => onHashchange(), false);
 
     return window.removeEventListener("hashchange", onHashchange);
   }, []);
