@@ -19,11 +19,10 @@ export default function Home({
   allPostCount,
 }: HomeProps) {
   const currentHash = useHash();
-  console.log(currentHash);
   const posts = !currentHash
     ? allPostsData
     : allPostsData.filter((post) => post.tags.includes(currentHash));
-  console.log(posts);
+
   return (
     <>
       <Header />
