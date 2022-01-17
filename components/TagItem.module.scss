@@ -1,0 +1,10 @@
+@import "../styles/colors.scss";
+
+.ui-tag-item {
+  background-color: #bcbbc0;
+  color: $background-white;
+  text-decoration: none;
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.4rem 0.3rem 0.4rem;
+  border-radius: 5px;
+}

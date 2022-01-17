@@ -12,11 +12,7 @@ export interface PostsData {
 }
 
 interface MatterResult {
-  data: {
-    title: string;
-    date: string;
-    cartegory?: string[];
-  };
+  data: PostsData;
   content: string;
 }
 
@@ -73,6 +69,25 @@ class MDparser {
     const matterResult = matter(fileContents);
 
     return matterResult.content;
+  }
+
+  getTags() {
+    const data = this.parse();
+    const tags = data.reduce((acc, cur) => {
+      return [...acc, ...cur.tags];
+    }, [] as string[]);
+
+    const result = tags.reduce((acc, cur) => {
+      if (!acc.hasOwnProperty(cur)) {
+        acc[cur] = 1;
+      } else {
+        acc[cur] = acc[cur] + 1;
+      }
+
+      return acc;
+    }, {});
+
+    return result;
   }
 }
 
