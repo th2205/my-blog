@@ -2,7 +2,7 @@
 title: "var let const"
 date: "2021-12-29"
 tags: ["#javascript"]
-thumbnailImgPath: "/var-let-const/cover.svg"
+thumbnailImgPath: "/assets/var-let-const.svg"
 thumbnail: "자바스크립트에서의 변수 선언 방식과 차이점"
 ---
 
