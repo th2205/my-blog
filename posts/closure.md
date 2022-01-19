@@ -1,9 +1,9 @@
 ---
-title: "클로저"
+title: "closure"
 date: "2022-01-18"
 tags: ["#javascript"]
-thumbnailImgPath: "/assets/hoisting.svg"
-thumbnail: "클로저"
+thumbnailImgPath: "/assets/closure.svg"
+thumbnail: "클로저의 정의와 활용"
 ---
 
 # 클로저
