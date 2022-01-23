@@ -6,9 +6,10 @@ import style from "./Header.module.scss";
 
 type HeaderProps = {
   id?: string;
+  description: string;
 };
 
-export default function Header({ id }: HeaderProps) {
+export default function Header({ id, description }: HeaderProps) {
   const title = "TaeHyeon";
 
   return (
@@ -16,6 +17,7 @@ export default function Header({ id }: HeaderProps) {
       <Head>
         <title>{id || title}</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content={description}></meta>
       </Head>
       <header className={style["ui-header-layout"]}>
         <div className={style["ui-header-container"]}>

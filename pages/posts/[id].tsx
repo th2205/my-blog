@@ -1,11 +1,16 @@
 import Header from "../../components/Header";
 import Post from "../../components/Post";
-import mdParser from "../../lib/MDparser";
+import mdParser, { PostsData } from "../../lib/MDparser";
 
-export default function PostIndex({ postData, content }) {
+interface PostProps {
+  postData: PostsData;
+  content: string;
+}
+
+export default function PostIndex({ postData, content }: PostProps) {
   return (
     <>
-      <Header id={postData.id} />
+      <Header id={postData.id} description={postData.thumbnail} />
       <Post postData={postData} content={content} />
     </>
   );
