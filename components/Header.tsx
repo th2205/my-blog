@@ -6,7 +6,7 @@ import style from "./Header.module.scss";
 
 type HeaderProps = {
   id?: string;
-  description: string;
+  description?: string;
 };
 
 export default function Header({ id, description }: HeaderProps) {
