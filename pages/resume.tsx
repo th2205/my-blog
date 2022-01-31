@@ -22,12 +22,10 @@ export default function Resume() {
         <Section>
           <div>
             <Text as="span">Github : </Text>
-            <Link
-              targetBlank
-              href="https://github.com/th2205"
-              theme="primary"
-            >
-              {myData.git}
+            <Link targetBlank href="https://github.com/th2205" theme="primary">
+              <Text as="span" theme="primary">
+                {myData.git}
+              </Text>
             </Link>
           </div>
           <div>
@@ -131,9 +129,9 @@ export default function Resume() {
               </Section>
               {education.tasks.map((task, index) => (
                 <Section size="xxs">
-                <Text key={index} theme="tertiary">
-                  {task}
-                </Text>
+                  <Text key={index} theme="tertiary">
+                    {task}
+                  </Text>
                 </Section>
               ))}
             </Section>

@@ -1,11 +1,7 @@
 @import "../styles/colors.scss";
 
 .ui-link {
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: none;
-  }
+  text-decoration: underline;
 
   &:visited {
     color: inherit;
@@ -14,15 +10,11 @@
 
 .ui-link-theme {
   &--primary {
-    color: $font-gray;
+    text-decoration-color: $font-gray;
   }
 
   &--secondary {
-    color: $font-blue;
-  }
-
-  &--secondary {
-    color: $font-blue;
+    text-decoration-color: $font-blue;
   }
 
   &--tertiary {
@@ -31,13 +23,13 @@
 }
 
 .ui-link-underline {
-  &--true {
-    text-decoration: underline;
+  // &--true {
+  //   text-decoration: underline;
 
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+  //   &:hover {
+  //     text-decoration: underline;
+  //   }
+  // }
 
   &--false {
     text-decoration: none;
