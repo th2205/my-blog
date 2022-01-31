@@ -64,7 +64,7 @@ export default {
           description: "기존 Remote View 를 간단하게 사용 할 수 있는 웹앱",
           tasks: [
             "레거시 리액트 코드(class component) 를 유지보수하고 기능을 추가하였습니다.",
-            "심플 모드의 레거시 코드(javascript, scss, react, parcel)를 Typescript, Emotion, Weppack 을 이용해 마이그레이션 하였습니다. (기간 : 2020.04 ~ 2020.06)",
+            "심플 모드의 레거시 코드(javascript, scss, react, parcel)를 Typescript, Emotion, Weppack 을 이용해 마이그레이션 하였습니다. (기간 : 2021.04 ~ 2021.06)",
             "webpack 을 이용한 개발 환경 설정부터 서버 배포까지 모든 개발 과정을 담당하였습니다.",
           ],
         },
@@ -99,7 +99,7 @@ export default {
     {
       name: "Vanilla Coding",
       description: "코딩 부트캠프",
-      link: 'https://www.vanillacoding.co/',
+      link: "https://www.vanillacoding.co/",
       tasks: [
         "Computer Science (data structure, algorithm).",
         "Frontend Engineering (React, React Hooks, React Router, Flux/Redux, Component Driven Development).",
@@ -108,7 +108,7 @@ export default {
     },
     {
       name: "순천향대학교",
-      link: 'https://www.sch.ac.kr/',
+      link: "https://www.sch.ac.kr/",
       description: "대학교",
       tasks: ["전자물리학과 졸업."],
     },
