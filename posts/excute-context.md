@@ -1,8 +1,8 @@
 ---
-title: "실행 컨텍스트"
+title: "자바스크립트의 실행 컨텍스트"
 date: "2022-02-25"
 tags: ["#javascript"]
-thumbnailImgPath: "/assets/JS.svg"
+thumbnailImgPath: "/assets/JS.png"
 thumbnail: "호이스팅"
 ---
 
