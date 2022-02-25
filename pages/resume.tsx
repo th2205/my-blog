@@ -72,7 +72,7 @@ export default function Resume() {
               <Heading as="h2" theme="secondary">
                 {company.name}
               </Heading>
-              {company.pjojects.map((project, index) => (
+              {company.projects.map((project, index) => (
                 <Section key={index}>
                   <Heading as="h2">{project.name}</Heading>
                   <Section>

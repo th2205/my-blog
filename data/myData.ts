@@ -13,7 +13,7 @@ export default {
       role: "프론트 개발자",
       startDt: "2020.07",
       endDt: "현재",
-      pjojects: [
+      projects: [
         {
           name: "Remote View",
           skills: ["Javascript", "CSS", "HTML", "jQuery"],
@@ -64,7 +64,7 @@ export default {
           description: "기존 Remote View 를 간단하게 사용 할 수 있는 웹앱",
           tasks: [
             "레거시 리액트 코드(class component) 를 유지보수하고 기능을 추가하였습니다.",
-            "심플 모드의 레거시 코드(javascript, scss, react, parcel)를 Typescript, Emotion, Weppack 을 이용해 마이그레이션 하였습니다. (기간 : 2021.04 ~ 2021.06)",
+            "심플 모드의 레거시 코드(javascript, scss, react, parcel)를 Typescript, Emotion, Webpack 을 이용해 마이그레이션 하였습니다. (기간 : 2021.04 ~ 2021.06)",
             "webpack 을 이용한 개발 환경 설정부터 서버 배포까지 모든 개발 과정을 담당하였습니다.",
           ],
         },
