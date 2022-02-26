@@ -3,7 +3,7 @@ title: "자바스크립트의 실행 컨텍스트"
 date: "2022-02-25"
 tags: ["#javascript"]
 thumbnailImgPath: "/assets/JS.png"
-thumbnail: "호이스팅"
+thumbnail: "실행 컨텍스트 정리"
 ---
 
 # 실행 컨텍스트
