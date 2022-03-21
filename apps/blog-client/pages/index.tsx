@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { useHash } from "../hooks/useHash";
 import Tag from "../components/Tag";
 import TagItem from "../components/TagItem";
+import Footer from "../components/Footer";
 
 interface HomeProps {
   allPostsData: PostsData[];
@@ -44,6 +45,7 @@ export default function Home({
         </Tag>
         <Article allPostsData={posts} />
       </div>
+      <Footer />
     </>
   );
 }
