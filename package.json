@@ -5,6 +5,7 @@
     "scripts": {
       "dev": "yarn workspace blog-client dev & yarn workspace blog-server start:dev",
       "dev:up": "yarn install && docker-compose up --build",
+      "git:clean": "git rm -r --cached .",
       "build": "next build",
       "start": "next start"
     },
