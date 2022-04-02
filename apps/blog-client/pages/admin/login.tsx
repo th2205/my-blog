@@ -1,19 +1,33 @@
 import styled from "@emotion/styled";
-import Input from "../../components/Input";
+import { useInput } from "@/hooks/useInput";
+import Input from "@/components/Input";
+import Button from "@/components/Button";
+import { useEffect, useRef } from "react";
+import { FormSubmitEvent } from "@/types/event";
 
 export default function Login() {
+  const [email, setEmail] = useInput("");
+  const [password, setPassword] = useInput("");
+  const emailRef = useRef();
+
+  const onSubmit = (e: FormSubmitEvent) => {
+    e.preventDefault();
+  };
+
+  useEffect(() => {}, []);
+
   return (
     <Background>
-      <LoginForm>
+      <LoginForm onSubmit={onSubmit}>
         <Title>LogIn</Title>
-        <Input label="email" value="sd" onChange={(e) => console.log(e)} />
+        <Input label="email" value={email} onChange={setEmail} />
         <Input
           label="password"
-          value="sd"
+          value={password}
           type="password"
-          onChange={(e) => console.log(e)}
+          onChange={setPassword}
         />
-        <button>LogIn</button>
+        <Button label="LogIn" />
       </LoginForm>
     </Background>
   );
@@ -31,14 +45,14 @@ const LoginForm = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 25rem;
+  width: 28rem;
   height: auto;
   color: white;
   border-radius: 10px;
   padding: 1rem 4rem;
 
   & > * {
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
   }
 `;
 

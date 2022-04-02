@@ -1,6 +1,6 @@
 import SideBar from "../../components/SideBar";
 
-export default function Admin() {
+export default function Write() {
   return (
     <div>
       <SideBar />
