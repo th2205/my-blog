@@ -1,17 +1,25 @@
 import styled from "@emotion/styled";
+import { useEffect, useRef } from "react";
+import Router from "next/router";
 import { useInput } from "@/hooks/useInput";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
-import { useEffect, useRef } from "react";
 import { FormSubmitEvent } from "@/types/event";
+import { login } from "@/apis/user";
 
 export default function Login() {
   const [email, setEmail] = useInput("");
   const [password, setPassword] = useInput("");
   const emailRef = useRef();
 
-  const onSubmit = (e: FormSubmitEvent) => {
+  const onSubmit = async (e: FormSubmitEvent) => {
     e.preventDefault();
+
+    const { result } = await login({ email, password });
+
+    if (result !== 100) return alert("!");
+
+    Router.push("/admin");
   };
 
   useEffect(() => {}, []);
@@ -27,7 +35,7 @@ export default function Login() {
           type="password"
           onChange={setPassword}
         />
-        <Button label="LogIn" />
+        <Button label="LogIn" type="submit" />
       </LoginForm>
     </Background>
   );
@@ -39,7 +47,7 @@ const Background = styled.div`
   height: 100vh;
 `;
 
-const LoginForm = styled.div`
+const LoginForm = styled.form`
   background-color: rgb(28, 31, 38);
   position: absolute;
   top: 50%;

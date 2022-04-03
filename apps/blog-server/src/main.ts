@@ -5,10 +5,11 @@ const PORT = 8080;
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule, { cors: true });
-    const isDevMode = process.env.NODE_ENV;
+    const isDevMode = process.env.NODE_ENV === 'development';
 
-    if (isDevMode === 'development') app.enableCors();
+    app.enableCors();
 
+    app.setGlobalPrefix('api');
     await app.listen(PORT);
 }
 bootstrap();

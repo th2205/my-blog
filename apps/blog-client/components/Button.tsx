@@ -8,6 +8,7 @@ interface ButtonProps {
   theme?: "primary";
   size?: "auto";
   isLoading?: boolean;
+  type?: "button" | "submit";
 }
 
 export default function Button({
@@ -15,9 +16,16 @@ export default function Button({
   theme = "primary",
   size = "auto",
   isLoading = false,
+  type = "button",
 }: ButtonProps) {
   return (
-    <CustomButton label={label} theme={theme} size={size} isLoading={isLoading}>
+    <CustomButton
+      label={label}
+      theme={theme}
+      size={size}
+      isLoading={isLoading}
+      type={type}
+    >
       {isLoading && <Loader size={70} />}
       {!isLoading && label}
     </CustomButton>

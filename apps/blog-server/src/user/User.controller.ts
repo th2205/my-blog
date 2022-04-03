@@ -12,6 +12,6 @@ export class UserController {
 
     @Post('/login')
     login() {
-        return 'login';
+        return { result: 100 };
     }
 }
