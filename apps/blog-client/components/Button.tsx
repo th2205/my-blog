@@ -2,11 +2,12 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import Loader from "@/components/Loader";
 import colors from "@/styles/colors";
+import { Theme } from "@/types/index";
 
 interface ButtonProps {
   label: string;
-  theme?: "primary";
-  size?: "auto";
+  theme?: Theme;
+  size?: "auto" | "s";
   isLoading?: boolean;
   type?: "button" | "submit";
 }
@@ -53,11 +54,24 @@ const themes = {
     );
     color: ${colors.white};
   `,
+  secondary: css`
+    background-color: rgb(207, 214, 230);
+    color: #333;
+    border: 1px solid #333;
+  `,
+  tertiary: css`
+    background-color: rgb(28, 31, 38);
+    color: ${colors.white};
+    border: 1px solid #333;
+  `,
 };
 
 const sizes = {
   auto: css`
     width: 100%;
+  `,
+  s: css`
+    width: 5rem;
   `,
 };
 
