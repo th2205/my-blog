@@ -10,6 +10,7 @@ interface ButtonProps {
   size?: "auto" | "s";
   isLoading?: boolean;
   type?: "button" | "submit";
+  onClick?: (e: any) => void;
 }
 
 export default function Button({
@@ -18,6 +19,7 @@ export default function Button({
   size = "auto",
   isLoading = false,
   type = "button",
+  onClick,
 }: ButtonProps) {
   return (
     <CustomButton
@@ -26,6 +28,7 @@ export default function Button({
       size={size}
       isLoading={isLoading}
       type={type}
+      onClick={onClick}
     >
       {isLoading && <Loader size={70} />}
       {!isLoading && label}

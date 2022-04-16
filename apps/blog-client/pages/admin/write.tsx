@@ -3,17 +3,38 @@ import SideBar from "@/components/SideBar";
 import { useState } from "react";
 import Markdown from "@/components/MarkDown";
 import Button from "@/components/Button";
-import colors from "@/styles/colors";
+import { savePost } from "@/apis/post";
+import Input from "@/components/Input";
+import { useInput } from "@/hooks/useInput";
 
 export default function Write() {
   const [content, setContent] = useState("");
+  const [title, onTitleChange] = useInput("title");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onSubmit = async () => {
+    console.log(1);
+    setIsLoading(true);
+    const createdAt = new Date();
+    const author = "thlim";
+
+    await savePost({ createdAt, title, content, author });
+    setIsLoading(false);
+  };
 
   return (
     <Main>
       <SideBar />
       <Section>
         <Header>
-          <Button label="저장" theme="tertiary" size="s" />
+          <Input value={title} label="" onChange={onTitleChange} />
+          <Button
+            label="저장"
+            theme="tertiary"
+            size="s"
+            isLoading={isLoading}
+            onClick={onSubmit}
+          />
           <Button label="임시 저장" theme="secondary" size="s" />
         </Header>
         <EditorView>
