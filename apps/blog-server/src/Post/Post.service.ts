@@ -17,4 +17,8 @@ export class PostService {
     async save(content: PostDTO) {
         await this.postRepository.save(content);
     }
+
+    async remove(id: number){
+        await this.postRepository.delete(id)
+    }
 }
