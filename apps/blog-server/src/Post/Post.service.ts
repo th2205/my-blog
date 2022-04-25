@@ -10,8 +10,18 @@ export class PostService {
         @InjectRepository(Post) private postRepository: Repository<Post>,
     ) {}
 
-    findAll() {
-        return this.postRepository.find();
+    async findAll() {
+        return await this.postRepository
+            .createQueryBuilder('post')
+            .select([
+                'post.id',
+                'post.title',
+                'post.createdAt',
+                'post.author',
+                'post.coverImgUrl',
+                'post.contentPreview',
+            ])
+            .getMany();
     }
 
     async save(post: PostDTO) {

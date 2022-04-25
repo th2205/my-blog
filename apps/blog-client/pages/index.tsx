@@ -5,6 +5,8 @@ import { useHash } from "../hooks/useHash";
 import Tag from "../components/Tag";
 import TagItem from "../components/TagItem";
 import Footer from "../components/Footer";
+import useSWR from "swr";
+import { getAllPosts } from "@/apis/post";
 
 interface HomeProps {
   allPostsData: PostsData[];
@@ -23,7 +25,9 @@ export default function Home({
   const posts = !currentHash
     ? allPostsData
     : allPostsData.filter((post) => post.tags.includes(currentHash));
-
+  const { data } = useSWR("post", getAllPosts);
+  console.log(data);
+  console.log(1);
   return (
     <>
       <Header />

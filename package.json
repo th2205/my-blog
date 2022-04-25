@@ -6,7 +6,8 @@
       "dev": "yarn workspace blog-client dev & yarn workspace blog-server start:dev",
       "dev:up": "yarn install && docker-compose up --build",
       "git:clean": "git rm -r --cached .",
-      "build": "next build",
+      "next:build": "yarn workspace blog-client build",
+      "next:start": "yarn workspace blog-client start",
       "start": "next start"
     },
     "workspaces": [
