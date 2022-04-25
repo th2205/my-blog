@@ -14,11 +14,15 @@ export class PostService {
         return this.postRepository.find();
     }
 
-    async save(content: PostDTO) {
-        await this.postRepository.save(content);
+    async save(post: PostDTO) {
+        await this.postRepository.save(post);
     }
 
-    async remove(id: number){
-        await this.postRepository.delete(id)
+    async delete(id: number) {
+        await this.postRepository.delete(id);
+    }
+
+    async update(post: PostDTO) {
+        await this.update(post);
     }
 }
