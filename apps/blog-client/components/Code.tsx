@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
-import cn from "classnames";
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 import { Theme } from "../types";
-import style from "./Code.module.scss";
 
 interface CodeProps {
   children: ReactNode;
@@ -9,7 +9,18 @@ interface CodeProps {
 }
 
 export default function Code({ children, theme = "primary" }: CodeProps) {
-  const classes = cn(style["ui-code"], style[`ui-code-theme--${theme}`]);
-
-  return <code className={classes}>{children}</code>;
+  return <CustomCode theme={theme}>{children}</CustomCode>;
 }
+
+const CustomCode = styled.code<CodeProps>`
+  padding: 0 0.6rem 0.2rem 0.6rem;
+
+  ${({ theme }) => themes[theme]}
+`;
+
+const themes = {
+  primary: css`
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+  `,
+};

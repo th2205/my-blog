@@ -11,6 +11,8 @@ interface SavePostParams {
   createdAt: Date;
   content: string;
   author: string;
+  coverImgUrl: string;
+  contentPreview: string;
 }
 
 export async function getAllPosts() {
@@ -19,8 +21,8 @@ export async function getAllPosts() {
   return data;
 }
 
-export async function savePost(content: SavePostParams) {
-  const params = content;
+export async function savePost(post: SavePostParams) {
+  const params = post;
   const response = await client.post("/posts/save", params);
 
   console.log(response);

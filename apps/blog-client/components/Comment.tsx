@@ -1,10 +1,13 @@
+import styled from "@emotion/styled";
 import { useComment } from "../hooks/useComment";
-import cn from "classnames";
-import style from "./Comment.module.scss";
 
 export default function Comment() {
   const commentRef = useComment();
-  const classes = cn(style["comment-layout"]);
 
-  return <div ref={commentRef} className={classes}></div>;
+  return <Container ref={commentRef}></Container>;
 }
+
+const Container = styled.div`
+  width: 100%;
+  margin-top: 3rem;
+`;

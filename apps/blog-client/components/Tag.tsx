@@ -1,13 +1,18 @@
-import style from "./Tag.module.scss";
-import cn from "classnames";
 import { ReactNode } from "react";
+import styled from "@emotion/styled";
 
 interface TagProps {
   children: ReactNode;
 }
 
 export default function Tag({ children }: TagProps) {
-  const layoutClasses = cn(style["ui-tag-layout"]);
-
-  return <div className={layoutClasses}>{children}</div>;
+  return <CustomTag>{children}</CustomTag>;
 }
+
+const CustomTag = styled.div`
+  width: 100%;
+  padding: 8rem 1rem 1rem 1rem;
+  text-align: center;
+  line-height: 2;
+  word-break: break-word;
+`;

@@ -1,13 +1,12 @@
 import Head from "next/head";
-import { AiFillGithub } from "react-icons/ai";
-import Heading from "./Heading";
+import styled from "@emotion/styled";
+import Heading from "@/components/Heading";
 import Link from "./Link";
-import style from "./Header.module.scss";
 
-type HeaderProps = {
+interface HeaderProps {
   id?: string;
   description?: string;
-};
+}
 
 export default function Header({ id, description }: HeaderProps) {
   const title = "TaeHyeon";
@@ -19,20 +18,40 @@ export default function Header({ id, description }: HeaderProps) {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={description}></meta>
       </Head>
-      <header className={style["ui-header-layout"]}>
-        <div className={style["ui-header-container"]}>
+      <HeaderLayout>
+        <Container>
           <Link href="/" underline={false}>
             <Heading as="h2" weight="s">
               {title}
             </Heading>
           </Link>
-          <div className={style["ui-icon-group"]}>
+          {/* <div className={style["ui-icon-group"]}>
             <Link href="https://github.com/th2205" targetBlank theme="tertiary">
               <AiFillGithub size={30} />
             </Link>
-          </div>
-        </div>
-      </header>
+          </div> */}
+        </Container>
+      </HeaderLayout>
     </>
   );
 }
+
+const HeaderLayout = styled.header`
+  width: 100vw;
+  height: 3.3rem;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1px 1px 10px 2px #dee2e6;
+  background-color: white;
+  z-index: 999;
+`;
+
+const Container = styled.div`
+  width: 85%;
+  max-width: 59rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;

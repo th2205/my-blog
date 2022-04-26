@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
-import cn from "classnames";
-import { Theme } from "../types";
-import style from "./ListItem.module.scss";
+import styled from "@emotion/styled";
+import { Theme } from "@/types";
 
 interface LiProps {
   children: ReactNode;
@@ -9,7 +8,15 @@ interface LiProps {
 }
 
 export default function ListItem({ children, theme = "primary" }: LiProps) {
-  const classes = cn(style["ui-li"], style[`ui-li-theme--${theme}`]);
-
-  return <li className={classes}>{children}</li>;
+  return <CustomLi>{children}</CustomLi>;
 }
+
+const CustomLi = styled.li`
+  margin-bottom: 0.5rem;
+  margin-left: 2rem;
+  line-height: 2;
+
+  &::marker {
+    color: #abacb8;
+  }
+`;

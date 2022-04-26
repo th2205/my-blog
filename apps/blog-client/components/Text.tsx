@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
-import cn from "classnames";
-import { Size, Theme } from "../types";
-import style from "./Text.module.scss";
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
+import { Size, Theme } from "@/types";
 
 interface TextProps {
   children: ReactNode;
@@ -18,15 +18,44 @@ export default function Text({
   underline = false,
   size = "m",
 }: TextProps) {
-  const CustomTag = `${as}` as keyof JSX.IntrinsicElements;
-  const classes = cn(
-    style["ui-text"],
-    style[`ui-text-theme--${theme}`],
-    style[`ui-text-size--${size}`],
-    {
-      [style["ui-text-underline"]]: underline,
-    }
-  );
-
-  return <CustomTag className={classes}>{children}</CustomTag>;
+  return <CustomText as={as as any}>{children}</CustomText>;
 }
+
+const CustomText = styled.p<TextProps>`
+  line-height: 1.8;
+
+  ${({ theme }) => themes[theme]};
+  ${({ size }) => sizes[size]};
+  ${({ underline }) => underline && "text-decoration: underline;"}
+`;
+
+const themes = {
+  primary: css`
+    color: #abacb8;
+  `,
+  secondary: css`
+    color: #28293d;
+  `,
+  tertiary: css`
+    color: #333;
+
+    &::before {
+      content: "• ";
+      font-size: 1rem;
+      color: $font-gray;
+    }
+  `,
+};
+
+const sizes = {
+  s: css`
+    font-size: 0.7rem;
+  `,
+  m: css`
+    font-size: 1rem;
+  `,
+
+  l: css`
+    font-size: 1.3rem;
+  `,
+};

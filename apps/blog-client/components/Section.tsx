@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
-import cn from "classnames";
-import style from "./Section.module.scss";
-import { Size } from "../types";
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
+import { Size } from "@/types";
 
 interface SectionProps {
   children: ReactNode;
@@ -9,9 +9,33 @@ interface SectionProps {
 }
 
 export default function Section({ children, size = "m" }: SectionProps) {
-  const classes = cn(style["ui-section"], {
-    [style[`ui-section-size--${size}`]]: size,
-  });
-
-  return <section className={classes}>{children}</section>;
+  return <CustomSection>{children}</CustomSection>;
 }
+
+const CustomSection = styled.section<SectionProps>`
+  width: 100%;
+
+  ${({ size }) => sizes[size]}
+`;
+
+const sizes = {
+  xxs: css`
+    padding: 0.1rem 0;
+  `,
+
+  xs: css`
+    padding: 0.3rem 0;
+  `,
+
+  s: css`
+    padding: 0.5rem 0;
+  `,
+
+  m: css`
+    padding: 1rem 0;
+  `,
+
+  l: css`
+    padding: 2rem 0;
+  `,
+};

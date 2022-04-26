@@ -1,6 +1,6 @@
 import Image from "next/image";
 import cn from "classnames";
-import style from "./Img.module.scss";
+import styled from "@emotion/styled";
 
 interface ImgProps {
   src: string;
@@ -8,8 +8,6 @@ interface ImgProps {
 }
 
 export default function Img({ src, alt }: ImgProps) {
-  const classes = cn(style["ui-image"]);
-
   //   return (
   //     <div className={classes}>
   //       <Image
@@ -25,5 +23,9 @@ export default function Img({ src, alt }: ImgProps) {
   //     </div>
   //   );
 
-  return <img className={classes} src={src} alt={alt} />;
+  return <CustomImg src={src} alt={alt} />;
 }
+
+const CustomImg = styled.img`
+  width: 100%;
+`;

@@ -1,9 +1,9 @@
-import MarkDown from "./MarkDown";
-import Comment from "./Comment";
-import Heading from "./Heading";
-import Text from "./Text";
-import style from "./Post.module.scss";
-import Img from "./Img";
+import styled from "@emotion/styled";
+import MarkDown from "@/components/MarkDown";
+import Comment from "@/components/Comment";
+import Heading from "@/components/Heading";
+import Text from "@/components/Text";
+import Img from "@/components/Img";
 
 interface PostProps {
   postData: {
@@ -18,23 +18,56 @@ interface PostProps {
 
 export default function Post({ postData, content }: PostProps) {
   return (
-    <section className={style["ui-post-layout"]}>
-      <div className={style["ui-post-layout__haeder-container"]}>
+    <PostLayout>
+      <PostHeader>
         <Heading as="h1">{postData.title}</Heading>
-      </div>
-      <div className={style["ui-post-layout__info-container"]}>
+      </PostHeader>
+      <InfoHeader>
         <Text as="span" theme="secondary">
           By Taehyeon
         </Text>
         <Text as="span" theme="secondary" size="s">
           {postData.date}
         </Text>
-      </div>
+      </InfoHeader>
       <Img src={postData.thumbnailImgPath} alt="cover" />
       <div>
         <MarkDown content={content} />
       </div>
       <Comment />
-    </section>
+    </PostLayout>
   );
 }
+
+const PostLayout = styled.section`
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 6rem;
+  animation: fadein 0.3s linear;
+
+  @media (max-width: 800px) {
+    padding: 4rem 1rem 0 1rem;
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`;
+
+const PostHeader = styled.div`
+  margin-bottom: 1rem;
+`;
+
+const InfoHeader = styled.div`
+  margin-bottom: 2rem;
+
+  & span:nth-of-type(2) {
+    margin-left: 1rem;
+  }
+`;
