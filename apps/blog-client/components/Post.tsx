@@ -47,7 +47,7 @@ const PostLayout = styled.section`
   animation: fadein 0.3s linear;
 
   @media (max-width: 800px) {
-    padding: 4rem 1rem 0 1rem;
+    padding: 5rem 1rem 0 1rem;
   }
 
   @keyframes fadein {
