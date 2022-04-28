@@ -10,7 +10,6 @@ export default function Tag({ children }: TagProps) {
 }
 
 const CustomTag = styled.div`
-  width: 100%;
   padding: 8rem 1rem 1rem 1rem;
   text-align: center;
   line-height: 2;

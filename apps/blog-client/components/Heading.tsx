@@ -25,6 +25,7 @@ export default function Heading({
 
 const CustomHeading = styled.h1<HeadingProps>`
   width: 100%;
+  font-family: "Noto Sans KR", sans-serif;
 
   ${({ as }) => variants[as as string]}
   ${({ theme }) => themes[theme]}
