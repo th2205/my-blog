@@ -5,20 +5,20 @@ import { Theme } from "../types";
 
 interface CodeProps {
   children: ReactNode;
-  theme?: Theme;
+  variant?: "primary";
 }
 
-export default function Code({ children, theme = "primary" }: CodeProps) {
-  return <CustomCode theme={theme}>{children}</CustomCode>;
+export default function Code({ children, variant = "primary" }: CodeProps) {
+  return <CustomCode variant={variant}>{children}</CustomCode>;
 }
 
 const CustomCode = styled.code<CodeProps>`
-  padding: 0 0.6rem 0.2rem 0.6rem;
+  padding: 0.2rem 0.6rem;
 
-  ${({ theme }) => themes[theme]}
+  ${({ variant }) => variants[variant]};
 `;
 
-const themes = {
+const variants = {
   primary: css`
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 6px;

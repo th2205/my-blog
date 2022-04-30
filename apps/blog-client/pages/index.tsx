@@ -7,6 +7,7 @@ import TagItem from "../components/TagItem";
 import Footer from "../components/Footer";
 import useSWR from "swr";
 import { getAllPosts } from "@/apis/post";
+import styled from "@emotion/styled";
 
 interface HomeProps {
   allPostsData: PostsData[];
@@ -29,7 +30,7 @@ export default function Home({
   console.log(data);
   console.log(1);
   return (
-    <>
+    <Main>
       <Header />
       <div>
         <Tag>
@@ -50,9 +51,13 @@ export default function Home({
         <Article allPostsData={posts} />
       </div>
       <Footer />
-    </>
+    </Main>
   );
 }
+
+const Main = styled.main`
+  background-color: ${({ theme }) => theme.colors.backgroundColor};
+`;
 
 export async function getStaticProps() {
   const allPostsData = mdParser.parse();

@@ -34,7 +34,9 @@ export default function Markdown({ content }: MarkdownProps) {
         h1: ({ children }) => (
           <>
             <Box mb="xl" mt="xxxl">
-              <Heading as="h1">{children}</Heading>
+              <Heading as="h1" weight="m">
+                {children}
+              </Heading>
             </Box>
           </>
         ),

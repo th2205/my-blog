@@ -1,8 +1,10 @@
 import GlobalStyle from "../components/GlobalStyle";
 import { ThemeProvider } from "@emotion/react";
-import theme from "../styles/theme";
+import { useTheme } from "@/hooks/useTheme";
 
 export default function App({ Component, pageProps }) {
+  const { theme } = useTheme();
+  console.log(theme);
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />

@@ -43,7 +43,7 @@ const HeaderLayout = styled.header`
   align-items: center;
   justify-content: center;
   box-shadow: 1px 1px 10px 2px #dee2e6;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.backgroundColor};
   z-index: 999;
   padding-left: 1rem;
 `;

@@ -55,10 +55,10 @@ const variants = {
 
 const weights = {
   s: css`
-    font-weight: 400;
+    font-weight: 300;
   `,
   m: css`
-    font-weight: 700;
+    font-weight: 500;
   `,
   l: css`
     font-weight: bold;
