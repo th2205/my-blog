@@ -5,6 +5,7 @@ import Markdown from "@/components/MarkDown";
 import Button from "@/components/Button";
 import { savePost } from "@/apis/post";
 import Input from "@/components/Input";
+import Header from "@/components/Header";
 
 const AUTHOR = "taehyeon";
 
@@ -26,43 +27,58 @@ export default function Write() {
     setIsLoading(false);
   };
 
+  // return (
+  //   <Main>
+  //     <SideBar />
+  //     <Section>
+  //       <Header>
+  //         <Input
+  //           value={post.title}
+  //           label="제목"
+  //           onChange={(e) => setPost({ ...post, title: e.target.value })}
+  //         />
+  //         <Input
+  //           value={post.title}
+  //           label="프리뷰"
+  //           onChange={(e) => setPost({ ...post, title: e.target.value })}
+  //         />
+  //         <ButtonGroup>
+  //           <Button
+  //             label="저장"
+  //             theme="tertiary"
+  //             size="s"
+  //             isLoading={isLoading}
+  //             onClick={onSubmit}
+  //           />
+  //           <Button label="임시 저장" theme="secondary" size="s" />
+  //         </ButtonGroup>
+  //       </Header>
+  //       <EditorView>
+  //         <Editor
+  //           value={post.content}
+  //           onChange={(e) => setPost({ ...post, content: e.target.value })}
+  //         ></Editor>
+  //         <Viewer>
+  //           <Markdown content={post.content} />
+  //         </Viewer>
+  //       </EditorView>
+  //     </Section>
+  //   </Main>
+  // );
+
   return (
-    <Main>
-      <SideBar />
-      <Section>
-        <Header>
-          <Input
-            value={post.title}
-            label="제목"
-            onChange={(e) => setPost({ ...post, title: e.target.value })}
-          />
-          <Input
-            value={post.title}
-            label="프리뷰"
-            onChange={(e) => setPost({ ...post, title: e.target.value })}
-          />
-          <ButtonGroup>
-            <Button
-              label="저장"
-              theme="tertiary"
-              size="s"
-              isLoading={isLoading}
-              onClick={onSubmit}
-            />
-            <Button label="임시 저장" theme="secondary" size="s" />
-          </ButtonGroup>
-        </Header>
-        <EditorView>
-          <Editor
-            value={post.content}
-            onChange={(e) => setPost({ ...post, content: e.target.value })}
-          ></Editor>
-          <Viewer>
-            <Markdown content={post.content} />
-          </Viewer>
-        </EditorView>
-      </Section>
-    </Main>
+    <div>
+      <Header />
+      <EditorView>
+        <Editor
+          value={post.content}
+          onChange={(e) => setPost({ ...post, content: e.target.value })}
+        ></Editor>
+        <Viewer>
+          <Markdown content={post.content} />
+        </Viewer>
+      </EditorView>
+    </div>
   );
 }
 
@@ -72,14 +88,14 @@ const Main = styled.main`
   display: flex;
 `;
 
-const Header = styled.header`
-  /* height: 4rem; */
-  /* display: flex; */
-  /* align-items: center; */
-  background-color: rgb(18, 18, 18);
-  border-bottom: 1px solid rgba(168, 179, 207, 0.2);
-  padding-left: 1rem;
-`;
+// const Header = styled.header`
+//   /* height: 4rem; */
+//   /* display: flex; */
+//   /* align-items: center; */
+//   background-color: rgb(18, 18, 18);
+//   border-bottom: 1px solid rgba(168, 179, 207, 0.2);
+//   padding-left: 1rem;
+// `;
 
 const Section = styled.section`
   /* display: flex; */
@@ -95,9 +111,9 @@ const EditorView = styled.div`
 
 const Editor = styled.textarea`
   flex: 1 1 50%;
-  background-color: rgb(18, 18, 18);
+  background-color: ${({ theme }) => theme.colors.backgroundColor};
   border: 0;
-  color: white;
+  color: ${({ theme }) => theme.colors.fontColor};
   outline: none;
   padding: 3rem 2rem;
 `;
@@ -105,7 +121,7 @@ const Editor = styled.textarea`
 const Viewer = styled.div`
   flex: 1 1 50%;
   padding: 0rem 2rem;
-  background-color: rgb(18, 18, 18);
+  background-color: ${({ theme }) => theme.colors.backgroundColor};
   border-left: 1px solid rgba(168, 179, 207, 0.2);
 `;
 

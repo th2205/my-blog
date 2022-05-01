@@ -5,7 +5,7 @@ const WHITE = {
     primary: "#3182f6",
     secondary: "",
     backgroundColor: "#ffffff",
-    fontColor: "",
+    fontColor: "#191f28",
     gray: "rgb(78, 89, 104);",
     white: "#ffffff",
   },

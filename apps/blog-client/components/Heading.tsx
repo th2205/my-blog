@@ -4,8 +4,8 @@ import { css } from "@emotion/react";
 import { Theme, Size } from "@/types";
 
 interface HeadingProps {
-  theme?: Theme;
-  as: string | ElementType<any>;
+  variant?: Theme;
+  as: ElementType<any>;
   children: ReactNode;
   weight?: Size;
 }
@@ -13,11 +13,11 @@ interface HeadingProps {
 export default function Heading({
   as,
   children,
-  theme = "primary",
+  variant = "primary",
   weight,
 }: HeadingProps) {
   return (
-    <CustomHeading as={as as ElementType} weight={weight} theme={theme}>
+    <CustomHeading as={as} weight={weight} variant={variant}>
       {children}
     </CustomHeading>
   );
@@ -27,12 +27,12 @@ const CustomHeading = styled.h1<HeadingProps>`
   width: 100%;
   font-family: "Noto Sans KR", sans-serif;
 
-  ${({ as }) => variants[as as string]}
-  ${({ theme }) => themes[theme]}
+  ${({ as }) => tags[as as string]}
+  ${({ variant }) => variants[variant]}
   ${({ weight }) => weights[weight]}
 `;
 
-const themes = {
+const variants = {
   primary: css`
     color: #333;
   `,
@@ -41,7 +41,7 @@ const themes = {
   `,
 };
 
-const variants = {
+const tags = {
   h1: css`
     font-size: 2.3rem;
   `,

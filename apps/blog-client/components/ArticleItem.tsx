@@ -1,6 +1,8 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { PostsData } from "../lib/MDparser";
+import Heading from "@/components/Heading";
+import Text from "@/components/Text";
 
 interface ArticleProps {
   article: PostsData;
@@ -18,8 +20,10 @@ export default function ArticleItem({ article }: ArticleProps) {
           alt="cover"
         />
         <TitleContainer>
-          <h1>{article.title}</h1>
-          <p>{article.thumbnail || ""}</p>
+          <Heading as="h3">{article.title}</Heading>
+          <Text as="p" size="s">
+            {article.thumbnail || ""}
+          </Text>
         </TitleContainer>
         <FooterContainer>
           <p className="time">{article.date}</p>
@@ -58,13 +62,8 @@ const TitleContainer = styled.div`
   height: 5rem;
   padding: 0.7rem;
 
-  h1 {
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    font-size: 0.7rem;
+  & h3 {
+    margin-bottom: 1rem;
   }
 `;
 

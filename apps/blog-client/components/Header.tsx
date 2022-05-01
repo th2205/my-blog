@@ -2,14 +2,27 @@ import Head from "next/head";
 import styled from "@emotion/styled";
 import Heading from "@/components/Heading";
 import Link from "./Link";
+import { useRouter } from "next/router";
 
 interface HeaderProps {
   id?: string;
   description?: string;
 }
 
+const NAV_ITEMS = [
+  { name: "Posts", path: "/" },
+  { name: "About", path: "/about" },
+];
+
+const ADMIN_ITEMS = [
+  { name: "글쓰기", path: "/admin/write" },
+  { name: "내정보", path: "/admin/about" },
+];
+
 export default function Header({ id, description }: HeaderProps) {
   const title = "TaeHyeon";
+  const router = useRouter();
+  const isAdmin = router.pathname.includes("admin");
 
   return (
     <>
@@ -26,8 +39,13 @@ export default function Header({ id, description }: HeaderProps) {
             </Heading>
           </Link>
           <Navigation>
-            <NavItem>Posts</NavItem>
-            <NavItem>About</NavItem>
+            {isAdmin
+              ? ADMIN_ITEMS.map((item, index) => (
+                  <NavItem key={index}>{item.name}</NavItem>
+                ))
+              : NAV_ITEMS.map((item, index) => (
+                  <NavItem key={index}>{item.name}</NavItem>
+                ))}
           </Navigation>
         </Container>
       </HeaderLayout>

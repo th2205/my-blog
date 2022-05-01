@@ -18,7 +18,11 @@ export default function Text({
   underline = false,
   size = "m",
 }: TextProps) {
-  return <CustomText as={as as any}>{children}</CustomText>;
+  return (
+    <CustomText as={as as any} size={size}>
+      {children}
+    </CustomText>
+  );
 }
 
 const CustomText = styled.p<TextProps>`
