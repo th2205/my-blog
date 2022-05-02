@@ -67,9 +67,8 @@ export default function Write() {
   // );
 
   return (
-    <div>
-      <Header />
-      <EditorView>
+    <>
+      <EditorContainer>
         <Editor
           value={post.content}
           onChange={(e) => setPost({ ...post, content: e.target.value })}
@@ -77,8 +76,12 @@ export default function Write() {
         <Viewer>
           <Markdown content={post.content} />
         </Viewer>
-      </EditorView>
-    </div>
+      </EditorContainer>
+      <ButtonGroup>
+        <Button label="저장" size="s" />
+        <Button label="임시저장" size="s" />
+      </ButtonGroup>
+    </>
   );
 }
 
@@ -103,19 +106,20 @@ const Section = styled.section`
   height: calc(100vh - 4rem);
 `;
 
-const EditorView = styled.div`
+const EditorContainer = styled.div`
   width: 100%;
-  height: calc(100vh - 4rem);
+  height: 100vh;
   display: flex;
 `;
 
 const Editor = styled.textarea`
+  width: 100%;
   flex: 1 1 50%;
   background-color: ${({ theme }) => theme.colors.backgroundColor};
   border: 0;
   color: ${({ theme }) => theme.colors.fontColor};
   outline: none;
-  padding: 3rem 2rem;
+  padding: 0.5rem 2rem;
 `;
 
 const Viewer = styled.div`
@@ -126,5 +130,11 @@ const Viewer = styled.div`
 `;
 
 const ButtonGroup = styled.div`
-  margin-top: 1rem;
+  display: flex;
+  position: fixed;
+  bottom: 1rem;
+
+  & > button {
+    margin-left: 0.5rem;
+  }
 `;

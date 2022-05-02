@@ -37,6 +37,7 @@ export default function Button({
 }
 
 const CustomButton = styled.button<ButtonProps>`
+  display: block;
   border: 0;
   height: 2.5rem;
   border-radius: 8px;
@@ -49,13 +50,8 @@ const CustomButton = styled.button<ButtonProps>`
 
 const themes = {
   primary: css`
-    background-image: linear-gradient(
-      to right,
-      rgb(119, 161, 211) 0%,
-      rgb(121, 203, 202) 51%,
-      rgb(119, 161, 211) 100%
-    );
-    color: ${colors.white};
+    background-color: blue;
+    color: white;
   `,
   secondary: css`
     background-color: rgb(207, 214, 230);
@@ -64,7 +60,7 @@ const themes = {
   `,
   tertiary: css`
     background-color: rgb(28, 31, 38);
-    color: ${colors.white};
+    color: white;
     border: 1px solid #333;
   `,
 };
