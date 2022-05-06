@@ -1,7 +1,6 @@
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
+/** @jsxImportSource @emotion/react */
+import { css, useTheme, Theme as EmotionTheme } from "@emotion/react";
 import Loader from "@/components/Loader";
-import colors from "@/styles/colors";
 import { Theme } from "@/types/index";
 
 interface ButtonProps {
@@ -21,49 +20,48 @@ export default function Button({
   type = "button",
   onClick,
 }: ButtonProps) {
+  const emotionTheme = useTheme();
+
   return (
-    <CustomButton
-      label={label}
-      theme={theme}
-      size={size}
-      isLoading={isLoading}
+    <button
+      css={[
+        base,
+        themes(emotionTheme)[theme],
+        sizes[size],
+        isLoading && loading(emotionTheme),
+      ]}
       type={type}
       onClick={onClick}
     >
-      {isLoading && <Loader size={70} />}
-      {!isLoading && label}
-    </CustomButton>
+      {label}
+    </button>
   );
 }
 
-const CustomButton = styled.button<ButtonProps>`
+const base = css`
   display: block;
   border: 0;
   height: 2.5rem;
   border-radius: 8px;
   cursor: pointer;
-
-  ${({ theme }) => themes[theme]}
-  ${({ size }) => sizes[size]}
-  ${({ isLoading }) => isLoading && stats.loading}
 `;
 
-const themes = {
+const themes = (emotionTheme: EmotionTheme) => ({
   primary: css`
-    background-color: blue;
-    color: white;
+    background-color: ${emotionTheme.colors.primary};
+    color: ${emotionTheme.colors.white};
   `,
   secondary: css`
-    background-color: rgb(207, 214, 230);
-    color: #333;
+    background-color: ${emotionTheme.colors.secondary};
+    color: ${emotionTheme.colors.fontColor};
     border: 1px solid #333;
   `,
   tertiary: css`
     background-color: rgb(28, 31, 38);
-    color: white;
+    color: ${emotionTheme.colors.white};
     border: 1px solid #333;
   `,
-};
+});
 
 const sizes = {
   auto: css`
@@ -74,16 +72,14 @@ const sizes = {
   `,
 };
 
-const stats = {
-  loading: css`
-    background-image: none;
-    background-color: gray;
-    opacity: 0.6;
-    color: ${colors.white};
-    transition: all, 0.2s;
-    cursor: wait;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `,
-};
+const loading = (emotionTheme: EmotionTheme) => css`
+  background-image: none;
+  background-color: ${emotionTheme.colors.gray};
+  opacity: 0.6;
+  color: ${emotionTheme.colors.white};
+  transition: all, 0.2s;
+  cursor: wait;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

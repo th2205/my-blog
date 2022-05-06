@@ -1,11 +1,15 @@
+/** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
-import SideBar from "@/components/SideBar";
 import { useState } from "react";
 import Markdown from "@/components/MarkDown";
 import Button from "@/components/Button";
 import { savePost } from "@/apis/post";
 import Input from "@/components/Input";
 import Header from "@/components/Header";
+import Exit from "@/components/icons/Exit";
+import IconButton from "@/components/IconButton";
+import { css } from "@emotion/react";
+import { useRouter } from "next/router";
 
 const AUTHOR = "taehyeon";
 
@@ -18,6 +22,7 @@ export default function Write() {
     contentPreview: "",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const onSubmit = async () => {
     setIsLoading(true);
@@ -67,7 +72,41 @@ export default function Write() {
   // );
 
   return (
-    <>
+    <Main>
+      <div
+        css={css`
+          width: 2.2rem;
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: 99;
+        `}
+      >
+        <IconButton onClick={() => router.push("/admin")}>
+          <Exit />
+        </IconButton>
+      </div>
+      <section
+        css={css`
+          width: 40%;
+          padding: 1rem;
+
+          & div:first-of-type {
+            margin-bottom: 1rem;
+          }
+        `}
+      >
+        <Input
+          value={post.title}
+          placeholder="제목"
+          onChange={(e) => setPost({ ...post, title: e.target.value })}
+        />
+        <Input
+          value={post.contentPreview}
+          placeholder="설명"
+          onChange={(e) => setPost({ ...post, contentPreview: e.target.value })}
+        />
+      </section>
       <EditorContainer>
         <Editor
           value={post.content}
@@ -81,14 +120,13 @@ export default function Write() {
         <Button label="저장" size="s" />
         <Button label="임시저장" size="s" />
       </ButtonGroup>
-    </>
+    </Main>
   );
 }
 
 const Main = styled.main`
   width: 100%;
   height: 100vh;
-  display: flex;
 `;
 
 // const Header = styled.header`
@@ -108,8 +146,9 @@ const Section = styled.section`
 
 const EditorContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
+  border-top: 1px solid rgba(168, 179, 207, 0.2);
 `;
 
 const Editor = styled.textarea`
