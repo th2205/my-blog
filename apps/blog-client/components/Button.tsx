@@ -65,7 +65,8 @@ const themes = (emotionTheme: EmotionTheme) => ({
 
 const sizes = {
   auto: css`
-    width: 100%;
+    width: auto;
+    padding: 0 1rem;
   `,
   s: css`
     width: 5rem;

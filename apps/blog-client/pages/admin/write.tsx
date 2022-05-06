@@ -1,15 +1,15 @@
 /** @jsxImportSource @emotion/react */
-import styled from "@emotion/styled";
 import { useState } from "react";
+import { useRouter } from "next/router";
+import { css, Theme, useTheme } from "@emotion/react";
 import Markdown from "@/components/MarkDown";
 import Button from "@/components/Button";
-import { savePost } from "@/apis/post";
 import Input from "@/components/Input";
-import Header from "@/components/Header";
 import Exit from "@/components/icons/Exit";
 import IconButton from "@/components/IconButton";
-import { css } from "@emotion/react";
-import { useRouter } from "next/router";
+import ImgUploadButton from "@/components/ImgUploadButton";
+import { useFile } from "@/hooks/useFile";
+import { savePost } from "@/apis/post";
 
 const AUTHOR = "taehyeon";
 
@@ -23,79 +23,29 @@ export default function Write() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const emotionTheme = useTheme();
+  const { previewUrl, onFileSelect } = useFile();
 
   const onSubmit = async () => {
-    setIsLoading(true);
-    const createdAt = new Date();
-
-    await savePost({ ...post, createdAt });
-    setIsLoading(false);
+    // setIsLoading(true);
+    // const createdAt = new Date();
+    // await savePost({ ...post, createdAt });
+    // setIsLoading(false);
+    alert("저장!");
   };
 
-  // return (
-  //   <Main>
-  //     <SideBar />
-  //     <Section>
-  //       <Header>
-  //         <Input
-  //           value={post.title}
-  //           label="제목"
-  //           onChange={(e) => setPost({ ...post, title: e.target.value })}
-  //         />
-  //         <Input
-  //           value={post.title}
-  //           label="프리뷰"
-  //           onChange={(e) => setPost({ ...post, title: e.target.value })}
-  //         />
-  //         <ButtonGroup>
-  //           <Button
-  //             label="저장"
-  //             theme="tertiary"
-  //             size="s"
-  //             isLoading={isLoading}
-  //             onClick={onSubmit}
-  //           />
-  //           <Button label="임시 저장" theme="secondary" size="s" />
-  //         </ButtonGroup>
-  //       </Header>
-  //       <EditorView>
-  //         <Editor
-  //           value={post.content}
-  //           onChange={(e) => setPost({ ...post, content: e.target.value })}
-  //         ></Editor>
-  //         <Viewer>
-  //           <Markdown content={post.content} />
-  //         </Viewer>
-  //       </EditorView>
-  //     </Section>
-  //   </Main>
-  // );
+  const onTemporarySaveButtonClick = () => {
+    alert("임시저장!");
+  };
 
   return (
-    <Main>
-      <div
-        css={css`
-          width: 2.2rem;
-          position: absolute;
-          top: 0;
-          right: 0;
-          z-index: 99;
-        `}
-      >
+    <main css={MainContainer}>
+      <div css={iconContainer}>
         <IconButton onClick={() => router.push("/admin")}>
           <Exit />
         </IconButton>
       </div>
-      <section
-        css={css`
-          width: 40%;
-          padding: 1rem;
-
-          & div:first-of-type {
-            margin-bottom: 1rem;
-          }
-        `}
-      >
+      <section css={inputContainer}>
         <Input
           value={post.title}
           placeholder="제목"
@@ -106,74 +56,90 @@ export default function Write() {
           placeholder="설명"
           onChange={(e) => setPost({ ...post, contentPreview: e.target.value })}
         />
+        <ImgUploadButton
+          label="커버 이미지"
+          previewUrl={previewUrl}
+          onChange={onFileSelect}
+        />
+        <div css={buttonGroup}>
+          <Button label="저장" size="s" onClick={onSubmit} />
+          <Button
+            label="임시저장"
+            size="s"
+            onClick={onTemporarySaveButtonClick}
+          />
+        </div>
       </section>
-      <EditorContainer>
-        <Editor
+      <div css={editorContainer}>
+        <textarea
+          css={editor(emotionTheme)}
           value={post.content}
           onChange={(e) => setPost({ ...post, content: e.target.value })}
-        ></Editor>
-        <Viewer>
+        ></textarea>
+        <div css={viewer}>
           <Markdown content={post.content} />
-        </Viewer>
-      </EditorContainer>
-      <ButtonGroup>
-        <Button label="저장" size="s" />
-        <Button label="임시저장" size="s" />
-      </ButtonGroup>
-    </Main>
+        </div>
+      </div>
+    </main>
   );
 }
 
-const Main = styled.main`
+const MainContainer = css`
   width: 100%;
   height: 100vh;
 `;
 
-// const Header = styled.header`
-//   /* height: 4rem; */
-//   /* display: flex; */
-//   /* align-items: center; */
-//   background-color: rgb(18, 18, 18);
-//   border-bottom: 1px solid rgba(168, 179, 207, 0.2);
-//   padding-left: 1rem;
-// `;
-
-const Section = styled.section`
-  /* display: flex; */
-  width: 100%;
-  height: calc(100vh - 4rem);
+const iconContainer = css`
+  width: 2.2rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 99;
 `;
 
-const EditorContainer = styled.div`
+const inputContainer = css`
+  width: 100%;
+  height: auto;
+  max-width: 30rem;
+  padding: 1rem;
+
+  & div {
+    margin-bottom: 1rem;
+  }
+`;
+
+const editorContainer = css`
   width: 100%;
   height: 100%;
   display: flex;
   border-top: 1px solid rgba(168, 179, 207, 0.2);
 `;
 
-const Editor = styled.textarea`
+const editor = (emotionTheme: Theme) => css`
   width: 100%;
   flex: 1 1 50%;
-  background-color: ${({ theme }) => theme.colors.backgroundColor};
+  background-color: ${emotionTheme.colors.backgroundColor};
   border: 0;
-  color: ${({ theme }) => theme.colors.fontColor};
+  color: ${emotionTheme.colors.fontColor};
   outline: none;
   padding: 0.5rem 2rem;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1rem;
 `;
 
-const Viewer = styled.div`
+const viewer = (emotionTheme: Theme) => css`
   flex: 1 1 50%;
   padding: 0rem 2rem;
-  background-color: ${({ theme }) => theme.colors.backgroundColor};
+  background-color: ${emotionTheme.colors.backgroundColor};
   border-left: 1px solid rgba(168, 179, 207, 0.2);
+  overflow-y: auto;
 `;
 
-const ButtonGroup = styled.div`
+const buttonGroup = css`
+  margin-top: 1rem;
   display: flex;
-  position: fixed;
-  bottom: 1rem;
 
-  & > button {
+  & button:last-of-type {
     margin-left: 0.5rem;
   }
 `;

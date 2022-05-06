@@ -6,7 +6,7 @@ const WHITE = {
     secondary: "rgb(207, 214, 230)",
     backgroundColor: "#ffffff",
     fontColor: "#333",
-    gray: "rgb(78, 89, 104);",
+    gray: "rgb(78, 89, 104)",
     white: "#ffffff",
   },
 };
@@ -16,7 +16,7 @@ const DARK = {
   secondary: "",
   backgroundColor: "",
   fontColor: "",
-  gray: "rgb(78, 89, 104);",
+  gray: "rgb(78, 89, 104)",
 };
 
 export function useTheme() {
