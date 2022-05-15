@@ -14,8 +14,7 @@ export class ImgController {
     @Post('/upload')
     @UseInterceptors(FileInterceptor('file'))
     async save(@UploadedFile() file: Express.Multer.File) {
-        console.log('file:', file);
-
-        return { result: 100 };
+        const data = await this.imgService.save({ file });
+        console.log('s3 data', data);
     }
 }

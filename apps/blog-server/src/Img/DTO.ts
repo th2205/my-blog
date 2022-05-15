@@ -1,3 +1,3 @@
 export interface ImgDTO {
-    url: string;
+    file: Express.Multer.File;
 }
