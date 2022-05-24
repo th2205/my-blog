@@ -14,7 +14,7 @@ export default function ImgUploadButton({
   onChange,
 }: ImgUploadButtonProps) {
   const emotionTheme = useTheme();
-  console.log(previewUrl);
+
   return (
     <>
       <label htmlFor="file-input" css={labelStyle(emotionTheme)}>

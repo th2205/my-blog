@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { S3 } from 'aws-sdk';
 import { v4 as uuidv4 } from 'uuid';
-import { Img } from './Img.entity';
+import { Img } from '../Entity/Img.entity';
 import { ImgDTO } from './DTO';
 
 @Injectable()

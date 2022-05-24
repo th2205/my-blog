@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import { css, Theme, useTheme } from "@emotion/react";
 import Markdown from "@/components/MarkDown";
@@ -10,6 +10,8 @@ import IconButton from "@/components/IconButton";
 import ImgUploadButton from "@/components/ImgUploadButton";
 import { useFile } from "@/hooks/useFile";
 import { savePost } from "@/apis/post";
+import useDragAndDrop from "@/hooks/useDragAndDrop";
+import useRefCallback from "@/hooks/useRefCallback";
 
 const AUTHOR = "taehyeon";
 
@@ -22,9 +24,30 @@ export default function Write() {
     contentPreview: "",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [visibleDragArea, setVisibleDragArea] = useState(false);
   const router = useRouter();
   const emotionTheme = useTheme();
   const { previewUrl, onFileSelect } = useFile();
+  const [dragTarget, dragTargetRef] = useRefCallback();
+  const [dragOverlayTarget, dragOverlayRef] = useRefCallback();
+
+  useDragAndDrop({
+    targetEl: dragTarget,
+    onDragEnter: (e: DragEvent) => {
+      if (e.target !== dragOverlayTarget) {
+        setVisibleDragArea(true);
+      }
+    },
+    onDragLeave: (e: DragEvent) => {
+      console.log(e.target);
+      console.log(dragOverlayTarget);
+      if (e.target === dragOverlayTarget) {
+        setVisibleDragArea(false);
+      }
+    },
+    onDrop: () => console.log("drop!"),
+    onSuccess: () => console.log("success"),
+  });
 
   const onSubmit = async () => {
     // setIsLoading(true);
@@ -73,9 +96,21 @@ export default function Write() {
       <div css={editorContainer}>
         <textarea
           css={editor(emotionTheme)}
+          ref={dragTargetRef}
           value={post.content}
           onChange={(e) => setPost({ ...post, content: e.target.value })}
         ></textarea>
+        {visibleDragArea && (
+          <div
+            css={css`
+              width: calc(100% / 2);
+              height: 100%;
+              background-color: red;
+              position: absolute;
+            `}
+            ref={dragOverlayRef}
+          ></div>
+        )}
         <div css={viewer}>
           <Markdown content={post.content} />
         </div>
@@ -125,6 +160,7 @@ const editor = (emotionTheme: Theme) => css`
   padding: 0.5rem 2rem;
   font-family: "Noto Sans KR", sans-serif;
   font-size: 1rem;
+  position: relative;
 `;
 
 const viewer = (emotionTheme: Theme) => css`

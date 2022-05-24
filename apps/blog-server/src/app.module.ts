@@ -4,9 +4,9 @@ import { ConfigModule } from '@nestjs/config';
 import { PostModule } from './Post/Post.module';
 import { UserModule } from './User/User.module';
 import { ImgModule } from './Img/Img.module';
-import { Post } from './Post/Post.entity';
-import { User } from './User/User.entity';
-import { Img } from './Img/Img.entity';
+import { Post } from './Entity/Post.entity';
+import { User } from './Entity/User.entity';
+import { Img } from './Entity/Img.entity';
 
 @Module({
     imports: [
