@@ -5,6 +5,6 @@ export class Img {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ type: 'timestamp' })
-    url: Date;
+    @Column()
+    url: string;
 }

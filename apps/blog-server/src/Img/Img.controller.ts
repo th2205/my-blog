@@ -14,7 +14,10 @@ export class ImgController {
     @Post('/upload')
     @UseInterceptors(FileInterceptor('file'))
     async save(@UploadedFile() file: Express.Multer.File) {
-        const data = await this.imgService.save({ file });
-        console.log('s3 data', data);
+        console.log('controller', file);
+        if (!file) throw new Error('파일없음');
+        const url = await this.imgService.save({ file });
+        console.log('s3 data', url);
+        return {url};
     }
 }

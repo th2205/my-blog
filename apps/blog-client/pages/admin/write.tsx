@@ -10,8 +10,9 @@ import IconButton from "@/components/IconButton";
 import ImgUploadButton from "@/components/ImgUploadButton";
 import { useFile } from "@/hooks/useFile";
 import { savePost } from "@/apis/post";
-import useDragAndDrop from "@/hooks/useDragAndDrop";
-import useRefCallback from "@/hooks/useRefCallback";
+import { useDropzone } from "react-dropzone";
+import { toast } from "react-toastify";
+import { saveImg } from "@/apis/img";
 
 const AUTHOR = "taehyeon";
 
@@ -24,30 +25,31 @@ export default function Write() {
     contentPreview: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [visibleDragArea, setVisibleDragArea] = useState(false);
   const router = useRouter();
   const emotionTheme = useTheme();
   const { previewUrl, onFileSelect } = useFile();
-  const [dragTarget, dragTargetRef] = useRefCallback();
-  const [dragOverlayTarget, dragOverlayRef] = useRefCallback();
+  const resolveAfter3Sec = new Promise((resolve) => setTimeout(resolve, 3000));
 
-  useDragAndDrop({
-    targetEl: dragTarget,
-    onDragEnter: (e: DragEvent) => {
-      if (e.target !== dragOverlayTarget) {
-        setVisibleDragArea(true);
-      }
-    },
-    onDragLeave: (e: DragEvent) => {
-      console.log(e.target);
-      console.log(dragOverlayTarget);
-      if (e.target === dragOverlayTarget) {
-        setVisibleDragArea(false);
-      }
-    },
-    onDrop: () => console.log("drop!"),
-    onSuccess: () => console.log("success"),
-  });
+  const { getRootProps, isDragAccept, isDragActive, isDragReject } =
+    useDropzone({
+      noClick: true,
+      onDrop: async (file) => {
+        console.log(file);
+        const id = toast.loading("Please wait...");
+        const { url } = await saveImg(file[0] as unknown as File);
+        console.log(url);
+        const markdownImgString = `![img](${url})`;
+        console.log(markdownImgString);
+        setPost({ ...post, content: post.content + markdownImgString });
+
+        toast.update(id, {
+          render: "이미지 업로드 완료!",
+          type: "success",
+          isLoading: false,
+          autoClose: 5000,
+        });
+      },
+    });
 
   const onSubmit = async () => {
     // setIsLoading(true);
@@ -96,11 +98,13 @@ export default function Write() {
       <div css={editorContainer}>
         <textarea
           css={editor(emotionTheme)}
-          ref={dragTargetRef}
+          // ref={drop}
           value={post.content}
+          {...getRootProps()}
           onChange={(e) => setPost({ ...post, content: e.target.value })}
         ></textarea>
-        {visibleDragArea && (
+        {/* 추후 드래그 영역일때 컴포넌트 보주도록 수정 */}
+        {/* {isDragAccept && (
           <div
             css={css`
               width: calc(100% / 2);
@@ -108,9 +112,8 @@ export default function Write() {
               background-color: red;
               position: absolute;
             `}
-            ref={dragOverlayRef}
           ></div>
-        )}
+        )} */}
         <div css={viewer}>
           <Markdown content={post.content} />
         </div>

@@ -13,6 +13,7 @@ export class ImgService {
     ) {}
 
     async save({ file }: ImgDTO) {
+        console.log(file);
         const s3 = new S3({
             accessKeyId: process.env.AWS_ACCESS_KEY_ID,
             secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
@@ -24,12 +25,13 @@ export class ImgService {
             // ACL: 'public-read',
         };
 
-        s3.upload(params, (err, data) => {
-            console.log('error', err);
-            console.log('data', data);
-            if (err) return err.message;
-            return data;
-        });
+        const s3Data = await s3.upload(params).promise();
+        const url = s3Data.Location;
+        console.log('===== = ==');
+        console.log(s3Data);
+        this.imgRepository.save({ url });
+
+        return url;
     }
 
     async delete(id: number) {
