@@ -3,15 +3,24 @@ import { PostsData } from "@/lib/MDparser";
 import ArticleItem from "@/components/ArticleItem";
 
 interface ArticleProps {
-  allPostsData: PostsData[];
+  allPostsData: {
+    id: number;
+    title: string;
+    createdAt: Date;
+    content: string;
+    author: string;
+    contentPreview: string;
+    coverImgUrl: string;
+  }[];
 }
 
 export default function Article({ allPostsData }: ArticleProps) {
   return (
     <Container>
-      {allPostsData.map((post, index: number) => (
-        <ArticleItem key={index} article={post} />
-      ))}
+      {allPostsData &&
+        allPostsData.map((post, index: number) => (
+          <ArticleItem key={index} article={post} />
+        ))}
     </Container>
   );
 }

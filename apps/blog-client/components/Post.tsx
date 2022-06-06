@@ -6,31 +6,37 @@ import Text from "@/components/Text";
 import Img from "@/components/Img";
 
 interface PostProps {
-  postData: {
-    title: string;
-    date: string;
-    id: string;
-    thumbnailImgPath: string;
-    tags: string[];
-  };
+  id: number;
+  createdAt: Date;
+  author: string;
+  title: string;
+  contentPreview: string;
   content: string;
+  coverImgUrl: string;
 }
 
-export default function Post({ postData, content }: PostProps) {
+export default function Post({
+  createdAt,
+  author,
+  title,
+  coverImgUrl,
+  content,
+  contentPreview,
+}: PostProps) {
   return (
     <PostLayout>
       <PostHeader>
-        <Heading as="h1">{postData.title}</Heading>
+        <Heading as="h1">{title}</Heading>
       </PostHeader>
       <InfoHeader>
         <Text as="span" theme="secondary">
           By Taehyeon
         </Text>
         <Text as="span" theme="secondary" size="s">
-          {postData.date}
+          {createdAt}
         </Text>
       </InfoHeader>
-      <Img src={postData.thumbnailImgPath} alt="cover" />
+      <Img src={coverImgUrl} alt="cover" />
       <div>
         <MarkDown content={content} />
       </div>

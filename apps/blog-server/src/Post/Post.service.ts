@@ -35,4 +35,8 @@ export class PostService {
     async update(post: PostDTO) {
         await this.update(post);
     }
+
+    async findOne(id: number) {
+        return await this.postRepository.findOneBy({ id });
+    }
 }

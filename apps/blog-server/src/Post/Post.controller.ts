@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { PostService } from './Post.service';
 import { Post as PostDTO } from './DTO';
 
@@ -9,6 +9,11 @@ export class PostController {
     @Get('/')
     async findAll() {
         return await this.postService.findAll();
+    }
+
+    @Get('/:id')
+    async findOne(@Param('id') id: number) {
+        return await this.postService.findOne(id);
     }
 
     @Post('/save')

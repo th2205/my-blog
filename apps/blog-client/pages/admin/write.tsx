@@ -30,33 +30,34 @@ export default function Write() {
   const { previewUrl, onFileSelect } = useFile();
   const resolveAfter3Sec = new Promise((resolve) => setTimeout(resolve, 3000));
 
-  const { getRootProps, isDragAccept, isDragActive, isDragReject } =
-    useDropzone({
-      noClick: true,
-      onDrop: async (file) => {
-        console.log(file);
-        const id = toast.loading("Please wait...");
-        const { url } = await saveImg(file[0] as unknown as File);
-        console.log(url);
-        const markdownImgString = `![img](${url})`;
-        console.log(markdownImgString);
-        setPost({ ...post, content: post.content + markdownImgString });
+  const onDrop = async (file: any) => {
+    const id = toast.loading("Please wait...");
+    const { url } = await saveImg(file[0] as File);
 
-        toast.update(id, {
-          render: "이미지 업로드 완료!",
-          type: "success",
-          isLoading: false,
-          autoClose: 5000,
-        });
-      },
+    const markdownImgString = `![img](${url})`;
+
+    setPost({ ...post, content: post.content + markdownImgString });
+    toast.update(id, {
+      render: "이미지 업로드 완료!",
+      type: "success",
+      isLoading: false,
+      autoClose: 5000,
     });
+  };
+
+  const { getRootProps } = useDropzone({
+    noClick: true,
+    noKeyboard: true,
+    onDrop,
+  });
 
   const onSubmit = async () => {
-    // setIsLoading(true);
-    // const createdAt = new Date();
-    // await savePost({ ...post, createdAt });
-    // setIsLoading(false);
-    alert("저장!");
+    setIsLoading(true);
+
+    const createdAt = new Date();
+
+    await savePost({ ...post, createdAt });
+    setIsLoading(false);
   };
 
   const onTemporarySaveButtonClick = () => {
@@ -87,7 +88,12 @@ export default function Write() {
           onChange={onFileSelect}
         />
         <div css={buttonGroup}>
-          <Button label="저장" size="s" onClick={onSubmit} />
+          <Button
+            label="저장"
+            size="s"
+            onClick={onSubmit}
+            isLoading={isLoading}
+          />
           <Button
             label="임시저장"
             size="s"

@@ -28,12 +28,11 @@ export default function Home({
     : allPostsData.filter((post) => post.tags.includes(currentHash));
   const { data } = useSWR("post", getAllPosts);
   console.log(data);
-  console.log(1);
   return (
     <Main>
       <Header />
       <div>
-        <Tag>
+        {/* <Tag>
           <TagItem count={allPostCount} isMatched={!currentHash} />
           {Object.entries(allTags).map((tag, index) => {
             const [tagName, count] = tag;
@@ -47,8 +46,8 @@ export default function Home({
               />
             );
           })}
-        </Tag>
-        <Article allPostsData={posts} />
+        </Tag> */}
+        {data && <Article allPostsData={data} />}
       </div>
       <Footer />
     </Main>

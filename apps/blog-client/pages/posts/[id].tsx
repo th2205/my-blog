@@ -1,38 +1,24 @@
+import { getPostById } from "@/apis/post";
+import { useRouter } from "next/router";
+import useSWR from "swr";
 import Header from "../../components/Header";
 import Post from "../../components/Post";
-import mdParser, { PostsData } from "../../lib/MDparser";
 
-interface PostProps {
-  postData: PostsData;
-  content: string;
-}
+export default function PostIndex() {
+  const { query } = useRouter();
+  const params = query;
+  const id = Number(params.id);
+  console.log(query);
+  console.log(id);
+  const { data } = useSWR("post", () => getPostById(id));
+  console.log("post", data);
 
-export default function PostIndex({ postData, content }: PostProps) {
+  if (!data) return <div>loading...</div>;
+
   return (
     <>
-      <Header id={postData.id} description={postData.thumbnail} />
-      <Post postData={postData} content={content} />
+      <Header id={id} description={data.contentPreview} />
+      <Post {...data} />
     </>
   );
-}
-
-export async function getStaticPaths() {
-  const paths = mdParser.getAllPostIds();
-
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }) {
-  const postData = mdParser.getPostDataByid(params.id);
-  const content = await mdParser.parsePostContentById(params.id);
-
-  return {
-    props: {
-      postData,
-      content,
-    },
-  };
 }

@@ -5,16 +5,27 @@ import Heading from "@/components/Heading";
 import Text from "@/components/Text";
 
 interface ArticleProps {
-  article: PostsData;
+  article: {
+    id: number;
+    title: string;
+    createdAt: Date;
+    content: string;
+    author: string;
+    contentPreview: string;
+    coverImgUrl: string;
+  };
 }
 
 export default function ArticleItem({ article }: ArticleProps) {
+  const { id, title, createdAt, content, author, contentPreview, coverImgUrl } =
+    article;
+
   return (
-    <Link href={`/posts/${article.id}`}>
+    <Link href={`/posts/${id}`}>
       <Container>
         <Img
           src={
-            article.thumbnailImgPath ||
+            coverImgUrl ||
             "https://blog.kakaocdn.net/dn/csZiIk/btq1e7xYFyI/2r4kTj52qVrtu6VyIwnKDk/img.png"
           }
           alt="cover"
@@ -22,15 +33,15 @@ export default function ArticleItem({ article }: ArticleProps) {
         <TitleContainer>
           <Heading as="h3">{article.title}</Heading>
           <Text as="p" size="s">
-            {article.thumbnail || ""}
+            {contentPreview || ""}
           </Text>
         </TitleContainer>
         <FooterContainer>
-          <p className="time">{article.date}</p>
-          <TagContainer>
+          <p className="time">{createdAt}</p>
+          {/* <TagContainer>
             {article.tags &&
               article.tags.map((tag, index) => <p key={index}>{tag}</p>)}
-          </TagContainer>
+          </TagContainer> */}
         </FooterContainer>
       </Container>
     </Link>

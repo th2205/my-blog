@@ -5,7 +5,7 @@ import Link from "./Link";
 import { useRouter } from "next/router";
 
 interface HeaderProps {
-  id?: string;
+  id?: number;
   description?: string;
 }
 
