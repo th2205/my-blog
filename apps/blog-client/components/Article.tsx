@@ -15,6 +15,7 @@ interface ArticleProps {
 }
 
 export default function Article({ allPostsData }: ArticleProps) {
+  console.log('allPostsData', allPostsData)
   return (
     <Container>
       {allPostsData &&
@@ -33,6 +34,7 @@ const Container = styled.div`
   gap: 1rem;
   padding-bottom: 2rem;
   /* animation: fadein 0.3s linear; */
+  padding-top: 7rem;
 
   @media screen and (min-width: 300px) {
     grid-template-columns: repeat(1, 300px);

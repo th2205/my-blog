@@ -1,10 +1,10 @@
-import ResumeLayout from "../components/ResumeLayout";
+import ResumeLayout from "@/components/ResumeLayout";
 import Heading from "../components/Heading";
 import Text from "../components/Text";
 import Section from "../components/Section";
-import Link from "../components/Link";
+import Link from "@/components/atoms/Link";
 import Header from "../components/PlainHeader";
-import Flex from "../components/Flex";
+import Flex from "@/components/atoms/Flex";
 import myData from "../data/myData";
 
 export default function Resume() {

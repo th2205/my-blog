@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { Theme } from "../types";
 
 interface CodeProps {
   children: ReactNode;

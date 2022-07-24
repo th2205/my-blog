@@ -8,10 +8,7 @@ export default function PostIndex() {
   const { query } = useRouter();
   const params = query;
   const id = Number(params.id);
-  console.log(query);
-  console.log(id);
   const { data } = useSWR("post", () => getPostById(id));
-  console.log("post", data);
 
   if (!data) return <div>loading...</div>;
 

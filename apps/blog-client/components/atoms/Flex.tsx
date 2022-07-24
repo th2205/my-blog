@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { Theme } from "../types";
+import { Theme } from "@/types";
 
 interface FlexProps {
   children: ReactNode;

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
-import { PostsData } from "../lib/MDparser";
 import Heading from "@/components/Heading";
 import Text from "@/components/Text";
 
@@ -19,6 +18,8 @@ interface ArticleProps {
 export default function ArticleItem({ article }: ArticleProps) {
   const { id, title, createdAt, content, author, contentPreview, coverImgUrl } =
     article;
+
+  console.log('article:', article)
 
   return (
     <Link href={`/posts/${id}`}>

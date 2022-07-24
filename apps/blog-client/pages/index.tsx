@@ -1,4 +1,3 @@
-import mdParser, { PostsData } from "../lib/MDparser";
 import Article from "../components/Article";
 import Header from "../components/Header";
 import { useHash } from "../hooks/useHash";
@@ -9,25 +8,10 @@ import useSWR from "swr";
 import { getAllPosts } from "@/apis/post";
 import styled from "@emotion/styled";
 
-interface HomeProps {
-  allPostsData: PostsData[];
-  allTags: {
-    [x: string]: number;
-  };
-  allPostCount: number;
-}
-
-export default function Home({
-  allPostsData,
-  allTags,
-  allPostCount,
-}: HomeProps) {
+export default function Home() {
   const currentHash = useHash();
-  const posts = !currentHash
-    ? allPostsData
-    : allPostsData.filter((post) => post.tags.includes(currentHash));
-  const { data } = useSWR("post", getAllPosts);
-  console.log(data);
+
+  const { data } = useSWR("allPosts", getAllPosts);
   return (
     <Main>
       <Header />
@@ -47,7 +31,7 @@ export default function Home({
             );
           })}
         </Tag> */}
-        {data && <Article allPostsData={data} />}
+        {data ? <Article allPostsData={data} /> : <div>loading...</div>}
       </div>
       <Footer />
     </Main>
@@ -57,15 +41,3 @@ export default function Home({
 const Main = styled.main`
   background-color: ${({ theme }) => theme.colors.backgroundColor};
 `;
-
-export async function getStaticProps() {
-  const allPostsData = mdParser.parse();
-
-  return {
-    props: {
-      allPostsData: allPostsData,
-      allTags: mdParser.getTags(),
-      allPostCount: mdParser.getaAllPostCount(),
-    },
-  };
-}

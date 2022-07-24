@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styled from "@emotion/styled";
 import Heading from "@/components/Heading";
-import Link from "./Link";
+import Link from "@/components/atoms/Link";
 import { useRouter } from "next/router";
 
 interface HeaderProps {

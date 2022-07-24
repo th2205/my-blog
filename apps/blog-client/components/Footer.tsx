@@ -1,4 +1,4 @@
-import Link from "./Link";
+import Link from "@/components/atoms/Link";
 import { AiFillGithub } from "react-icons/ai";
 import style from "./Footer.module.scss";
 import styled from "@emotion/styled";

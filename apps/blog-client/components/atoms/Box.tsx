@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { Size } from "../types";
+import { Size } from "@/types";
 
 interface BoxProps {
   children: ReactNode;

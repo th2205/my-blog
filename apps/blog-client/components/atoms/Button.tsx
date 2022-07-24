@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css, useTheme, Theme as EmotionTheme } from "@emotion/react";
 import Loader from "@/components/Loader";
-import { Theme } from "@/types/index";
+import { Theme } from "@/types";
 
 interface ButtonProps {
   label: string;

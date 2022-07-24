@@ -1,14 +1,14 @@
 import ReactMarkdown from "react-markdown";
-import Box from "./Box";
-import CodeBlock from "./CodeBolck";
-import Heading from "./Heading";
-import IFrame from "./IFrame";
-import Img from "./Img";
-import ListItem from "./ListItem";
-import List from "./List";
-import Text from "./Text";
-import Code from "./Code";
-import Link from "./Link";
+import Box from "@/components/atoms/Box";
+import CodeBlock from "@/components/atoms/CodeBolck";
+import Heading from "@/components/Heading";
+import IFrame from "@/components/atoms/IFrame";
+import Img from "@/components/atoms/Img";
+import ListItem from "@/components/ListItem";
+import List from "@/components/atoms/List";
+import Text from "@/components/Text";
+import Code from "@/components/atoms/Code";
+import Link from "@/components/atoms/Link";
 
 interface MarkdownProps {
   content: string;

@@ -3,7 +3,7 @@ import MarkDown from "@/components/MarkDown";
 import Comment from "@/components/Comment";
 import Heading from "@/components/Heading";
 import Text from "@/components/Text";
-import Img from "@/components/Img";
+import Img from "@/components/atoms/Img";
 
 interface PostProps {
   id: number;

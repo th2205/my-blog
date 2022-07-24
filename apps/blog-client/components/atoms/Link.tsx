@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import Link from "next/link";
 import cn from "classnames";
-import { Theme } from "../types";
+import { Theme } from "@/types";
 import style from "./Link.module.scss";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
