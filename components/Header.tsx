@@ -1,8 +1,6 @@
 import Head from "next/head";
-import { AiFillGithub } from "react-icons/ai";
 import Heading from "./Heading";
 import Link from "./Link";
-import style from "./Header.module.scss";
 
 type HeaderProps = {
   id?: string;
@@ -10,7 +8,7 @@ type HeaderProps = {
 };
 
 export default function Header({ id, description }: HeaderProps) {
-  const title = "TaeHyeon";
+  const title = "TaeHyeon.dev";
 
   return (
     <>
@@ -19,18 +17,17 @@ export default function Header({ id, description }: HeaderProps) {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={description}></meta>
       </Head>
-      <header className={style["ui-header-layout"]}>
-        <div className={style["ui-header-container"]}>
+      <header className="w-screen py-1.5 fixed flex items-center border-2 justify-center bg-white z-40">
+        <div className="w-10/12 flex justify-between">
           <Link href="/" underline={false}>
             <Heading as="h2" weight="s">
               {title}
             </Heading>
           </Link>
-          <div className={style["ui-icon-group"]}>
-            <Link href="https://github.com/th2205" targetBlank theme="tertiary">
-              <AiFillGithub size={30} />
-            </Link>
-          </div>
+          {/*<div className="flex justify-around items-center">*/}
+          {/*  <p>Posts</p>*/}
+          {/*  <p>About</p>*/}
+          {/*</div>*/}
         </div>
       </header>
     </>
