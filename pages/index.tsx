@@ -1,6 +1,6 @@
 import mdParser, { PostsData } from "../lib/MDparser";
 import Article from "../components/Article";
-import Header from "../components/Header";
+import Header from "@/components/common/Header";
 import { useHash } from "../hooks/useHash";
 import Tag from "../components/Tag";
 import TagItem from "../components/TagItem";
