@@ -1,4 +1,4 @@
-import Header from "../../components/Header";
+import Header from "@/components/common/Header";
 import Post from "../../components/Post";
 import mdParser, { PostsData } from "../../lib/MDparser";
 
