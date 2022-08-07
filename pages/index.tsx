@@ -1,9 +1,10 @@
 import mdParser, { PostsData } from "../lib/MDparser";
-import Article from "../components/Article";
 import Header from "@/components/common/Header";
-import { useHash } from "../hooks/useHash";
+import { useHash } from "@/hooks/useHash";
 import Tag from "../components/Tag";
 import TagItem from "../components/TagItem";
+import ArticleLayout from "@/components/posts/ArticleLayout";
+import ArticleItem from "@/components/posts/ArticleItem";
 
 interface HomeProps {
   allPostsData: PostsData[];
@@ -42,7 +43,11 @@ export default function Home({
             );
           })}
         </Tag>
-        <Article allPostsData={posts} />
+        <ArticleLayout>
+          {allPostsData.map((article, index) => (
+            <ArticleItem key={index} article={article} />
+          ))}
+        </ArticleLayout>
       </div>
     </>
   );

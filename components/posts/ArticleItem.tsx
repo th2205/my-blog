@@ -1,12 +1,12 @@
 import Link from "next/link";
-import style from "./ArticleItem.module.scss";
-import { PostsData } from "../lib/MDparser";
+import style from "@/components/posts/ArticleItem.module.scss";
+import { PostsData } from "@/lib/MDparser";
 
 interface ArticleProps {
   article: PostsData;
 }
 
-export default function Article({ article }: ArticleProps) {
+export default function ArticleItem({ article }: ArticleProps) {
   return (
     <Link href={`/posts/${article.id}`}>
       <div className={style.container}>
