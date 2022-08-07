@@ -21,7 +21,9 @@ const fadIn = keyframes`
 
 const Layout = styled.div`
   width: 100%;
+  max-width: 1300px;
   padding-top: 2rem;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
