@@ -1,6 +1,6 @@
-import { PostsData } from "../lib/MDparser";
-import ArticleItem from "./ArticleItem";
-import style from "./Article.module.scss";
+import { PostsData } from "@/lib/MDparser";
+import ArticleItem from "@/components/ArticleItem";
+import style from "@/components/Article.module.scss";
 
 interface ArticleProps {
   allPostsData: PostsData[];
