@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
 import Head from "next/head";
+import styled from "@emotion/styled";
 import Heading from "@/components/Heading";
 import Link from "@/components/Link";
 
@@ -26,8 +26,12 @@ export default function Header({ id, description }: HeaderProps) {
             </Heading>
           </Link>
           <HeaderItemContainer>
-            <HeaderItem>Posts</HeaderItem>
-            <HeaderItem>About</HeaderItem>
+            <Link href="/" underline={false}>
+              <HeaderItem>Posts</HeaderItem>
+            </Link>
+            <Link href="/about" underline={false}>
+              <HeaderItem>About</HeaderItem>
+            </Link>
           </HeaderItemContainer>
         </HeaderInnerContainer>
       </HeaderContainer>

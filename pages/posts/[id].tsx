@@ -1,6 +1,6 @@
 import Header from "@/components/common/Header";
-import Post from "../../components/Post";
-import mdParser, { PostsData } from "../../lib/MDparser";
+import Post from "@/components/Post";
+import mdParser, { PostsData } from "@/lib/MDparser";
 
 interface PostProps {
   postData: PostsData;
