@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import cn from "classnames";
-import { Theme, Size } from "../types";
+import { Theme, Size } from "@/types";
 import style from "./Heading.module.scss";
 
 interface HeadingProps {

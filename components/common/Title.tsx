@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { css } from "@emotion/react";
+import { css, useTheme } from "@emotion/react";
 
 interface HeadingProps {
   variant?: "primary" | "secondary";
@@ -12,6 +12,8 @@ export default function Title({
   size = "m",
   ...props
 }: HeadingProps) {
+  const theme = useTheme();
+  console.log(theme);
   return (
     <h1 css={[baseStyle, variants[variant], sizes[size]]}>{props.children}</h1>
   );
@@ -19,7 +21,6 @@ export default function Title({
 
 const baseStyle = css`
   width: 100%;
-  background-image: linear-gradient(90deg, #007cf0, #00dfd8);
   color: transparent;
   -webkit-background-clip: text;
   font-weight: bolder;

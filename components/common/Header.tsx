@@ -1,8 +1,9 @@
 import Head from "next/head";
-import styled from "@emotion/styled";
-import Heading from "@/components/Heading";
+import { css } from "@emotion/react";
 import Link from "@/components/Link";
 import Title from "@/components/common/Title";
+import NavItem from "@/components/common/NavItem";
+import NavLayout from "@/components/common/NavLayout";
 
 type HeaderProps = {
   id?: string;
@@ -19,26 +20,22 @@ export default function Header({ id, description }: HeaderProps) {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={description}></meta>
       </Head>
-      <HeaderContainer>
-        <HeaderInnerContainer>
+      <div css={headerContainer}>
+        <div css={headerInnerContainer}>
           <Link href="/" underline={false}>
             <Title>{title}</Title>
           </Link>
-          <HeaderItemContainer>
-            <Link href="/" underline={false}>
-              <HeaderItem>Posts</HeaderItem>
-            </Link>
-            <Link href="/about" underline={false}>
-              <HeaderItem>About</HeaderItem>
-            </Link>
-          </HeaderItemContainer>
-        </HeaderInnerContainer>
-      </HeaderContainer>
+          <NavLayout>
+            <NavItem href="/" name="Posts" />
+            <NavItem href="/about" name="About" />
+          </NavLayout>
+        </div>
+      </div>
     </>
   );
 }
 
-const HeaderContainer = styled.div`
+const headerContainer = css`
   width: 100vw;
   height: 3.3rem;
   position: fixed;
@@ -49,22 +46,10 @@ const HeaderContainer = styled.div`
   z-index: 999;
 `;
 
-const HeaderInnerContainer = styled.div`
+const headerInnerContainer = css`
   width: 85%;
   max-width: 59rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
-
-const HeaderItemContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-`;
-
-const HeaderItem = styled.p`
-  color: gray;
-  cursor: pointer;
 `;

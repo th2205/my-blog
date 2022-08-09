@@ -7,7 +7,7 @@ import Img from "./Img";
 import ListItem from "./ListItem";
 import List from "./List";
 import Text from "./Text";
-import Code from "./Code";
+import Code from "@/components/common/Code";
 import Link from "./Link";
 
 interface MarkdownProps {
