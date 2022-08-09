@@ -2,6 +2,7 @@ import Head from "next/head";
 import styled from "@emotion/styled";
 import Heading from "@/components/Heading";
 import Link from "@/components/Link";
+import Title from "@/components/common/Title";
 
 type HeaderProps = {
   id?: string;
@@ -21,9 +22,7 @@ export default function Header({ id, description }: HeaderProps) {
       <HeaderContainer>
         <HeaderInnerContainer>
           <Link href="/" underline={false}>
-            <Heading as="h2" weight="s">
-              {title}
-            </Heading>
+            <Title>{title}</Title>
           </Link>
           <HeaderItemContainer>
             <Link href="/" underline={false}>
