@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 
 interface HeadingProps {
@@ -13,19 +12,17 @@ export default function Title({
   size = "m",
   ...props
 }: HeadingProps) {
-  return <CustomTitle variant={variant}>{props.children}</CustomTitle>;
+  return (
+    <h1 css={[baseStyle, variants[variant], sizes[size]]}>{props.children}</h1>
+  );
 }
 
-const CustomTitle = styled.h1<HeadingProps>`
+const baseStyle = css`
   width: 100%;
   background-image: linear-gradient(90deg, #007cf0, #00dfd8);
   color: transparent;
   -webkit-background-clip: text;
   font-weight: bolder;
-  font-size: 2rem;
-
-  ${({ variant }) => variants[variant]}
-  ${({ size }) => sizes[size]}
 `;
 
 const variants = {
@@ -39,9 +36,9 @@ const variants = {
 
 const sizes = {
   m: css`
-    font-size: 5rem;
+    font-size: 2rem;
   `,
   l: css`
-    font-size: 7rem;
+    font-size: 3rem;
   `,
 };
