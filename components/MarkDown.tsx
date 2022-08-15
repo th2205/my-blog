@@ -68,7 +68,7 @@ export default function Markdown({ content }: MarkdownProps) {
         ),
         li: ({ children }) => <ListItem>{children}</ListItem>,
         a: ({ children, href }) => (
-          <Link href={href} br={true}>
+          <Link href={href} withIcon underline>
             {children}
           </Link>
         ),

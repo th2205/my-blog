@@ -113,8 +113,8 @@ broadcast.sendRequestInfoEvent(data);
 ```typescript
 import broadcast from "...path";
 
-broadcast.onMessage((event) => {
-  const type = event.eventType;
+broadcast.onMessage((data) => {
+  const type = data.eventType;
 
   switch (type) {
     case BROADCAST_EVNET.REQUEST_INFO:
