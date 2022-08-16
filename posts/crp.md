@@ -1,7 +1,7 @@
 ---
 title: "Critical Rendering Path"
 date: "2022-01-05"
-tags: ["#browser"]
+tags: ["browser"]
 thumbnailImgPath: "/assets/crp-cover.svg"
 thumbnail: "브라우저의 렌더링 과정"
 ---

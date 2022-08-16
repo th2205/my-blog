@@ -1,7 +1,7 @@
 ---
 title: "hoisting"
 date: "2022-01-17"
-tags: ["#javascript"]
+tags: ["js"]
 thumbnailImgPath: "/assets/hoisting.svg"
 thumbnail: "호이스팅"
 ---

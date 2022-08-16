@@ -1,7 +1,7 @@
 ---
 title: "프로토타입"
 date: "2022-01-09"
-tags: ["#javascript"]
+tags: ["js"]
 thumbnailImgPath: "/assets/prototype-cover.svg"
 thumbnail: "자바스크립트 프로토타입"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "이벤트 버블링 캡쳐링"
 date: "2022-01-26"
-tags: ["#javascript"]
+tags: ["js"]
 thumbnailImgPath: "/assets/JS.png"
 thumbnail: "호이스팅"
 ---

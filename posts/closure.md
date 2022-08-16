@@ -1,7 +1,7 @@
 ---
 title: "closure"
 date: "2022-01-18"
-tags: ["#javascript"]
+tags: ["js"]
 thumbnailImgPath: "/assets/closure.svg"
 thumbnail: "클로저의 정의와 활용"
 ---

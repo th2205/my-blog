@@ -22,12 +22,10 @@ const fadIn = keyframes`
 const Layout = styled.div`
   width: 100%;
   max-width: 1300px;
-  padding-top: 2rem;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
-  padding-bottom: 2rem;
+  padding: 0 1rem;
   animation: ${fadIn} 0.3s linear;
 `;
