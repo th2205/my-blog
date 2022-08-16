@@ -1,7 +1,7 @@
 ---
 title: "Observer Pattern"
 date: "2022-02-21"
-tags: ["#javascript"]
+tags: ["js"]
 thumbnailImgPath: "/assets/JS.png"
 thumbnail: ""
 ---

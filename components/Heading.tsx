@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
-import cn from "classnames";
+import { css } from "@emotion/react";
 import { Theme, Size } from "@/types";
-import style from "./Heading.module.scss";
 
 interface HeadingProps {
   theme?: Theme;
@@ -17,14 +16,24 @@ export default function Heading({
   weight,
 }: HeadingProps) {
   const CustomTag = `${as}` as keyof JSX.IntrinsicElements;
-  const classes = cn(
-    style["ui-heading"],
-    style[`ui-heading-theme--${theme}`],
-    style[`ui-heading-as--${as}`],
-    {
-      [style[`ui-heading-weight--${weight}`]]: weight,
-    }
-  );
 
-  return <CustomTag className={classes}>{children}</CustomTag>;
+  return <CustomTag css={[baseStyle, headingTags[as]]}>{children}</CustomTag>;
 }
+
+const baseStyle = css`
+  display: block;
+`;
+
+const headingTags = {
+  h1: css`
+    font-size: 2rem;
+    font-weight: 700;
+  `,
+  h2: css`
+    font-size: 1.6rem;
+    font-weight: 700;
+  `,
+  h3: css`
+    font-size: 1.2rem;
+  `,
+};

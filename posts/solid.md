@@ -1,7 +1,7 @@
 ---
 title: "SOLID"
 date: "2022-01-14"
-tags: ["#javascript"]
+tags: ["js"]
 thumbnailImgPath: "/assets/solid.svg"
 thumbnail: "소프트웨어 설계 원칙"
 ---
