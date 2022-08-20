@@ -1,6 +1,6 @@
 import MarkDown from "./MarkDown";
 import Comment from "./Comment";
-import Heading from "./Heading";
+import Heading from "@/components/common/Heading";
 import Text from "./Text";
 import style from "./Post.module.scss";
 import Img from "./Img";

@@ -1,5 +1,5 @@
 import ResumeLayout from "../components/ResumeLayout";
-import Heading from "../components/Heading";
+import Heading from "../components/common/Heading";
 import Text from "../components/Text";
 import Section from "../components/Section";
 import Link from "../components/Link";
