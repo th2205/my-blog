@@ -30,7 +30,6 @@ export default function Post({ postData, content }: PostProps) {
           {postData.date}
         </Text>
       </div>
-      <Img src={postData.thumbnailImgPath} alt="cover" />
       <div>
         <MarkDown content={content} />
       </div>

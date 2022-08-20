@@ -1,5 +1,5 @@
 ---
-title: "closure"
+title: "Closure"
 date: "2022-01-18"
 tags: ["js"]
 thumbnailImgPath: "/assets/closure.svg"
