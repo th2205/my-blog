@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { PostsData } from "@/lib/MDparser";
-import Heading from "@/components/Heading";
+import Heading from "@/components/common/Heading";
 import Tag from "@/components/posts/Tag";
 
 interface ArticleProps {
@@ -13,7 +13,7 @@ export default function ArticleItem({ article }: ArticleProps) {
     <Link href={`/posts/${article.id}`}>
       <Container>
         {article.tags && article.tags.map((tag, index) => <Tag name={tag} />)}
-        <Heading as="h1">{article.title}</Heading>
+        <Heading as="h2">{article.title}</Heading>
         <p className="time">{article.date}</p>
         <p>{article.thumbnail || ""}</p>
       </Container>

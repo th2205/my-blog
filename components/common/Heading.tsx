@@ -22,6 +22,7 @@ export default function Heading({
 
 const baseStyle = css`
   display: block;
+  color: rgb(34, 34, 34);
 `;
 
 const headingTags = {

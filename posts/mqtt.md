@@ -1,7 +1,7 @@
 ---
 title: "MQTT와 실시간 통신"
 date: "2021-10-19"
-tags: ["#network"]
+tags: ["network"]
 thumbnailImgPath: "/mqtt/mqtt.png"
 thumbnail: "mqtt 프로토콜과 작동 원리"
 ---
