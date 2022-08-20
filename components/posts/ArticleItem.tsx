@@ -1,27 +1,27 @@
 import Link from "next/link";
-import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 import { PostsData } from "@/lib/MDparser";
 import Heading from "@/components/common/Heading";
 import Tag from "@/components/posts/Tag";
 
-interface ArticleProps {
+interface Props {
   article: PostsData;
 }
 
-export default function ArticleItem({ article }: ArticleProps) {
+export default function ArticleItem({ article }: Props) {
   return (
     <Link href={`/posts/${article.id}`}>
-      <Container>
+      <div css={container}>
         {article.tags && article.tags.map((tag, index) => <Tag name={tag} />)}
         <Heading as="h2">{article.title}</Heading>
-        <p className="time">{article.date}</p>
+        <p css={time}>{article.date}</p>
         <p>{article.thumbnail || ""}</p>
-      </Container>
+      </div>
     </Link>
   );
 }
 
-const Container = styled.div`
+const container = css`
   width: 100%;
   max-width: 50rem;
   height: auto;
@@ -40,4 +40,9 @@ const Container = styled.div`
       border-left: 15px solid black;
     }
   }
+`;
+
+const time = css`
+  font-size: 14px;
+  color: #bcbbc0;
 `;
