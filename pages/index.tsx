@@ -3,8 +3,8 @@ import Header from "@/components/common/Header";
 import { useHash } from "@/hooks/useHash";
 import Tag from "../components/Tag";
 import TagItem from "../components/TagItem";
-import ArticleLayout from "@/components/posts/ArticleLayout";
-import ArticleItem from "@/components/posts/ArticleItem";
+import ArticleLayout from "@/components/home/PostCardLayout";
+import ArticleItem from "@/components/home/PostCard";
 
 interface HomeProps {
   allPostsData: PostsData[];

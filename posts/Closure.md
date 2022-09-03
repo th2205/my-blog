@@ -2,7 +2,7 @@
 title: "Closure"
 date: "2022-01-18"
 tags: ["js"]
-thumbnailImgPath: "/assets/closure.svg"
+thumbnailImgPath: "/assets/cover/js.png"
 thumbnail: "클로저의 정의와 활용"
 ---
 
