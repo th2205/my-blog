@@ -2,7 +2,7 @@
 title: "CSS position"
 date: "2021-10-31"
 tags: ["css"]
-thumbnailImgPath: "/assets/css-position.svg"
+thumbnailImgPath: "/assets/cover/css.png"
 thumbnail: "CSS position 정리"
 ---
 

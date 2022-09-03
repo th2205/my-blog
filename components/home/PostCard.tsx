@@ -18,8 +18,8 @@ export default function ArticleItem({ article }: Props) {
         <br />
         {article.tags &&
           article.tags.map((tag, index) => <Tag key={index} name={tag} />)}
-        <Heading as="h2">{article.title}</Heading>
         <p css={time}>{article.date}</p>
+        <Heading as="h2">{article.title}</Heading>
         <p>{article.thumbnail || ""}</p>
       </div>
     </Link>
@@ -32,7 +32,7 @@ const container = css`
   cursor: pointer;
   padding: 0.7rem;
   border-radius: 5px;
-  box-shadow: rgb(241 243 245) 1px 1px 2px 2px;
+  box-shadow: rgb(241 243 245) 1px 1px 12px 2px;
 
   & > * {
     margin-bottom: 1rem;
