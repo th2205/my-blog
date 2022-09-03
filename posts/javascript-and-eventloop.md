@@ -2,7 +2,7 @@
 title: "자바스크립트와 이벤트루프"
 date: "2021-10-18"
 tags: ["js"]
-thumbnailImgPath: "/assets/JS.png"
+thumbnailImgPath: "/assets/cover/js.png"
 thumbnail: "이벤트루프는 왜 필요하고 어떻게 작동할까?"
 ---
 

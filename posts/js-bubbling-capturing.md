@@ -2,8 +2,8 @@
 title: "이벤트 버블링 캡쳐링"
 date: "2022-01-26"
 tags: ["js"]
-thumbnailImgPath: "/assets/JS.png"
-thumbnail: "호이스팅"
+thumbnailImgPath: "/assets/cover/js.png"
+thumbnail: "캡쳐링과 버블링 버블링이 뭘까"
 ---
 
 # 이벤트 버블링

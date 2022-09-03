@@ -2,6 +2,7 @@
 title: "파이썬 정렬"
 date: "2022-08-20"
 tags: ["python"]
+thumbnailImgPath: "/assets/cover/python.png"
 thumbnail: "파이썬에서 리스트 정렬 해보기"
 ---
 

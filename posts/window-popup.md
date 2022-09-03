@@ -2,7 +2,7 @@
 title: "broadcastChannel API를 이용한 윈도우간 통신"
 date: "2022-08-14"
 tags: ["js"]
-thumbnailImgPath: "/assets/imac.png"
+thumbnailImgPath: "/assets/cover/js.png"
 thumbnail: "윈도우 팝업간 통신 방법"
 ---
 

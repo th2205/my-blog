@@ -2,8 +2,8 @@
 title: "Observer Pattern"
 date: "2022-02-21"
 tags: ["js"]
-thumbnailImgPath: "/assets/JS.png"
-thumbnail: ""
+thumbnailImgPath: "/assets/cover/js.png"
+thumbnail: "자바스크립트로 구현하는 옵저버 패턴"
 ---
 
 # Observer Pattern

@@ -24,7 +24,9 @@ const fadIn = keyframes`
 
 const wrapper = css`
   width: 100%;
+  max-width: 1500px;
   margin: 0 auto;
+  padding: 0 1rem;
 `;
 
 const layout = css`
@@ -32,7 +34,6 @@ const layout = css`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0 1rem;
   animation: ${fadIn} 0.3s linear;
   gap: 40px;
 `;

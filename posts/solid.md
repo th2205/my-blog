@@ -2,7 +2,7 @@
 title: "SOLID"
 date: "2022-01-14"
 tags: ["js"]
-thumbnailImgPath: "/assets/solid.svg"
+thumbnailImgPath: "/assets/cover/img.png"
 thumbnail: "소프트웨어 설계 원칙"
 ---
 

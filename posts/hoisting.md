@@ -2,7 +2,7 @@
 title: "hoisting"
 date: "2022-01-17"
 tags: ["js"]
-thumbnailImgPath: "/assets/hoisting.svg"
+thumbnailImgPath: "/assets/cover/js.png"
 thumbnail: "호이스팅"
 ---
 
