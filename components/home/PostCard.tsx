@@ -2,7 +2,7 @@ import Link from "next/link";
 import { css } from "@emotion/react";
 import { PostsData } from "@/lib/MDparser";
 import Heading from "@/components/common/Heading";
-import Tag from "@/components/posts/Tag";
+import Tag from "@/components/common/Tag";
 
 interface Props {
   article: PostsData;
@@ -12,7 +12,12 @@ export default function ArticleItem({ article }: Props) {
   return (
     <Link href={`/posts/${article.id}`}>
       <div css={container}>
-        {article.tags && article.tags.map((tag, index) => <Tag name={tag} />)}
+        <div css={imgContainer}>
+          <img css={coverImg} src={article.thumbnailImgPath} />
+        </div>
+        <br />
+        {article.tags &&
+          article.tags.map((tag, index) => <Tag key={index} name={tag} />)}
         <Heading as="h2">{article.title}</Heading>
         <p css={time}>{article.date}</p>
         <p>{article.thumbnail || ""}</p>
@@ -22,13 +27,12 @@ export default function ArticleItem({ article }: Props) {
 }
 
 const container = css`
-  width: 100%;
-  max-width: 50rem;
-  height: auto;
+  width: 20rem;
   transition: 0.5s;
   cursor: pointer;
   padding: 0.7rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: rgb(241 243 245) 1px 1px 2px 2px;
 
   & > * {
     margin-bottom: 1rem;
@@ -36,8 +40,7 @@ const container = css`
 
   @media (min-width: 800px) {
     &:hover {
-      transform: translateX(0.5rem);
-      border-left: 15px solid black;
+      transform: translateY(-0.5rem);
     }
   }
 `;
@@ -45,4 +48,15 @@ const container = css`
 const time = css`
   font-size: 14px;
   color: #bcbbc0;
+`;
+
+const imgContainer = css`
+  background-color: #ffffff;
+  text-align: center;
+`;
+
+const coverImg = css`
+  width: 70%;
+  object-fit: cover;
+  border-radius: 5px;
 `;
