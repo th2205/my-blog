@@ -6,7 +6,7 @@ import TagItem from "../components/TagItem";
 import ArticleLayout from "@/components/home/PostCardLayout";
 import ArticleItem from "@/components/home/PostCard";
 
-interface HomeProps {
+interface Props {
   allPostsData: PostsData[];
   allTags: {
     [x: string]: number;
@@ -18,7 +18,7 @@ export default function Home({
   allPostsData,
   allTags,
   allPostCount,
-}: HomeProps) {
+}: Props) {
   const currentHash = useHash();
   const posts = !currentHash
     ? allPostsData

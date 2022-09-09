@@ -8,6 +8,9 @@ interface Props {
   article: PostsData;
 }
 
+/**
+ * @todo next 이미지로 교체
+ */
 export default function ArticleItem({ article }: Props) {
   return (
     <Link href={`/posts/${article.id}`}>
