@@ -26,7 +26,7 @@ const wrapper = css`
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 3rem;
 `;
 
 const layout = css`
