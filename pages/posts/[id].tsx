@@ -1,6 +1,7 @@
 import Header from "@/components/common/Header";
 import Post from "@/components/Post";
 import mdParser, { PostsData } from "@/lib/MDparser";
+import { MainLayout } from "@/components/common/MainLayout";
 
 interface PostProps {
   postData: PostsData;
@@ -9,10 +10,10 @@ interface PostProps {
 
 export default function PostIndex({ postData, content }: PostProps) {
   return (
-    <>
+    <MainLayout>
       <Header id={postData.id} description={postData.thumbnail} />
       <Post postData={postData} content={content} />
-    </>
+    </MainLayout>
   );
 }
 

@@ -5,6 +5,7 @@ import Tag from "../components/Tag";
 import TagItem from "../components/TagItem";
 import ArticleLayout from "@/components/home/PostCardLayout";
 import ArticleItem from "@/components/home/PostCard";
+import { MainLayout } from "@/components/common/MainLayout";
 
 interface Props {
   allPostsData: PostsData[];
@@ -14,42 +15,38 @@ interface Props {
   allPostCount: number;
 }
 
-export default function Home({
-  allPostsData,
-  allTags,
-  allPostCount,
-}: Props) {
+export default function Home({ allPostsData, allTags, allPostCount }: Props) {
   const currentHash = useHash();
   const posts = !currentHash
     ? allPostsData
     : allPostsData.filter((post) => post.tags.includes(currentHash));
 
   return (
-    <>
+    <MainLayout>
       <Header />
       <div>
-        <Tag>
-          <TagItem count={allPostCount} isMatched={!currentHash} />
-          {Object.entries(allTags).map((tag, index) => {
-            const [tagName, count] = tag;
+        {/*<Tag>*/}
+        {/*  <TagItem count={allPostCount} isMatched={!currentHash} />*/}
+        {/*  {Object.entries(allTags).map((tag, index) => {*/}
+        {/*    const [tagName, count] = tag;*/}
 
-            return (
-              <TagItem
-                key={index}
-                tag={tagName}
-                count={count}
-                isMatched={currentHash === tagName}
-              />
-            );
-          })}
-        </Tag>
+        {/*    return (*/}
+        {/*      <TagItem*/}
+        {/*        key={index}*/}
+        {/*        tag={tagName}*/}
+        {/*        count={count}*/}
+        {/*        isMatched={currentHash === tagName}*/}
+        {/*      />*/}
+        {/*    );*/}
+        {/*  })}*/}
+        {/*</Tag>*/}
         <ArticleLayout>
           {allPostsData.map((article, index) => (
             <ArticleItem key={index} article={article} />
           ))}
         </ArticleLayout>
       </div>
-    </>
+    </MainLayout>
   );
 }
 

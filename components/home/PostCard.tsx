@@ -16,7 +16,7 @@ export default function ArticleItem({ article }: Props) {
     <Link href={`/posts/${article.id}`}>
       <div css={container}>
         <div css={imgContainer}>
-          <img css={coverImg} src={article.thumbnailImgPath} />
+          <img css={coverImg} src={article.thumbnailImgPath} alt="cover" />
         </div>
         <br />
         {article.tags &&
@@ -34,10 +34,11 @@ const container = css`
   transition: 0.5s;
   cursor: pointer;
   padding: 0.7rem;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: rgb(241 243 245) 1px 1px 12px 2px;
+  background-color: #ffffff;
 
-  & > * {
+  & > *:not(img) {
     margin-bottom: 1rem;
   }
 

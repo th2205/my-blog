@@ -42,7 +42,6 @@ const headerContainer = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
   z-index: 999;
 `;
 

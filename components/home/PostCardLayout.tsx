@@ -24,16 +24,18 @@ const fadIn = keyframes`
 
 const wrapper = css`
   width: 100%;
-  max-width: 1500px;
   margin: 0 auto;
-  padding: 3rem;
+  padding: 5rem 5rem;
+  background-color: #f5f5f7;
 `;
 
 const layout = css`
   width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   animation: ${fadIn} 0.3s linear;
-  gap: 40px;
+  gap: 20px;
 `;
