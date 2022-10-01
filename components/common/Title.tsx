@@ -13,7 +13,7 @@ export default function Title({
   ...props
 }: HeadingProps) {
   const theme = useTheme();
-  console.log(theme);
+
   return (
     <h1 css={[baseStyle, variants[variant], sizes[size]]}>{props.children}</h1>
   );

@@ -27,6 +27,10 @@ const Wrapper = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 5rem 5rem;
+
+  @media (max-width: 767px) {
+    padding: 5rem 2rem;
+  }
 `;
 
 const Layout = styled.div`
