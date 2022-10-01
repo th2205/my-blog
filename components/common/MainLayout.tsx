@@ -11,5 +11,4 @@ export function MainLayout({ children }: Props) {
 
 const style = css`
   width: 100%;
-  background-color: #f5f5f7;
 `;

@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
-import { keyframes, css } from "@emotion/react";
+import { keyframes } from "@emotion/react";
+import styled from "@emotion/styled";
 
 interface ArticleProps {
   children: ReactNode;
@@ -7,9 +8,9 @@ interface ArticleProps {
 
 export default function ArticleLayout({ children }: ArticleProps) {
   return (
-    <div css={wrapper}>
-      <div css={layout}>{children}</div>
-    </div>
+    <Wrapper>
+      <Layout>{children}</Layout>
+    </Wrapper>
   );
 }
 
@@ -22,20 +23,16 @@ const fadIn = keyframes`
   }
 `;
 
-const wrapper = css`
+const Wrapper = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 5rem 5rem;
-  background-color: #f5f5f7;
 `;
 
-const layout = css`
+const Layout = styled.div`
   width: 100%;
-  max-width: 1500px;
+  max-width: 700px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   animation: ${fadIn} 0.3s linear;
   gap: 20px;
 `;

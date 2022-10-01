@@ -28,7 +28,6 @@ const tagStyle = ({ name, isSelected }: Props) => css`
   display: inline-block;
   color: ${COLOR[name]};
   font-weight: bolder;
-  padding: 0.4rem;
   border-radius: 15px;
   ${isSelected && `border: 2px solid ${COLOR[name]}`}
 `;

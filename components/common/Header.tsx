@@ -43,7 +43,7 @@ const headerContainer = css`
   align-items: center;
   justify-content: center;
   z-index: 999;
-  background-color: #f5f5f7;
+  background-color: #ffffff;
 `;
 
 const headerInnerContainer = css`

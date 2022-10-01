@@ -4,7 +4,7 @@ import { useHash } from "@/hooks/useHash";
 import Tag from "../components/Tag";
 import TagItem from "../components/TagItem";
 import ArticleLayout from "@/components/home/PostCardLayout";
-import ArticleItem from "@/components/home/PostCard";
+import PostCard from "@/components/home/PostCard";
 import { MainLayout } from "@/components/common/MainLayout";
 
 interface Props {
@@ -42,7 +42,7 @@ export default function Home({ allPostsData, allTags, allPostCount }: Props) {
         {/*</Tag>*/}
         <ArticleLayout>
           {allPostsData.map((article, index) => (
-            <ArticleItem key={index} article={article} />
+            <PostCard key={index} article={article} />
           ))}
         </ArticleLayout>
       </div>
