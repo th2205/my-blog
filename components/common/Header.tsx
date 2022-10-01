@@ -47,7 +47,7 @@ const headerContainer = css`
 `;
 
 const headerInnerContainer = css`
-  width: 85%;
+  width: 700px;
   max-width: 59rem;
   display: flex;
   justify-content: space-between;
