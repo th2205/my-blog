@@ -23,7 +23,7 @@ const baseStyle = css`
   width: 100%;
   color: transparent;
   -webkit-background-clip: text;
-  font-weight: bolder;
+  font-weight: bold;
 `;
 
 const variants = {
@@ -31,7 +31,7 @@ const variants = {
     background-image: linear-gradient(90deg, #007cf0, #00dfd8);
   `,
   secondary: css`
-    background-image: linear-gradient(90deg, #7928ca, #ff0080);
+    color: #47b5ff;
   `,
 };
 

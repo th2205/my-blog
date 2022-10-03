@@ -1,4 +1,6 @@
-export default {
+import type { MyData } from "@/types/myData";
+
+const myData: MyData = {
   name: "임태현",
   git: "https://github.com/th2205",
   email: "th05662205@gmail.com",
@@ -7,12 +9,36 @@ export default {
   phone: "010-9943-3734",
   companies: [
     {
+      name: "NCSOFT",
+      link: "https://content.rview.com/ko/",
+      description: "",
+      role: "프론트 엔드 개발자",
+      startDt: "2022.05",
+      endDt: "현재",
+      projects: [
+        {
+          name: "웹 스트리밍 플레이",
+          skills: ["Typescript", "styled-component", "React", "WebRTC"],
+          period: "2022.05 ~ ",
+          description: "브라우저 기반의 원격 게임 서비스",
+          tasks: [],
+        },
+        {
+          name: "NC Remote",
+          skills: ["Typescript", "styled-component", "React", "WebRTC"],
+          period: "2021.03 ~ ",
+          description: "브라우저 기반의 PC 원격제어 사내 시스템",
+          tasks: [],
+        },
+      ],
+    },
+    {
       name: "알서포트",
       link: "https://content.rview.com/ko/",
       description: "아시아 1위 원격제어 서비스 기업",
       role: "프론트 개발자",
       startDt: "2020.07",
-      endDt: "현재",
+      endDt: "2022.04",
       projects: [
         {
           name: "Remote View",
@@ -113,3 +139,5 @@ export default {
     },
   ],
 };
+
+export { myData };

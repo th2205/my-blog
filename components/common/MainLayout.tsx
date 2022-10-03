@@ -1,14 +1,14 @@
 import { ReactNode } from "react";
-import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 interface Props {
   children: ReactNode;
 }
 
 export function MainLayout({ children }: Props) {
-  return <main css={style}>{children}</main>;
+  return <Main>{children}</Main>;
 }
 
-const style = css`
+const Main = styled.main`
   width: 100%;
 `;

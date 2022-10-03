@@ -52,4 +52,8 @@ const headerInnerContainer = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 767px) {
+    padding: 0 1rem;
+  }
 `;
