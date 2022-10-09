@@ -37,7 +37,7 @@ class MDparser {
       };
     });
 
-    return allPostsData;
+    return this.sortByDate(allPostsData);
   }
 
   getAllPostIds() {
@@ -97,6 +97,11 @@ class MDparser {
     }, [] as string[]);
 
     return tags.length;
+  }
+
+  private sortByDate(data: PostsData[]) {
+    // @ts-ignore
+    return data.sort((a, b) => new Date(b.date) - new Date(a.date));
   }
 }
 
