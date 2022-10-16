@@ -1,14 +1,14 @@
 import ReactMarkdown from "react-markdown";
 import Box from "./Box";
-import CodeBlock from "./CodeBolck";
+import CodeBlock from "@/components/post/CodeBolck";
 import Heading from "@/components/common/Heading";
-import IFrame from "./IFrame";
+import IFrame from "@/components/post/IFrame";
 import Img from "./Img";
 import ListItem from "./ListItem";
 import List from "./List";
 import Text from "./Text";
 import Code from "@/components/common/Code";
-import Link from "./Link";
+import Link from "./common/Link";
 
 interface MarkdownProps {
   content: string;

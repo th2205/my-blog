@@ -1,7 +1,7 @@
 import Section from "@/components/Section";
 import Heading from "@/components/common/Heading";
 import Flex from "@/components/Flex";
-import Link from "@/components/Link";
+import Link from "@/components/common/Link";
 import Text from "@/components/Text";
 import styled from "@emotion/styled";
 

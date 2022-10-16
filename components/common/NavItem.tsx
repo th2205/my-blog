@@ -1,5 +1,5 @@
-import Link from "@/components/Link";
-import { css } from "@emotion/react";
+import Link from "@/components/common/Link";
+import styled from "@emotion/styled";
 
 interface NavItemProps {
   href: string;
@@ -9,12 +9,12 @@ interface NavItemProps {
 export default function NavItem({ href, name }: NavItemProps) {
   return (
     <Link href={href} underline={false}>
-      <div css={navItem}>{name}</div>
+      <StyledNavItem>{name}</StyledNavItem>
     </Link>
   );
 }
 
-const navItem = css`
+const StyledNavItem = styled.div`
   color: gray;
   cursor: pointer;
 `;

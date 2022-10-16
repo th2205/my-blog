@@ -1,5 +1,5 @@
 import Text from "@/components/Text";
-import Link from "@/components/Link";
+import Link from "@/components/common/Link";
 import styled from "@emotion/styled";
 
 interface Props {

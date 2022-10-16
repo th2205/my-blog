@@ -1,9 +1,9 @@
 import Head from "next/head";
-import { css } from "@emotion/react";
-import Link from "@/components/Link";
+import Link from "@/components/common/Link";
 import Title from "@/components/common/Title";
 import NavItem from "@/components/common/NavItem";
 import NavLayout from "@/components/common/NavLayout";
+import styled from "@emotion/styled";
 
 type HeaderProps = {
   id?: string;
@@ -20,8 +20,8 @@ export default function Header({ id, description }: HeaderProps) {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={description}></meta>
       </Head>
-      <div css={headerContainer}>
-        <div css={headerInnerContainer}>
+      <HeaderContainer>
+        <HeaderInnerContainer>
           <Link href="/" underline={false}>
             <Title>{title}</Title>
           </Link>
@@ -29,13 +29,13 @@ export default function Header({ id, description }: HeaderProps) {
             <NavItem href="/" name="Posts" />
             <NavItem href="/about" name="About" />
           </NavLayout>
-        </div>
-      </div>
+        </HeaderInnerContainer>
+      </HeaderContainer>
     </>
   );
 }
 
-const headerContainer = css`
+const HeaderContainer = styled.div`
   width: 100vw;
   height: 3.3rem;
   position: fixed;
@@ -46,7 +46,7 @@ const headerContainer = css`
   background-color: #ffffff;
 `;
 
-const headerInnerContainer = css`
+const HeaderInnerContainer = styled.div`
   width: 700px;
   max-width: 59rem;
   display: flex;
