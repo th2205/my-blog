@@ -32,7 +32,7 @@ const Container = styled.div`
   padding: 0.7rem;
   margin-top: 10px;
   transition: all 1s;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 
   & * {
     margin-bottom: 1rem;
