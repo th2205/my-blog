@@ -1,5 +1,5 @@
 import Header from "@/components/common/Header";
-import Post from "@/components/Post";
+import Post from "@/components/posts/Post";
 import mdParser, { PostsData } from "@/lib/MDparser";
 import { MainLayout } from "@/components/common/MainLayout";
 

@@ -13,11 +13,11 @@ export default function PostCard({ article }: Props) {
   return (
     <Link href={`/posts/${article.id}`}>
       <Container>
-        <Heading as="h2">{article.title}</Heading>
+        {article.tags &&
+          article.tags.map((tag, index) => <Tag key={index} name={tag} />)}
+        <Title>{article.title}</Title>
         <InfoContainer>
           <Time>{article.date}</Time>
-          {article.tags &&
-            article.tags.map((tag, index) => <Tag key={index} name={tag} />)}
         </InfoContainer>
         <p>{article.thumbnail || ""}</p>
       </Container>
@@ -31,15 +31,16 @@ const Container = styled.div`
   cursor: pointer;
   padding: 0.7rem;
   margin-top: 10px;
-  border-bottom: solid 1px #eee;
+  transition: all 1s;
+  margin-bottom: 2.5rem;
 
   & * {
     margin-bottom: 1rem;
   }
 
-  @media (min-width: 800px) {
-    &:hover {
-      transform: translateY(-0.5rem);
+  &: hover {
+    & > h3 {
+      color: rgb(49, 130, 246);
     }
   }
 `;
@@ -59,4 +60,12 @@ const InfoContainer = styled.div`
 const Time = styled.p`
   font-size: 14px;
   color: #bcbbc0;
+`;
+
+const Title = styled.h3`
+  color: #333d4b;
+  font-size: 1.3rem;
+  width: 100%;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out 0s;
 `;

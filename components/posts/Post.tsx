@@ -1,9 +1,9 @@
-import MarkDown from "./MarkDown";
-import Comment from "./post/Comment";
+import MarkDown from "../MarkDown";
+import Comment from "./Comment";
 import Heading from "@/components/common/Heading";
-import Text from "./Text";
+import Text from "../Text";
 import style from "./Post.module.scss";
-import Img from "./Img";
+import Img from "../Img";
 
 interface PostProps {
   postData: {

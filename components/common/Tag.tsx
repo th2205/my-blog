@@ -26,8 +26,10 @@ export default function Tag({ name, isSelected }: Props) {
 
 const tagStyle = ({ name, isSelected }: Props) => css`
   display: inline-block;
-  color: ${COLOR[name]};
-  font-weight: bolder;
+  /* color: ${COLOR[name]}; */
+  color: #8b95a1;
+  font-weight: 400;
   border-radius: 15px;
-  ${isSelected && `border: 2px solid ${COLOR[name]}`}
+  font-size: 0.8rem;
+  ${isSelected && `border: 2px solid ${COLOR[name]}`};
 `;
