@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-export interface PostsData {
+export interface PostMetaData {
   id: string;
   date: string;
   title: string;
@@ -11,64 +11,74 @@ export interface PostsData {
   tags: string[];
 }
 
+export interface PostsData extends PostMetaData {
+  content: string;
+}
+
 interface MatterResult {
   data: PostsData;
   content: string;
 }
 
-class MDparser {
-  private postsDirectory: string;
+class MDParser {
+  private readonly postsDirectory: string;
+  private readonly postData: PostsData[];
 
   constructor() {
     this.postsDirectory = path.join(process.cwd(), "posts");
+    this.postData = this.parse();
   }
 
   parse() {
-    const fileNames = fs.readdirSync(this.postsDirectory);
-    const allPostsData = fileNames.map((fileName) => {
-      const id = fileName.replace(/\.md$/, "");
-      const fullPath = path.join(this.postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-      const matterResult = matter(fileContents) as unknown as MatterResult;
+    const directories = fs.readdirSync(this.postsDirectory);
+    const result = [];
 
-      return {
-        id,
-        ...matterResult.data,
-      };
-    });
+    for (let directory of directories) {
+      const directoryPath = path.join(this.postsDirectory, directory);
+      const fileNames = fs.readdirSync(directoryPath);
 
-    return this.sortByDate(allPostsData);
+      const allPostsData = fileNames.map((fileName) => {
+        const id = fileName.replace(/\.md$/, "");
+        const fullPath = path.join(directoryPath, fileName);
+        const fileContents = fs.readFileSync(fullPath, "utf8");
+        const matterResult = matter(fileContents) as unknown as MatterResult;
+
+        return {
+          id,
+          ...matterResult.data,
+          content: matterResult.content,
+        };
+      });
+
+      result.push(...allPostsData);
+    }
+
+    return this.sortByDate(result);
+  }
+
+  getPostMetaData() {
+    return this.postData.map((data) => ({
+      id: data.id,
+      date: data.date,
+      title: data.title,
+      thumbnailImgPath: data.thumbnailImgPath,
+      thumbnail: data.thumbnail,
+      tags: data.tags,
+    }));
+  }
+
+  getPostData() {
+    return this.postData;
+  }
+
+  getPostDataById(id: string) {
+    return this.postData.find((data) => data.id === id);
   }
 
   getAllPostIds() {
-    const fileNames = fs.readdirSync(this.postsDirectory);
-
-    return fileNames.map((fileName) => {
-      return {
-        params: {
-          id: fileName.replace(/\.md$/, ""),
-        },
-      };
-    });
-  }
-
-  getPostDataByid(id: string) {
-    const fullPath = path.join(this.postsDirectory, `${id}.md`);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
-    const matterResult = matter(fileContents) as unknown as MatterResult;
-
-    return {
-      id,
-      ...matterResult.data,
-    };
-  }
-
-  async parsePostContentById(id: string) {
-    const fullPath = path.join(this.postsDirectory, `${id}.md`);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
-    const matterResult = matter(fileContents);
-
-    return matterResult.content;
+    return this.postData.map((data) => ({
+      params: { id: data.id.replace(/\.md$/, "") },
+    }));
   }
 
   getTags() {
@@ -105,4 +115,4 @@ class MDparser {
   }
 }
 
-export default new MDparser();
+export default new MDParser();

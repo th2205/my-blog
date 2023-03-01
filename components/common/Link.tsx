@@ -28,9 +28,7 @@ export default function CustomLink({
           {children}
         </a>
       ) : (
-        <Link href={href}>
-          <a>{children}</a>
-        </Link>
+        <Link href={href}>{children}</Link>
       )}
       {withIcon && <Icon src={"/assets/icons/link.svg"} />}
       {br && <br />}

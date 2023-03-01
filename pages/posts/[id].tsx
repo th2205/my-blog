@@ -3,16 +3,15 @@ import Post from "@/components/posts/Post";
 import mdParser, { PostsData } from "@/lib/MDparser";
 import { MainLayout } from "@/components/common/MainLayout";
 
-interface PostProps {
+interface Props {
   postData: PostsData;
-  content: string;
 }
 
-export default function PostIndex({ postData, content }: PostProps) {
+export default function PostIndex({ postData }: Props) {
   return (
     <MainLayout>
       <Header id={postData.id} description={postData.thumbnail} />
-      <Post postData={postData} content={content} />
+      <Post postData={postData} content={postData.content} />
     </MainLayout>
   );
 }
@@ -27,13 +26,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const postData = mdParser.getPostDataByid(params.id);
-  const content = await mdParser.parsePostContentById(params.id);
+  const postData = mdParser.getPostDataById(params.id);
 
   return {
     props: {
       postData,
-      content,
     },
   };
 }
