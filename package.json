@@ -6,7 +6,8 @@
     "dev": "next dev",
     "dev:up": "yarn install && docker-compose up --build",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "update:post": "node ./getPosts.js"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -20,7 +21,8 @@
     "react-icons": "^4.3.1",
     "react-markdown": "^7.1.0",
     "react-syntax-highlighter": "^15.4.4",
-    "sass": "^1.43.4"
+    "sass": "^1.43.4",
+    "tailwindcss": "^3.1.7"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.10.0",
@@ -30,7 +32,6 @@
     "autoprefixer": "^10.4.8",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
-    "tailwindcss": "^3.1.7",
     "typescript": "^4.4.4"
   }
 }
