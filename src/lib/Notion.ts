@@ -1,0 +1,78 @@
+import { Client } from "@notionhq/client";
+import { NotionToMarkdown } from "notion-to-md";
+
+interface PageInfo {
+  url: string;
+  cover?: {
+    external: {
+      url: string;
+    };
+  };
+  properties: {
+    title: any;
+    created_at: any;
+    published: any;
+  };
+}
+
+interface ParsedPageInfo {
+  pageId: string;
+  coverUrl: string;
+  title: string;
+  createdAt: string;
+  published: boolean;
+}
+
+class Notion {
+  private apiKey: string;
+  private databaseId: string;
+  private client: Client;
+  private n2m: NotionToMarkdown;
+
+  constructor() {
+    this.apiKey = process.env.NOTION_API_KEY as string;
+    this.databaseId = process.env.NOTION_DATABASE_ID as string;
+    this.client = new Client({ auth: this.apiKey });
+    this.n2m = new NotionToMarkdown({ notionClient: this.client });
+  }
+
+  async getPagesInfo() {
+    const res = await this.client.databases.query({
+      database_id: this.databaseId,
+    });
+    const results = res.results as unknown as PageInfo[];
+
+    console.log("res", results);
+    const pages = results.map((page) => {
+      const pageId = page.url.split("/").pop();
+      const coverUrl = page.cover?.external.url;
+      const title = page.properties.title.title[0].plain_text;
+      const createdAt = page.properties.created_at.date?.start;
+      const published = page.properties.published.checkbox;
+
+      console.log(page.properties.created_at.date?.start);
+
+      return {
+        pageId,
+        coverUrl,
+        title,
+        createdAt,
+        published,
+      } as ParsedPageInfo;
+    });
+
+    return pages;
+
+    // return pages.sort((a, b) => new Date("2022-01-01") - new Date(b.createdAt));
+  }
+
+  async getPageMarkdown(pageId: string) {
+    const mdblocks = await this.n2m.pageToMarkdown(pageId);
+    const mdString = this.n2m.toMarkdownString(mdblocks);
+
+    console.log("mdblocks", mdblocks);
+    console.log("mdString", mdString.parent);
+  }
+}
+
+export const notion = new Notion();

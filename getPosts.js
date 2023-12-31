@@ -9,4 +9,6 @@ const getPosts = async () => {
   console.log(data);
 };
 
+const getPostsFromNotionDataBase = async () => {};
+
 getPosts();
