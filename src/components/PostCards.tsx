@@ -1,8 +1,11 @@
 import { notion } from "@/lib/notion";
 import { PostCard } from "@/components/PostCard";
+import { REVALIDATION_TIME } from "../contstant";
 
-export default async function Posts() {
-  const data = await notion.getPagesInfo();
+export const revalidate = REVALIDATION_TIME;
+
+export default async function PostCards() {
+  const data = await notion.getPagesMetaData();
 
   console.log(data);
 

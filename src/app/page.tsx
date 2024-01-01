@@ -1,5 +1,6 @@
-import Posts from "../components/Posts";
+import PostCards from "../components/PostCards";
 
 export default async function Page() {
-  return <Posts />;
+  // @ts-ignore
+  return <PostCards />;
 }

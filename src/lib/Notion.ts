@@ -24,10 +24,10 @@ interface ParsedPageInfo {
 }
 
 class Notion {
-  private apiKey: string;
-  private databaseId: string;
-  private client: Client;
-  private n2m: NotionToMarkdown;
+  private readonly apiKey: string;
+  private readonly databaseId: string;
+  private readonly client: Client;
+  private readonly n2m: NotionToMarkdown;
 
   constructor() {
     this.apiKey = process.env.NOTION_API_KEY as string;
@@ -36,7 +36,7 @@ class Notion {
     this.n2m = new NotionToMarkdown({ notionClient: this.client });
   }
 
-  async getPagesInfo() {
+  async getPagesMetaData() {
     const res = await this.client.databases.query({
       database_id: this.databaseId,
     });
@@ -66,12 +66,20 @@ class Notion {
     // return pages.sort((a, b) => new Date("2022-01-01") - new Date(b.createdAt));
   }
 
+  async getPageMetaDataById(pageId: string) {
+    const data = await this.getPagesMetaData();
+
+    return data.find((page) => page.pageId === pageId);
+  }
+
   async getPageMarkdown(pageId: string) {
     const mdblocks = await this.n2m.pageToMarkdown(pageId);
     const mdString = this.n2m.toMarkdownString(mdblocks);
 
     console.log("mdblocks", mdblocks);
     console.log("mdString", mdString.parent);
+
+    return mdString.parent;
   }
 }
 
