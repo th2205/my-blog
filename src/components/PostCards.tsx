@@ -7,8 +7,6 @@ export const revalidate = REVALIDATION_TIME;
 export default async function PostCards() {
   const data = await notion.getPagesMetaData();
 
-  console.log(data);
-
   return (
     <ul className="flex flex-row flex-wrap gap-[2rem]">
       {data.map((page) => (
