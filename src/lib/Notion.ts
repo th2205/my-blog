@@ -44,7 +44,7 @@ class Notion {
 
     console.log("res", results);
     const pages = results.map((page) => {
-      const pageId = page.url.split("/").pop();
+      const pageId = this.getPageId(page.url);
       const coverUrl = page.cover?.external.url;
       const title = page.properties.title.title[0].plain_text;
       const createdAt = page.properties.created_at.date?.start;
@@ -64,6 +64,20 @@ class Notion {
     return pages;
 
     // return pages.sort((a, b) => new Date("2022-01-01") - new Date(b.createdAt));
+  }
+
+  private getPageId(url: string) {
+    const pageId = url.split("/").pop();
+
+    if (!pageId) {
+      return "";
+    }
+
+    if (pageId.includes("-")) {
+      return pageId.split("-").pop();
+    }
+
+    return pageId;
   }
 
   async getPageMetaDataById(pageId: string) {
