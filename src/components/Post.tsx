@@ -1,4 +1,4 @@
-import { notion } from "@/lib/notion";
+import { notion } from "../lib/Notion";
 import Markdown from "react-markdown";
 import { REVALIDATION_TIME } from "../contstant";
 import remarkGfm from "remark-gfm";
