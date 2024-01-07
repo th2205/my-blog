@@ -50,7 +50,7 @@ class Notion {
       const createdAt = page.properties.created_at.date?.start;
       const published = page.properties.published.checkbox;
 
-      console.log(page.properties.created_at.date?.start);
+      console.log(published);
 
       return {
         pageId,
@@ -61,9 +61,18 @@ class Notion {
       } as ParsedPageInfo;
     });
 
-    return pages;
+    return pages
+      .filter((page) => page.published)
+      .sort(
+        (a, b) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+      );
 
     // return pages.sort((a, b) => new Date("2022-01-01") - new Date(b.createdAt));
+  }
+
+  private filterPublished(pages: ParsedPageInfo[]) {
+    return pages.filter((page) => page.published);
   }
 
   private getPageId(url: string) {
