@@ -15,7 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        <main className="px-4 py-4">{children}</main>
+        <main className="">{children}</main>
       </body>
     </html>
   );

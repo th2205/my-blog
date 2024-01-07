@@ -23,8 +23,12 @@ export default async function Post({ pageId }: Props) {
     );
 
   return (
-    <div className="w-[100%] max-w-screen-lg	 flex flex-col justify-center 	">
-      <h1 className="">{pageMetaData.title}</h1>
+    <div className="w-full">
+      <img
+        src={pageMetaData.coverUrl}
+        className="object-cover w-full h-[300px]"
+      />
+      <h1 className="text-2xl font-bold">{pageMetaData.title}</h1>
       <Markdown remarkPlugins={[remarkGfm]}>{pageData}</Markdown>
     </div>
   );
