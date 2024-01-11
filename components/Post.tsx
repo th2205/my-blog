@@ -1,7 +1,8 @@
 import { notion } from "../lib/Notion";
 import Markdown from "react-markdown";
-import { REVALIDATION_TIME } from "../contstant";
+import { REVALIDATION_TIME } from "../src/contstant";
 import remarkGfm from "remark-gfm";
+import Image from "next/image";
 
 interface Props {
   pageId: string;
@@ -23,12 +24,16 @@ export default async function Post({ pageId }: Props) {
     );
 
   return (
-    <div className="w-full">
-      <img
+    <div className="w-[80%]">
+      <Image
         src={pageMetaData.coverUrl}
         className="object-cover w-full h-[300px]"
+        width={100}
+        height={100}
+        alt={"cover"}
+        style={{ objectFit: "cover" }}
       />
-      <h1 className="text-2xl font-bold">{pageMetaData.title}</h1>
+      <h1 className="font-semibold text-4xl	">{pageMetaData.title}</h1>
       <Markdown remarkPlugins={[remarkGfm]}>{pageData}</Markdown>
     </div>
   );

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Header } from "../components/Header";
-import "global.css";
+import "./globals.css";
 
 export const revalidate = 3600;
 
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body>
         <Header />
         <main className="">{children}</main>

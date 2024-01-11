@@ -20,7 +20,9 @@
     "incremental": true,
     "downlevelIteration": true,
     "baseUrl": ".",
-
+    "paths": {
+      "@/*": ["./*"]
+    },
     "strictNullChecks": true,
     "plugins": [
       {
