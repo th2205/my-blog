@@ -1,14 +1,5 @@
 import Link from "next/link";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
 import Image from "next/image";
-import { Badge } from "./ui/badge";
 
 interface Props {
   pageId: string;
@@ -19,41 +10,35 @@ interface Props {
 
 export function PostCard({ pageId, createdAt, title, coverUrl }: Props) {
   return (
-    <Card className="flex-grow: 1 flex-shrink-1">
-      <Link href={`/blog/${pageId}`}>
+    <div className="card w-96 bg-base-100 shadow-xl">
+      <figure className="object-cover max-h-56">
         <Image
           src={coverUrl!}
-          alt={"cover"}
-          width={320}
-          height={200}
-          objectFit={"cover"}
+          alt="cover"
           placeholder={"blur"}
           blurDataURL={coverUrl!}
+          width={320}
+          height={200}
           style={{
-            width: "320px",
-            height: "200px",
-            borderRadius: "0.5rem",
+            width: "100%",
+            height: "100%",
             objectFit: "cover",
           }}
         />
-        <CardHeader className={"px-0 py-3"}>
-          <div>
-            <Badge variant={"secondary"}>자바</Badge>
-            <Badge variant={"secondary"}>일상</Badge>
-          </div>
-        </CardHeader>
-        <CardContent className={"px-1"}>
-          <CardTitle className={"pb-2 "}>{title}</CardTitle>
-          <CardDescription className={"text-black"}>
-            asdmasldhqajkshjk
-          </CardDescription>
-        </CardContent>
-        <CardFooter className={"px-1"}>
-          <div>
-            <CardDescription>{createdAt}</CardDescription>
-          </div>
-        </CardFooter>
-      </Link>
-    </Card>
+      </figure>
+      {/*<div className="badge badge-secondary">NEW</div>*/}
+      <div className="card-body">
+        <h2 className="card-title">{title}</h2>
+        <p>If a dog chews shoes whose shoes does he choose?</p>
+        <div className="pt-6">
+          <p className="text-sm	">{createdAt}</p>
+        </div>
+        <div className="flex  justify-end items-center">
+          <Link href={`/blog/${pageId}`}>
+            <button className="btn ">READ</button>
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }

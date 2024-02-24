@@ -8,7 +8,7 @@ export default async function PostCards() {
   const data = await notion.getPagesMetaData();
 
   return (
-    <ul className="w-[100%] flex flex-row flex-wrap gap-[2rem] justify-center align-center">
+    <ul className="w-[100%] flex flex-row flex-wrap gap-[2rem] justify-center align-center py-10">
       {data.map((page) => (
         <PostCard
           key={page.pageId}
