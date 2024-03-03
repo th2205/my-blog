@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className="h-[100vh]">
+      <body className="h-[100vh] max-w-[1200px] m-auto">
         <Header />
         <main className="px-4">{children}</main>
       </body>

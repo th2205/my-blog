@@ -44,9 +44,11 @@ export function Header() {
   // );
 
   return (
-    <div className="navbar bg-base-100 drop-shadow-md rounded-box">
+    <div className="navbar bg-base-100 rounded-box">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">임태현 블로그</a>
+        <Link className="btn btn-ghost text-xl" href="/">
+          임태현 블로그
+        </Link>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
