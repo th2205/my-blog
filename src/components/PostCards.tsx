@@ -1,12 +1,21 @@
-import { notion } from "../lib/Notion";
+import { notion } from "@/lib/Notion";
 import { PostCard } from "./PostCard";
-import { REVALIDATION_TIME } from "../src/contstant";
+import { REVALIDATION_TIME } from "@/contstant";
 import React from "react";
 
 export const revalidate = REVALIDATION_TIME;
 
-export default async function PostCards() {
-  const data = await notion.getPagesMetaData();
+interface PageProps {
+  data: {
+    pageId: string;
+    coverUrl: string;
+    createdAt: string;
+    title: string;
+  }[];
+}
+
+export default function PostCards({ data }: PageProps) {
+  // const data = await notion.getPagesMetaData();
 
   return (
     <ul className="w-[100%] flex flex-row flex-wrap gap-[2rem] justify-center align-center py-10">
