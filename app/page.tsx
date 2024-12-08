@@ -1,6 +1,8 @@
-import PostCards from "../components/PostCards";
-
 export default async function Page() {
   // @ts-ignore
-  return <PostCards />;
+  return (
+    <div>
+      <div>hello world!</div>
+    </div>
+  );
 }

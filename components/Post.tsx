@@ -3,6 +3,7 @@ import Markdown from "react-markdown";
 import { REVALIDATION_TIME } from "../src/contstant";
 import remarkGfm from "remark-gfm";
 import Image from "next/image";
+import React from "react";
 
 interface Props {
   pageId: string;
@@ -15,6 +16,7 @@ export default async function Post({ pageId }: Props) {
   const pageMetaData = await notion.getPageMetaDataById(pageId);
 
   console.log(pageMetaData);
+  console.log(pageData);
   if (!pageMetaData)
     return (
       <div className="w-[100%] flex flex-col justify-center items-center	">
@@ -38,7 +40,9 @@ export default async function Post({ pageId }: Props) {
         alt={"cover"}
         style={{ objectFit: "cover" }}
       />
+      {/* <article className="prose prose-base w-max"> */}
       <Markdown remarkPlugins={[remarkGfm]}>{pageData}</Markdown>
+      {/* </article> */}
     </div>
   );
 }

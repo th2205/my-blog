@@ -1,6 +1,7 @@
-import { notion } from "@/lib/Notion";
-import { PostCard } from "@/components/PostCard";
+import { notion } from "../lib/Notion";
+import { PostCard } from "./PostCard";
 import { REVALIDATION_TIME } from "../src/contstant";
+import React from "react";
 
 export const revalidate = REVALIDATION_TIME;
 
